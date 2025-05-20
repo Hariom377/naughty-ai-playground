@@ -1,0 +1,1114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NaughtyyAI - AI-Powered Intimacy Tools for Adults</title>
+  <meta name="description" content="Explore AI-powered intimacy with NaughtyyAI: sexting generator, dirty talk ideas, and erotic chat for adults. Discover a safe space for digital intimacy.">
+  <meta name="author" content="NaughtyyAI">
+  <meta name="keywords" content="AI sexting, dirty talk generator, erotic chat with AI, AI intimacy tools, adult AI chat, NSFW AI assistant">
+  
+  <style>
+    /* Base styles */
+    :root {
+      --naughty-purple: #9b87f5;
+      --naughty-purple-dark: #7E69AB;
+      --naughty-purple-light: #D6BCFA;
+      --naughty-dark: #121212;
+      --text-white: #ffffff;
+      --text-gray: #cccccc;
+      --text-muted: #999999;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --card-border: rgba(255, 255, 255, 0.1);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background-color: var(--naughty-dark);
+      color: var(--text-white);
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    /* Typography */
+    h1, h2, h3, h4 {
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+    }
+    
+    h2 {
+      font-size: 2rem;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+    }
+    
+    a {
+      color: var(--naughty-purple);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    a:hover {
+      color: var(--naughty-purple-light);
+    }
+    
+    /* Utility classes */
+    .text-gradient {
+      background: linear-gradient(to right, var(--naughty-purple), var(--naughty-purple-light));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .glass-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .glass-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: var(--naughty-purple);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background-color 0.3s;
+      text-align: center;
+    }
+    
+    .btn:hover {
+      background-color: var(--naughty-purple-dark);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      border: 1px solid var(--naughty-purple);
+      color: var(--naughty-purple);
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--naughty-purple);
+      color: white;
+    }
+    
+    /* Layout components */
+    header {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--card-border);
+    }
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 1.5rem;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    section {
+      padding: 3rem 0;
+    }
+    
+    .hero {
+      text-align: center;
+      padding: 4rem 0;
+    }
+    
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .premium {
+      background: linear-gradient(to right, #3a1c71, #d76d77);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .premium-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .premium-list {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+    
+    .premium-list li {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .premium-list li::before {
+      content: "✓";
+      margin-right: 0.5rem;
+    }
+    
+    .faq-item {
+      margin-bottom: 1rem;
+    }
+    
+    footer {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2rem 0;
+      text-align: center;
+    }
+    
+    /* Age verification */
+    .age-verification {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--naughty-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    
+    .age-verification-card {
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+    }
+    
+    .checkbox-container {
+      display: flex;
+      align-items: flex-start;
+      margin: 1.5rem 0;
+      text-align: left;
+    }
+    
+    .checkbox-container input {
+      margin-right: 0.5rem;
+      margin-top: 0.3rem;
+    }
+    
+    /* Tabs */
+    .tabs {
+      display: flex;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    
+    .tab {
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+    }
+    
+    .tab.active {
+      border-bottom: 2px solid var(--naughty-purple);
+      color: var(--naughty-purple);
+    }
+    
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    /* Cards */
+    .talk-card {
+      border: 1px solid var(--card-border);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+    
+    .talk-card-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .tag {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 0.2rem 0.5rem;
+      border-radius: 1rem;
+      font-size: 0.8rem;
+    }
+    
+    .talk-card-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.5rem;
+    }
+    
+    .icon-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    
+    .icon-btn:hover {
+      color: var(--naughty-purple);
+    }
+    
+    /* Chat */
+    .chat-container {
+      height: 400px;
+      border: 1px solid var(--card-border);
+      border-radius: 0.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .chat-messages {
+      flex-grow: 1;
+      padding: 1rem;
+      overflow-y: auto;
+    }
+    
+    .message {
+      margin-bottom: 1rem;
+      max-width: 80%;
+    }
+    
+    .message.user {
+      margin-left: auto;
+      background-color: var(--naughty-purple);
+      padding: 0.75rem;
+      border-radius: 1rem 1rem 0 1rem;
+    }
+    
+    .message.bot {
+      margin-right: auto;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 0.75rem;
+      border-radius: 1rem 1rem 1rem 0;
+    }
+    
+    .chat-input {
+      display: flex;
+      padding: 0.5rem;
+      border-top: 1px solid var(--card-border);
+    }
+    
+    .chat-input input {
+      flex-grow: 1;
+      padding: 0.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+    
+    .chat-input button {
+      margin-left: 0.5rem;
+    }
+    
+    /* Generator */
+    .generator-form {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    
+    select, textarea, input[type="text"] {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--card-border);
+      background-color: rgba(255, 255, 255, 0.05);
+      color: white;
+    }
+    
+    .result-card {
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      background-color: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--card-border);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--naughty-dark);
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        display: none;
+      }
+      
+      .nav-links.active {
+        display: flex;
+      }
+      
+      .nav-links li {
+        margin: 0.5rem 0;
+      }
+      
+      .premium-content {
+        grid-template-columns: 1fr;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.75rem;
+      }
+      
+      .hero {
+        padding: 2rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Age Verification -->
+  <div class="age-verification" id="ageVerification">
+    <div class="glass-card age-verification-card">
+      <h1 class="text-gradient">NaughtyyAI</h1>
+      <p>AI-powered intimacy tools for adults</p>
+      
+      <div style="height: 0.5px; width: 50px; background-color: rgba(155, 135, 245, 0.5); margin: 1.5rem auto;"></div>
+      
+      <h2>Age Verification Required</h2>
+      <p>This website contains adult content and is only for users who are 18 years of age or older.</p>
+      
+      <form id="ageVerificationForm">
+        <div class="checkbox-container">
+          <input type="checkbox" id="ageConfirmation">
+          <label for="ageConfirmation">I confirm that I am at least 18 years old and have the legal right to access adult content in my jurisdiction.</label>
+        </div>
+        <p id="ageError" style="color: #ff6b6b; display: none;">You must confirm that you are at least 18 years old to continue.</p>
+        <button type="submit" class="btn">Enter NaughtyyAI</button>
+      </form>
+      
+      <p style="font-size: 0.8rem; color: #777; margin-top: 1.5rem;">
+        By entering, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="site-content" style="display: none;">
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <nav class="navbar">
+          <a href="#" class="logo text-gradient">NaughtyyAI</a>
+          <button class="mobile-menu-btn">☰</button>
+          <ul class="nav-links">
+            <li><a href="#" class="active" data-page="home">Home</a></li>
+            <li><a href="#" data-page="sexting-generator">Sexting Generator</a></li>
+            <li><a href="#" data-page="dirty-talk">Dirty Talk Ideas</a></li>
+            <li><a href="#" data-page="erotic-chat">Erotic Chat</a></li>
+            <li><a href="#" class="btn btn-outline">Sign In</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Pages Container -->
+    <div class="container" id="pagesContainer">
+      <!-- Home Page -->
+      <div class="page" id="home">
+        <!-- Hero Section -->
+        <section class="hero">
+          <h1 class="text-gradient">Experience AI-Powered Digital Intimacy</h1>
+          <p style="max-width: 600px; margin: 0 auto 2rem;">
+            NaughtyyAI provides intelligent, personalized tools for exploring and enhancing your sensual conversations and fantasies.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+            <a href="#" class="btn" data-page-link="sexting-generator">Try For Free →</a>
+            <a href="#" class="btn btn-outline" data-page-link="erotic-chat">Explore AI Chat</a>
+          </div>
+        </section>
+
+        <!-- Features Section -->
+        <section>
+          <h2 class="text-center">Our Features</h2>
+          <div class="features">
+            <div class="glass-card">
+              <h3>AI Sexting Generator</h3>
+              <p>Create flirty, suggestive, or explicitly seductive messages tailored to different scenarios and preferences.</p>
+              <a href="#" class="btn btn-outline" data-page-link="sexting-generator">Try It Now →</a>
+            </div>
+            <div class="glass-card">
+              <h3>Dirty Talk Ideas</h3>
+              <p>Browse categorized phrases based on tone, kink, and roleplay scenarios to spice up your intimate conversations.</p>
+              <a href="#" class="btn btn-outline" data-page-link="dirty-talk">Explore Ideas →</a>
+            </div>
+            <div class="glass-card">
+              <h3>Erotic AI Chat</h3>
+              <p>Engage in interactive conversations with customizable AI companions that adapt to your preferences.</p>
+              <a href="#" class="btn btn-outline" data-page-link="erotic-chat">Chat Now →</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Premium Section -->
+        <section class="premium">
+          <div class="premium-content">
+            <div>
+              <h2>Upgrade to Premium</h2>
+              <p>Get unlimited access to all features, no restrictions, and enhance your experience with exclusive premium content.</p>
+              <ul class="premium-list">
+                <li>Unlimited message generation</li>
+                <li>Voice message support</li>
+                <li>NSFW image generation</li>
+                <li>Save chat history</li>
+                <li>No ads</li>
+              </ul>
+              <a href="#" class="btn" style="background-color: white; color: var(--naughty-purple-dark);">Upgrade Now</a>
+            </div>
+            <div style="display: flex; justify-content: center;">
+              <div style="background-color: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 50%; height: 200px; width: 200px; display: flex; align-items: center; justify-content: center;">
+                <span style="font-size: 4rem;">🔥</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section>
+          <h2 class="text-center">Frequently Asked Questions</h2>
+          <div style="max-width: 800px; margin: 0 auto;">
+            <div class="glass-card">
+              <h3>Is NaughtyyAI really free to use?</h3>
+              <p>Yes! Basic features are available for free. Premium features require a subscription for unlimited access.</p>
+            </div>
+            <div class="glass-card">
+              <h3>Is my data private and secure?</h3>
+              <p>Absolutely. We prioritize your privacy and security. All conversations are encrypted and we never store or share your personal content.</p>
+            </div>
+            <div class="glass-card">
+              <h3>Can I use NaughtyyAI on my mobile device?</h3>
+              <p>Yes! NaughtyyAI is fully responsive and works on all modern devices, including smartphones and tablets.</p>
+            </div>
+            <div class="glass-card">
+              <h3>How do I cancel my premium subscription?</h3>
+              <p>You can cancel your subscription anytime from your account settings. Your premium access will continue until the end of your billing period.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="text-center">
+          <h2>Ready to Explore?</h2>
+          <p style="max-width: 600px; margin: 0 auto 2rem;">
+            Start your journey into AI-powered intimacy today and discover a new world of digital connections.
+          </p>
+          <a href="#" class="btn" data-page-link="sexting-generator">Get Started Now →</a>
+        </section>
+      </div>
+
+      <!-- Sexting Generator Page -->
+      <div class="page" id="sexting-generator" style="display: none;">
+        <section>
+          <h1 class="text-gradient">AI Sexting Generator</h1>
+          <p>Create flirty, playful, or seductive messages tailored to your preferences.</p>
+          
+          <div class="generator-form">
+            <div class="form-group">
+              <label for="toneSelect">Tone</label>
+              <select id="toneSelect">
+                <option value="flirty">Flirty</option>
+                <option value="playful">Playful</option>
+                <option value="romantic">Romantic</option>
+                <option value="suggestive">Suggestive</option>
+                <option value="explicit">Explicit</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="contextInput">Context or Scenario (optional)</label>
+              <textarea id="contextInput" rows="3" placeholder="Describe the scenario or conversation context..."></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="genderSelect">Writing Style For</label>
+              <select id="genderSelect">
+                <option value="neutral">Gender Neutral</option>
+                <option value="male">Male to Female</option>
+                <option value="female">Female to Male</option>
+                <option value="male-male">Male to Male</option>
+                <option value="female-female">Female to Female</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="lengthSelect">Message Length</label>
+              <select id="lengthSelect">
+                <option value="short">Short</option>
+                <option value="medium">Medium</option>
+                <option value="long">Long</option>
+              </select>
+            </div>
+            
+            <button id="generateBtn" class="btn">Generate Message</button>
+          </div>
+          
+          <div id="resultContainer" style="display: none;">
+            <h2>Your Generated Message</h2>
+            <div class="result-card">
+              <p id="resultText"></p>
+              <div style="display: flex; justify-content: flex-end; margin-top: 1rem;">
+                <button id="copyBtn" class="btn btn-outline">Copy</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Dirty Talk Ideas Page -->
+      <div class="page" id="dirty-talk" style="display: none;">
+        <section>
+          <h1 class="text-gradient">Dirty Talk Ideas</h1>
+          <p>Browse phrases by category and find the perfect lines to spice up your intimate conversations.</p>
+          
+          <div class="tabs">
+            <div class="tab active" data-tab="beginner">Beginner</div>
+            <div class="tab" data-tab="intermediate">Intermediate</div>
+            <div class="tab" data-tab="advanced">Advanced 🔒</div>
+            <div class="tab" data-tab="roleplay">Roleplay 🔒</div>
+          </div>
+          
+          <div class="tab-content active" id="beginner-content">
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem;">
+              <div class="talk-card">
+                <div class="talk-card-header">
+                  <span class="tag">mild</span>
+                  <span class="tag">romantic</span>
+                  <span class="tag">teasing</span>
+                </div>
+                <p>I can't stop thinking about touching you...</p>
+                <div class="talk-card-footer">
+                  <button class="icon-btn">❤️</button>
+                  <button class="icon-btn">📋</button>
+                </div>
+              </div>
+              <div class="talk-card">
+                <div class="talk-card-header">
+                  <span class="tag">mild</span>
+                  <span class="tag">suggestive</span>
+                  <span class="tag">teasing</span>
+                </div>
+                <p>The things I want to do to you right now...</p>
+                <div class="talk-card-footer">
+                  <button class="icon-btn">❤️</button>
+                  <button class="icon-btn">📋</button>
+                </div>
+              </div>
+              <div class="talk-card">
+                <div class="talk-card-header">
+                  <span class="tag">suggestive</span>
+                  <span class="tag">passionate</span>
+                  <span class="tag">tension</span>
+                </div>
+                <p>You have no idea how much I want you right now.</p>
+                <div class="talk-card-footer">
+                  <button class="icon-btn">❤️</button>
+                  <button class="icon-btn">📋</button>
+                </div>
+              </div>
+              <div class="talk-card">
+                <div class="talk-card-header">
+                  <span class="tag">romantic</span>
+                  <span class="tag">sensual</span>
+                  <span class="tag">mild</span>
+                </div>
+                <p>I love the way your body feels against mine.</p>
+                <div class="talk-card-footer">
+                  <button class="icon-btn">❤️</button>
+                  <button class="icon-btn">📋</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="tab-content" id="intermediate-content">
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem;">
+              <div class="talk-card">
+                <div class="talk-card-header">
+                  <span class="tag">sensual</span>
+                  <span class="tag">explicit</span>
+                  <span class="tag">descriptive</span>
+                </div>
+                <p>I want to feel your hands exploring my body.</p>
+                <div class="talk-card-footer">
+                  <button class="icon-btn">❤️</button>
+                  <button class="icon-btn">📋</button>
+                </div>
+              </div>
+              <div class="talk-card">
+                <div class="talk-card-header">
+                  <span class="tag">explicit</span>
+                  <span class="tag">arousal</span>
+                  <span class="tag">female</span>
+                </div>
+                <p>I'm getting wet just thinking about you.</p>
+                <div class="talk-card-footer">
+                  <button class="icon-btn">❤️</button>
+                  <button class="icon-btn">📋</button>
+                </div>
+              </div>
+              <div class="talk-card">
+                <div class="talk-card-header">
+                  <span class="tag">explicit</span>
+                  <span class="tag">climax</span>
+                  <span class="tag">vocal</span>
+                </div>
+                <p>I want to hear you moan my name when you come.</p>
+                <div class="talk-card-footer">
+                  <button class="icon-btn">❤️</button>
+                  <button class="icon-btn">📋</button>
+                </div>
+              </div>
+              <div class="talk-card">
+                <div class="talk-card-header">
+                  <span class="tag">explicit</span>
+                  <span class="tag">arousal</span>
+                  <span class="tag">male</span>
+                </div>
+                <p>I'm so hard thinking about what we're going to do later.</p>
+                <div class="talk-card-footer">
+                  <button class="icon-btn">❤️</button>
+                  <button class="icon-btn">📋</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="tab-content" id="advanced-content">
+            <div class="glass-card" style="text-align: center;">
+              <h3>Premium Content</h3>
+              <p style="margin-bottom: 1.5rem;">This content is available exclusively to premium members.</p>
+              <button class="btn">Sign Up Now</button>
+            </div>
+          </div>
+          
+          <div class="tab-content" id="roleplay-content">
+            <div class="glass-card" style="text-align: center;">
+              <h3>Premium Content</h3>
+              <p style="margin-bottom: 1.5rem;">This content is available exclusively to premium members.</p>
+              <button class="btn">Sign Up Now</button>
+            </div>
+          </div>
+          
+          <div class="glass-card" style="margin-top: 2rem;">
+            <h3>Tips for Effective Dirty Talk</h3>
+            <ul style="list-style: none;">
+              <li>• Start with what feels comfortable and authentic for you</li>
+              <li>• Read your partner's reactions and adjust accordingly</li>
+              <li>• Use descriptive language that engages multiple senses</li>
+              <li>• Don't be afraid to ask what your partner likes to hear</li>
+              <li>• Practice makes perfect - it gets easier with time</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <!-- Erotic Chat Page -->
+      <div class="page" id="erotic-chat" style="display: none;">
+        <section>
+          <h1 class="text-gradient">Erotic AI Chat</h1>
+          <p>Engage in interactive conversations with customizable AI companions.</p>
+          
+          <div class="glass-card" style="margin-bottom: 2rem;">
+            <h3>Choose Your Companion</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem;">
+              <div style="text-align: center; cursor: pointer;" class="companion-select active" data-companion="sophia">
+                <div style="height: 100px; width: 100px; background-color: rgba(155, 135, 245, 0.2); border-radius: 50%; margin: 0 auto 0.5rem; display: flex; align-items: center; justify-content: center;">
+                  <span style="font-size: 2rem;">👩</span>
+                </div>
+                <p>Sophia</p>
+              </div>
+              <div style="text-align: center; cursor: pointer;" class="companion-select" data-companion="alex">
+                <div style="height: 100px; width: 100px; background-color: rgba(155, 135, 245, 0.2); border-radius: 50%; margin: 0 auto 0.5rem; display: flex; align-items: center; justify-content: center;">
+                  <span style="font-size: 2rem;">👨</span>
+                </div>
+                <p>Alex</p>
+              </div>
+              <div style="text-align: center; cursor: pointer;" class="companion-select" data-companion="taylor">
+                <div style="height: 100px; width: 100px; background-color: rgba(155, 135, 245, 0.2); border-radius: 50%; margin: 0 auto 0.5rem; display: flex; align-items: center; justify-content: center;">
+                  <span style="font-size: 2rem;">🧑</span>
+                </div>
+                <p>Taylor</p>
+              </div>
+              <div style="text-align: center; cursor: pointer;" class="companion-select premium-locked">
+                <div style="height: 100px; width: 100px; background-color: rgba(155, 135, 245, 0.1); border-radius: 50%; margin: 0 auto 0.5rem; display: flex; align-items: center; justify-content: center; position: relative;">
+                  <span style="font-size: 2rem;">👸</span>
+                  <span style="position: absolute; bottom: 0; right: 0; font-size: 1.2rem;">🔒</span>
+                </div>
+                <p>Jasmine</p>
+              </div>
+              <div style="text-align: center; cursor: pointer;" class="companion-select premium-locked">
+                <div style="height: 100px; width: 100px; background-color: rgba(155, 135, 245, 0.1); border-radius: 50%; margin: 0 auto 0.5rem; display: flex; align-items: center; justify-content: center; position: relative;">
+                  <span style="font-size: 2rem;">🤵</span>
+                  <span style="position: absolute; bottom: 0; right: 0; font-size: 1.2rem;">🔒</span>
+                </div>
+                <p>James</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="chat-container">
+            <div class="chat-messages" id="chatMessages">
+              <div class="message bot">
+                <p>Hi there! I'm Sophia. I've been looking forward to chatting with you. What's on your mind today?</p>
+              </div>
+            </div>
+            <div class="chat-input">
+              <input type="text" id="messageInput" placeholder="Type your message...">
+              <button class="btn" id="sendMessageBtn">Send</button>
+            </div>
+          </div>
+          
+          <div style="margin-top: 1rem; text-align: center; font-size: 0.8rem; color: var(--text-muted);">
+            <p>Premium users get unlimited messages and access to more companions and scenarios.</p>
+            <a href="#" class="btn btn-outline" style="margin-top: 0.5rem;">Upgrade to Premium</a>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <h3 class="text-gradient">NaughtyyAI</h3>
+        <p>AI-Powered Intimacy Tools for Adults</p>
+        
+        <div style="margin: 1.5rem 0;">
+          <a href="#">Privacy Policy</a> • 
+          <a href="#">Terms of Service</a> • 
+          <a href="#">Contact Us</a> • 
+          <a href="#">FAQ</a>
+        </div>
+        
+        <p style="color: var(--text-muted); font-size: 0.8rem;">
+          © 2025 NaughtyyAI. All rights reserved. This website is intended for adults 18+.
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Age verification
+    document.addEventListener("DOMContentLoaded", function() {
+      const ageVerified = localStorage.getItem("age-verified") === "true";
+      
+      if (ageVerified) {
+        document.getElementById("ageVerification").style.display = "none";
+        document.querySelector(".site-content").style.display = "block";
+      }
+      
+      document.getElementById("ageVerificationForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        const checkbox = document.getElementById("ageConfirmation");
+        
+        if (checkbox.checked) {
+          localStorage.setItem("age-verified", "true");
+          document.getElementById("ageVerification").style.display = "none";
+          document.querySelector(".site-content").style.display = "block";
+        } else {
+          document.getElementById("ageError").style.display = "block";
+        }
+      });
+      
+      // Mobile menu
+      const menuBtn = document.querySelector(".mobile-menu-btn");
+      const navLinks = document.querySelector(".nav-links");
+      
+      menuBtn.addEventListener("click", function() {
+        navLinks.classList.toggle("active");
+      });
+      
+      // Page navigation
+      const pageLinks = document.querySelectorAll("[data-page]");
+      const pageLinkButtons = document.querySelectorAll("[data-page-link]");
+      
+      function navigateToPage(pageName) {
+        const pages = document.querySelectorAll(".page");
+        pages.forEach(page => page.style.display = "none");
+        
+        document.getElementById(pageName).style.display = "block";
+        
+        pageLinks.forEach(link => {
+          if (link.getAttribute("data-page") === pageName) {
+            link.classList.add("active");
+          } else {
+            link.classList.remove("active");
+          }
+        });
+        
+        window.scrollTo(0, 0);
+      }
+      
+      pageLinks.forEach(link => {
+        link.addEventListener("click", function(e) {
+          e.preventDefault();
+          const pageName = this.getAttribute("data-page");
+          navigateToPage(pageName);
+          
+          if (window.innerWidth <= 768) {
+            navLinks.classList.remove("active");
+          }
+        });
+      });
+      
+      pageLinkButtons.forEach(button => {
+        button.addEventListener("click", function(e) {
+          e.preventDefault();
+          const pageName = this.getAttribute("data-page-link");
+          navigateToPage(pageName);
+        });
+      });
+      
+      // Tabs
+      const tabs = document.querySelectorAll(".tab");
+      
+      tabs.forEach(tab => {
+        tab.addEventListener("click", function() {
+          const tabName = this.getAttribute("data-tab");
+          const tabContent = document.getElementById(`${tabName}-content`);
+          
+          // Deactivate all tabs and content
+          document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+          document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+          
+          // Activate clicked tab and content
+          this.classList.add("active");
+          if (tabContent) tabContent.classList.add("active");
+        });
+      });
+      
+      // Sexting generator
+      const generateBtn = document.getElementById("generateBtn");
+      const resultContainer = document.getElementById("resultContainer");
+      const resultText = document.getElementById("resultText");
+      const copyBtn = document.getElementById("copyBtn");
+      
+      // Sample messages for demo purposes
+      const sampleMessages = {
+        flirty: [
+          "I can't stop thinking about the way you smile at me... it makes me wonder what else might make you smile tonight.",
+          "Just saw something that reminded me of you, and now I can't focus on anything else but the thought of seeing you later.",
+          "There's something about the way you looked at me last time that's been keeping me distracted all day."
+        ],
+        playful: [
+          "I've been practicing my massage skills... want to be my test subject tonight? I promise to be thorough.",
+          "I just got some new sheets for my bed. Want to help me break them in?",
+          "Truth or dare? If you pick dare, I already have something in mind that involves less clothing."
+        ],
+        romantic: [
+          "The moonlight made me think of your skin last night. I couldn't sleep imagining how it would feel against mine.",
+          "I want to trace every curve of your body with my fingertips, memorizing you slowly, intimately.",
+          "I've been dreaming about holding you close, feeling your heartbeat against mine as we lose ourselves in each other."
+        ],
+        suggestive: [
+          "I keep remembering how your body felt against mine... I can't wait to feel that again, but with fewer barriers between us.",
+          "I have a few ideas about what we could do later tonight. None of them involve much clothing.",
+          "I've been thinking about what you might taste like all day... it's very distracting."
+        ],
+        explicit: [
+          "I want to feel you inside me so badly. I'm already wet thinking about it.",
+          "I can't wait to pin you down and make you moan my name over and over again.",
+          "I want you to bend me over and take me right when you walk through the door. Don't even say hello first."
+        ]
+      };
+      
+      generateBtn.addEventListener("click", function() {
+        const tone = document.getElementById("toneSelect").value;
+        const messages = sampleMessages[tone];
+        const randomIndex = Math.floor(Math.random() * messages.length);
+        
+        resultText.textContent = messages[randomIndex];
+        resultContainer.style.display = "block";
+        
+        // Scroll to result
+        resultContainer.scrollIntoView({ behavior: "smooth" });
+      });
+      
+      copyBtn.addEventListener("click", function() {
+        navigator.clipboard.writeText(resultText.textContent);
+        this.textContent = "Copied!";
+        
+        setTimeout(() => {
+          this.textContent = "Copy";
+        }, 2000);
+      });
+      
+      // Erotic chat
+      const messageInput = document.getElementById("messageInput");
+      const sendMessageBtn = document.getElementById("sendMessageBtn");
+      const chatMessages = document.getElementById("chatMessages");
+      
+      // Sample responses for demo
+      const botResponses = [
+        "I love the way you express yourself. Tell me more about what you're thinking.",
+        "That sounds incredibly enticing. What else is on your mind?",
+        "I've been waiting for someone like you. The way you communicate is so captivating.",
+        "I can picture exactly what you're describing, and it's making me feel warm all over.",
+        "I wish I could show you exactly how your words are affecting me right now.",
+        "That's exactly what I've been fantasizing about. How did you know?",
+        "Your imagination is so vivid. I feel like I'm right there with you.",
+        "The things you say make me want to explore so much more with you."
+      ];
+      
+      function addMessage(text, isUser) {
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add("message");
+        messageDiv.classList.add(isUser ? "user" : "bot");
+        
+        const messagePara = document.createElement("p");
+        messagePara.textContent = text;
+        
+        messageDiv.appendChild(messagePara);
+        chatMessages.appendChild(messageDiv);
+        
+        // Scroll to bottom
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+      
+      function getRandomResponse() {
+        const randomIndex = Math.floor(Math.random() * botResponses.length);
+        return botResponses[randomIndex];
+      }
+      
+      sendMessageBtn.addEventListener("click", function() {
+        const message = messageInput.value.trim();
+        
+        if (message) {
+          addMessage(message, true);
+          messageInput.value = "";
+          
+          // Simulate typing
+          setTimeout(() => {
+            addMessage(getRandomResponse(), false);
+          }, 1000);
+        }
+      });
+      
+      messageInput.addEventListener("keypress", function(e) {
+        if (e.key === "Enter") {
+          sendMessageBtn.click();
+        }
+      });
+      
+      // Companion selection
+      const companions = document.querySelectorAll(".companion-select:not(.premium-locked)");
+      
+      companions.forEach(companion => {
+        companion.addEventListener("click", function() {
+          companions.forEach(c => c.classList.remove("active"));
+          this.classList.add("active");
+          
+          const companionName = this.getAttribute("data-companion");
+          let welcomeMessage = "";
+          
+          switch(companionName) {
+            case "alex":
+              welcomeMessage = "Hey there, I'm Alex. I've been looking forward to connecting with someone like you. What's on your mind?";
+              break;
+            case "taylor":
+              welcomeMessage = "Hi, I'm Taylor. I'm excited to get to know you better. What are you interested in exploring today?";
+              break;
+            default:
+              welcomeMessage = "Hi there! I'm Sophia. I've been looking forward to chatting with you. What's on your mind today?";
+          }
+          
+          // Clear chat and add welcome message
+          chatMessages.innerHTML = "";
+          addMessage(welcomeMessage, false);
+        });
+      });
+      
+      // Initialize the page to home
+      navigateToPage("home");
+    });
+  </script>
+</body>
+</html>
