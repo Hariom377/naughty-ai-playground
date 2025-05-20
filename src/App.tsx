@@ -1,27 +1,58 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useState } from "react";
+import AgeVerificationPage from "./pages/AgeVerificationPage";
+import HomePage from "./pages/HomePage";
+import SextingGeneratorPage from "./pages/SextingGeneratorPage";
+import DirtyTalkIdeasPage from "./pages/DirtyTalkIdeasPage";
+import EroticChatPage from "./pages/EroticChatPage";
 import NotFound from "./pages/NotFound";
+import { UserProvider } from "./contexts/UserContext";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  const [isVerified, setIsVerified] = useState<boolean>(
+    localStorage.getItem("age-verified") === "true"
+  );
+
+  const handleVerify = () => {
+    localStorage.setItem("age-verified", "true");
+    setIsVerified(true);
+  };
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <UserProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              {!isVerified ? (
+                <>
+                  <Route path="/verify-age" element={<AgeVerificationPage onVerify={handleVerify} />} />
+                  <Route path="*" element={<Navigate to="/verify-age" replace />} />
+                </>
+              ) : (
+                <>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/sexting-generator" element={<SextingGeneratorPage />} />
+                  <Route path="/dirty-talk-ideas" element={<DirtyTalkIdeasPage />} />
+                  <Route path="/erotic-chat" element={<EroticChatPage />} />
+                  <Route path="*" element={<NotFound />} />
+                </>
+              )}
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </UserProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
