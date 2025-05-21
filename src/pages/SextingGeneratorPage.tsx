@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
@@ -11,6 +10,7 @@ import { useUser } from '@/contexts/UserContext';
 import LoginModal from '@/components/auth/LoginModal';
 import { toast } from '@/components/ui/sonner';
 import { Copy } from 'lucide-react';
+import { generateSextingMessages } from '@/utils/geminiApi';
 
 const tones = [
   { value: 'flirty', label: 'Flirty' },
@@ -30,7 +30,7 @@ const contexts = [
   { value: 'rekindling', label: 'Rekindling the Spark' },
 ];
 
-// Sample generated texts for demonstration
+// Sample generated texts as fallback
 const sampleTexts = {
   flirty: [
     "Can't stop thinking about our last kiss. Maybe we should create some new memories tonight?",
@@ -80,7 +80,7 @@ const SextingGeneratorPage = () => {
   const [generationCount, setGenerationCount] = useState(0);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
-  const handleGenerate = () => {
+  const handleGenerate = async () => {
     setIsGenerating(true);
     
     // Free users can only generate 3 times
@@ -96,14 +96,26 @@ const SextingGeneratorPage = () => {
       return;
     }
 
-    // Simulate API call delay
-    setTimeout(() => {
-      // For the demo, we'll use the sample texts based on tone
+    try {
+      // Generate messages using Gemini API
+      const messages = await generateSextingMessages(
+        tone,
+        context,
+        explicitness[0],
+        customPrompt
+      );
+      
+      setGeneratedTexts(messages);
+    } catch (error) {
+      console.error('Error generating texts:', error);
+      // Fallback to sample texts if API fails
       const selectedTone = tone as keyof typeof sampleTexts;
       setGeneratedTexts(sampleTexts[selectedTone]);
+      toast.error("Had trouble connecting to AI. Using sample texts instead.");
+    } finally {
       setIsGenerating(false);
       setGenerationCount(prev => prev + 1);
-    }, 1500);
+    }
   };
 
   const copyToClipboard = (text: string) => {

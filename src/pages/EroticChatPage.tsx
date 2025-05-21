@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from 'react';
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
@@ -12,6 +11,7 @@ import { useUser } from '@/contexts/UserContext';
 import LoginModal from '@/components/auth/LoginModal';
 import { toast } from '@/components/ui/sonner';
 import { Send, Mic, MicOff } from 'lucide-react';
+import { generateChatResponse } from '@/utils/geminiApi';
 
 // Sample AI personalities for demo
 const aiPersonalities = [
@@ -159,7 +159,7 @@ const EroticChatPage = () => {
     }
   }, [selectedAi]);
   
-  const sendMessage = () => {
+  const sendMessage = async () => {
     if (!message.trim()) return;
     
     // Check if user needs to log in
@@ -185,9 +185,35 @@ const EroticChatPage = () => {
     setMessages(prev => [...prev, userMessage]);
     setMessage('');
     
-    // Simulate AI response
+    // AI is typing
     setIsTyping(true);
-    setTimeout(() => {
+    
+    try {
+      // Format previous messages for the API
+      const messageHistory = messages.slice(-5).map(msg => ({
+        sender: msg.sender,
+        text: msg.text
+      }));
+      
+      // Generate AI response using Gemini API
+      const aiResponseText = await generateChatResponse(
+        selectedAi.personalityType,
+        messageHistory,
+        message
+      );
+      
+      const aiMessage = {
+        id: (Date.now() + 1).toString(),
+        text: aiResponseText,
+        sender: 'ai' as const,
+        timestamp: new Date(),
+      };
+      
+      setMessages(prev => [...prev, aiMessage]);
+    } catch (error) {
+      console.error('Error generating chat response:', error);
+      
+      // Fallback to sample responses if API fails
       const personalityType = selectedAi.personalityType as keyof typeof aiResponses;
       const responses = aiResponses[personalityType];
       const randomResponse = responses[Math.floor(Math.random() * responses.length)];
@@ -200,8 +226,13 @@ const EroticChatPage = () => {
       };
       
       setMessages(prev => [...prev, aiMessage]);
+      toast.error("Had trouble connecting to AI. Using sample responses instead.", {
+        duration: 3000,
+        position: "bottom-right"
+      });
+    } finally {
       setIsTyping(false);
-    }, 1500 + Math.random() * 1000);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
