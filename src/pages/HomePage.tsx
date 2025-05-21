@@ -2,7 +2,7 @@
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Heart, Flower, Kiss, Wine } from 'lucide-react';
+import { ArrowRight, Heart, Flower, MessageCircleHeart, Wine } from 'lucide-react';
 
 const HomePage = () => {
   return (
@@ -33,7 +33,7 @@ const HomePage = () => {
             </Button>
             <Button asChild size="lg" variant="outline" className="border-naughty-purple text-naughty-pink hover:bg-naughty-purple/10">
               <Link to="/erotic-chat">
-                Explore Intimate Chat <Kiss size={16} className="ml-2" />
+                Explore Intimate Chat <MessageCircleHeart size={16} className="ml-2" />
               </Link>
             </Button>
           </div>
@@ -97,7 +97,7 @@ const HomePage = () => {
               <div className="flex justify-center">
                 <Button asChild variant="ghost" className="text-naughty-purple hover:text-naughty-pink hover:bg-white/5">
                   <Link to="/erotic-chat">
-                    Start Chatting <Kiss size={16} className="ml-2" />
+                    Start Chatting <MessageCircleHeart size={16} className="ml-2" />
                   </Link>
                 </Button>
               </div>
