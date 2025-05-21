@@ -1,8 +1,7 @@
-
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Heart, Flower, MessageCircleHeart, Wine } from 'lucide-react';
+import { ArrowRight, Heart, Flower, MessageCircleHeart, Calculator } from 'lucide-react';
 
 const HomePage = () => {
   return (
@@ -19,10 +18,10 @@ const HomePage = () => {
           <span className="text-4xl">💖</span>
         </div>
         <div className="container mx-auto text-center max-w-4xl">
-          <h1 className="text-4xl md:text-6xl font-romantic mb-6 text-gradient leading-tight">
+          <h1 className="text-4xl md:text-6xl mb-6 text-gradient leading-tight">
             Love Chat Made Simple
           </h1>
-          <p className="text-lg md:text-xl text-naughty-pink mb-8 max-w-2xl mx-auto font-romantic">
+          <p className="text-lg md:text-xl text-naughty-pink mb-8 max-w-2xl mx-auto">
             Easy tools to spice up your messages and create romantic moments with your partner 💫
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -43,18 +42,18 @@ const HomePage = () => {
       {/* Features Section */}
       <section className="py-16 bg-black/10 rounded-3xl my-12">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-love text-center mb-6 text-gradient">Features</h2>
+          <h2 className="text-3xl text-center mb-6 text-gradient">Features</h2>
           <p className="text-center text-naughty-pink/80 mb-12 max-w-2xl mx-auto">
             Tools to help you connect with your partner 💘
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Feature 1 */}
             <div className="romantic-card p-6 feature-card-hover">
               <div className="flex justify-center mb-4">
                 <span className="text-4xl">💌</span>
               </div>
-              <h3 className="text-xl font-romantic mb-3 text-white text-center">Love Message Creator</h3>
+              <h3 className="text-xl mb-3 text-white text-center">Love Message Creator</h3>
               <p className="text-naughty-pink/80 mb-4 text-center">
                 Create sweet and spicy messages for your partner.
               </p>
@@ -72,7 +71,7 @@ const HomePage = () => {
               <div className="flex justify-center mb-4">
                 <span className="text-4xl">💋</span>
               </div>
-              <h3 className="text-xl font-romantic mb-3 text-white text-center">Romantic Lines</h3>
+              <h3 className="text-xl mb-3 text-white text-center">Romantic Lines</h3>
               <p className="text-naughty-pink/80 mb-4 text-center">
                 Find the right words to express your feelings.
               </p>
@@ -90,7 +89,7 @@ const HomePage = () => {
               <div className="flex justify-center mb-4">
                 <span className="text-4xl">💞</span>
               </div>
-              <h3 className="text-xl font-romantic mb-3 text-white text-center">Love Chat</h3>
+              <h3 className="text-xl mb-3 text-white text-center">Love Chat</h3>
               <p className="text-naughty-pink/80 mb-4 text-center">
                 Chat with AI that understands romance and relationships.
               </p>
@@ -98,6 +97,24 @@ const HomePage = () => {
                 <Button asChild variant="ghost" className="text-naughty-purple hover:text-naughty-pink hover:bg-white/5">
                   <Link to="/erotic-chat">
                     Start Chat <MessageCircleHeart size={16} className="ml-2" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+            
+            {/* Feature 4 - NEW */}
+            <div className="romantic-card p-6 feature-card-hover">
+              <div className="flex justify-center mb-4">
+                <span className="text-4xl">💰</span>
+              </div>
+              <h3 className="text-xl mb-3 text-white text-center">Content Creator Calculator</h3>
+              <p className="text-naughty-pink/80 mb-4 text-center">
+                Calculate potential earnings from Patreon & OnlyFans.
+              </p>
+              <div className="flex justify-center">
+                <Button asChild variant="ghost" className="text-naughty-purple hover:text-naughty-pink hover:bg-white/5">
+                  <Link to="/income-calculator">
+                    Calculate <Calculator size={16} className="ml-2" />
                   </Link>
                 </Button>
               </div>

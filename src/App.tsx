@@ -10,6 +10,7 @@ import HomePage from "./pages/HomePage";
 import SextingGeneratorPage from "./pages/SextingGeneratorPage";
 import DirtyTalkIdeasPage from "./pages/DirtyTalkIdeasPage";
 import EroticChatPage from "./pages/EroticChatPage";
+import IncomeCalculatorPage from "./pages/IncomeCalculatorPage";
 import NotFound from "./pages/NotFound";
 import { UserProvider } from "./contexts/UserContext";
 
@@ -44,6 +45,7 @@ const App = () => {
                   <Route path="/sexting-generator" element={<SextingGeneratorPage />} />
                   <Route path="/dirty-talk-ideas" element={<DirtyTalkIdeasPage />} />
                   <Route path="/erotic-chat" element={<EroticChatPage />} />
+                  <Route path="/income-calculator" element={<IncomeCalculatorPage />} />
                   <Route path="*" element={<NotFound />} />
                 </>
               )}
