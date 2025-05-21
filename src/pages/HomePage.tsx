@@ -19,10 +19,10 @@ const HomePage = () => {
           <span className="text-4xl">💖</span>
         </div>
         <div className="container mx-auto text-center max-w-4xl">
-          <h1 className="text-4xl md:text-6xl font-love mb-6 text-gradient leading-tight">
+          <h1 className="text-4xl md:text-6xl font-romantic mb-6 text-gradient leading-tight">
             Experience the Romance <br className="hidden md:block" /> of Digital Intimacy
           </h1>
-          <p className="text-lg md:text-xl text-naughty-pink mb-8 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-naughty-pink mb-8 max-w-2xl mx-auto font-romantic">
             LoveWhisper provides intelligent, personalized tools for exploring and enhancing your romantic conversations and deepest fantasies. 💫
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
