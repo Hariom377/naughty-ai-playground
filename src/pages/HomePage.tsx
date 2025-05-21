@@ -20,20 +20,20 @@ const HomePage = () => {
         </div>
         <div className="container mx-auto text-center max-w-4xl">
           <h1 className="text-4xl md:text-6xl font-romantic mb-6 text-gradient leading-tight">
-            Experience the Romance <br className="hidden md:block" /> of Digital Intimacy
+            Love Chat Made Simple
           </h1>
           <p className="text-lg md:text-xl text-naughty-pink mb-8 max-w-2xl mx-auto font-romantic">
-            LoveWhisper provides intelligent, personalized tools for exploring and enhancing your romantic conversations and deepest fantasies. 💫
+            Easy tools to spice up your messages and create romantic moments with your partner 💫
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="romantic-button group">
               <Link to="/sexting-generator">
-                Try For Free <Heart size={16} className="ml-2 group-hover:animate-heart-beat" />
+                Try Now <Heart size={16} className="ml-2 group-hover:animate-heart-beat" />
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-naughty-purple text-naughty-pink hover:bg-naughty-purple/10">
               <Link to="/erotic-chat">
-                Explore Intimate Chat <MessageCircleHeart size={16} className="ml-2" />
+                Start Chat <MessageCircleHeart size={16} className="ml-2" />
               </Link>
             </Button>
           </div>
@@ -43,9 +43,9 @@ const HomePage = () => {
       {/* Features Section */}
       <section className="py-16 bg-black/10 rounded-3xl my-12">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-love text-center mb-6 text-gradient">Our Enchanting Features</h2>
+          <h2 className="text-3xl font-love text-center mb-6 text-gradient">Features</h2>
           <p className="text-center text-naughty-pink/80 mb-12 max-w-2xl mx-auto">
-            Discover tools designed to ignite passion and create memorable moments between you and your partner 💘
+            Tools to help you connect with your partner 💘
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -54,9 +54,9 @@ const HomePage = () => {
               <div className="flex justify-center mb-4">
                 <span className="text-4xl">💌</span>
               </div>
-              <h3 className="text-xl font-romantic mb-3 text-white text-center">Love Message Generator</h3>
+              <h3 className="text-xl font-romantic mb-3 text-white text-center">Love Message Creator</h3>
               <p className="text-naughty-pink/80 mb-4 text-center">
-                Create flirty, passionate, or deeply romantic messages tailored to express your deepest feelings.
+                Create sweet and spicy messages for your partner.
               </p>
               <div className="flex justify-center">
                 <Button asChild variant="ghost" className="text-naughty-purple hover:text-naughty-pink hover:bg-white/5">
@@ -72,14 +72,14 @@ const HomePage = () => {
               <div className="flex justify-center mb-4">
                 <span className="text-4xl">💋</span>
               </div>
-              <h3 className="text-xl font-romantic mb-3 text-white text-center">Sweet Talk Ideas</h3>
+              <h3 className="text-xl font-romantic mb-3 text-white text-center">Romantic Lines</h3>
               <p className="text-naughty-pink/80 mb-4 text-center">
-                Browse a collection of romantic phrases to express your feelings and ignite passion in your relationship.
+                Find the right words to express your feelings.
               </p>
               <div className="flex justify-center">
                 <Button asChild variant="ghost" className="text-naughty-purple hover:text-naughty-pink hover:bg-white/5">
                   <Link to="/dirty-talk-ideas">
-                    Explore Ideas <Flower size={16} className="ml-2" />
+                    See Ideas <Flower size={16} className="ml-2" />
                   </Link>
                 </Button>
               </div>
@@ -90,14 +90,14 @@ const HomePage = () => {
               <div className="flex justify-center mb-4">
                 <span className="text-4xl">💞</span>
               </div>
-              <h3 className="text-xl font-romantic mb-3 text-white text-center">Romantic AI Chat</h3>
+              <h3 className="text-xl font-romantic mb-3 text-white text-center">Love Chat</h3>
               <p className="text-naughty-pink/80 mb-4 text-center">
-                Engage in heartfelt conversations with AI companions that adapt to your romantic style and preferences.
+                Chat with AI that understands romance and relationships.
               </p>
               <div className="flex justify-center">
                 <Button asChild variant="ghost" className="text-naughty-purple hover:text-naughty-pink hover:bg-white/5">
                   <Link to="/erotic-chat">
-                    Start Chatting <MessageCircleHeart size={16} className="ml-2" />
+                    Start Chat <MessageCircleHeart size={16} className="ml-2" />
                   </Link>
                 </Button>
               </div>
@@ -114,23 +114,23 @@ const HomePage = () => {
               <div>
                 <h2 className="text-3xl font-love mb-4 text-white">Upgrade to Premium 💎</h2>
                 <p className="text-naughty-pink/90 mb-6">
-                  Elevate your romantic experience with exclusive premium features designed to deepen your connection.
+                  Get more features to make your chats even better.
                 </p>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-center text-white">
-                    <span className="mr-2">💖</span> Unlimited message generation
+                    <span className="mr-2">💖</span> Unlimited messages
                   </li>
                   <li className="flex items-center text-white">
-                    <span className="mr-2">💝</span> Voice message support
+                    <span className="mr-2">💝</span> Voice messages
                   </li>
                   <li className="flex items-center text-white">
-                    <span className="mr-2">💌</span> Romantic image generation
+                    <span className="mr-2">💌</span> Create romantic images
                   </li>
                   <li className="flex items-center text-white">
-                    <span className="mr-2">💞</span> Save conversation history
+                    <span className="mr-2">💞</span> Save your chats
                   </li>
                   <li className="flex items-center text-white">
-                    <span className="mr-2">✨</span> No advertisements
+                    <span className="mr-2">✨</span> No ads
                   </li>
                 </ul>
                 <Button size="lg" className="bg-white text-naughty-purple hover:bg-white/90">
@@ -152,34 +152,34 @@ const HomePage = () => {
       {/* FAQ Section */}
       <section className="py-16">
         <div className="container mx-auto max-w-3xl">
-          <h2 className="text-3xl font-love text-center mb-12 text-gradient">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-love text-center mb-12 text-gradient">Common Questions</h2>
           
           <div className="space-y-6">
             <div className="romantic-card p-6">
-              <h3 className="text-xl font-romantic mb-2 text-white">Is LoveWhisper really free to use? 💭</h3>
+              <h3 className="text-xl font-romantic mb-2 text-white">Is it free to use? 💭</h3>
               <p className="text-naughty-pink/80">
-                Yes! Basic features are available for free. Premium features require a subscription for unlimited access to enhance your romantic experience.
+                Yes! Basic features are free. Premium features need a subscription.
               </p>
             </div>
             
             <div className="romantic-card p-6">
-              <h3 className="text-xl font-romantic mb-2 text-white">Is my intimate data private and secure? 🔒</h3>
+              <h3 className="text-xl font-romantic mb-2 text-white">Is my data private? 🔒</h3>
               <p className="text-naughty-pink/80">
-                Absolutely. We prioritize your privacy and security. All conversations are encrypted and we never store or share your personal content.
+                Yes. We keep your chats private and secure. We don't share your personal messages.
               </p>
             </div>
             
             <div className="romantic-card p-6">
-              <h3 className="text-xl font-romantic mb-2 text-white">Can I use LoveWhisper on my mobile device? 📱</h3>
+              <h3 className="text-xl font-romantic mb-2 text-white">Can I use it on my phone? 📱</h3>
               <p className="text-naughty-pink/80">
-                Yes! LoveWhisper is designed to work beautifully on all modern devices, including smartphones and tablets.
+                Yes! Works on all phones, tablets, and computers.
               </p>
             </div>
             
             <div className="romantic-card p-6">
-              <h3 className="text-xl font-romantic mb-2 text-white">How do I cancel my premium subscription? 💫</h3>
+              <h3 className="text-xl font-romantic mb-2 text-white">How do I cancel my subscription? 💫</h3>
               <p className="text-naughty-pink/80">
-                You can cancel your subscription anytime from your account settings. Your premium access will continue until the end of your billing period.
+                Cancel anytime in your account settings. You'll keep premium until your billing period ends.
               </p>
             </div>
           </div>
@@ -196,13 +196,13 @@ const HomePage = () => {
         </div>
       
         <div className="container mx-auto text-center max-w-2xl">
-          <h2 className="text-3xl font-love mb-6 text-gradient">Ready to Ignite the Romance? ✨</h2>
+          <h2 className="text-3xl font-love mb-6 text-gradient">Ready to Start? ✨</h2>
           <p className="text-lg text-naughty-pink/80 mb-8">
-            Start your journey into AI-powered intimacy today and discover a new world of heartfelt connections.
+            Begin your romantic journey today and connect with your partner in a new way.
           </p>
           <Button asChild size="lg" className="romantic-button group">
             <Link to="/sexting-generator">
-              Begin Your Love Journey <Heart size={16} className="ml-2 group-hover:animate-heart-beat" />
+              Try It Free <Heart size={16} className="ml-2 group-hover:animate-heart-beat" />
             </Link>
           </Button>
         </div>
