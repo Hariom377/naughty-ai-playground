@@ -67,12 +67,12 @@ export const generateWithGemini = async (options: GeminiRequestOptions): Promise
     return data.candidates[0].content.parts[0].text;
   } catch (error) {
     console.error('Error generating with Gemini:', error);
-    return "I'm having trouble connecting to my AI brain right now. Please try again in a moment.";
+    return "I'm having a moment connecting to my heart right now. Could we try again in a moment? 💕";
   }
 };
 
 /**
- * Generate sexting messages based on parameters
+ * Generate romantic messages based on parameters
  */
 export const generateSextingMessages = async (
   tone: string,
@@ -80,14 +80,15 @@ export const generateSextingMessages = async (
   explicitness: number,
   customPrompt?: string
 ): Promise<string[]> => {
-  const prompt = `Generate 3 unique sexting messages with the following parameters:
+  const prompt = `Generate 3 unique romantic messages with the following parameters:
     Tone: ${tone}
     Relationship context: ${context}
-    Explicitness level: ${explicitness}%
-    ${customPrompt ? `Additional details: ${customPrompt}` : ''}
+    Passion intensity level: ${explicitness}%
+    ${customPrompt ? `Personal details: ${customPrompt}` : ''}
     
-    The messages should be creative, authentic-sounding, and appropriate for the specified tone and explicitness level.
-    The messages should be suitable for sexting between consenting adults.
+    The messages should be creative, heartfelt, and express genuine emotion with the specified tone and intensity level.
+    Each message should feel authentic and personal, suitable for lovers or romantic partners.
+    Add a romantic emoji at the end of each message (like 💕, 💖, 💘, 💓, 💗, 💞, 💫, ✨).
     Return ONLY the 3 messages, one per line, with no additional text, numbering, or formatting.`;
 
   try {
@@ -100,11 +101,11 @@ export const generateSextingMessages = async (
     // Split the response into individual messages
     return response.split('\n').filter(line => line.trim() !== '').slice(0, 3);
   } catch (error) {
-    console.error('Error generating sexting messages:', error);
+    console.error('Error generating romantic messages:', error);
     return [
-      "I'm having trouble creating messages right now. Please try again later.",
-      "You can try adjusting your parameters for different results.",
-      "Remember that AI-generated content may require human refinement.",
+      "My heart skips a beat whenever I think of you. What I wouldn't give to be in your arms right now... 💖",
+      "You bring out a side of me that no one else sees. The way you make me feel is beyond words... 💞",
+      "Distance means nothing when someone means everything. I'm counting the moments until we're together again... 💫",
     ];
   }
 };
@@ -125,21 +126,22 @@ export const generateChatResponse = async (
     .join('\n');
 
   const personalityDescriptions = {
-    flirty: "You are flirty and playful, love teasing and being teased. Your messages are suggestive but tasteful.",
-    dominant: "You are confident and dominant, know exactly what you want. Your messages are assertive and commanding.",
-    submissive: "You are sweet and submissive, eager to please and be guided. Your messages show vulnerability and desire to fulfill your partner's needs.",
-    romantic: "You are romantic and passionate, focused on emotional connection. Your messages are intimate and sensual.",
-    experimental: "You are adventurous and experimental, always open to new experiences. Your messages are bold and creative.",
-    seductive: "You are mysterious and intense, a master of seduction. Your messages build anticipation and desire."
+    flirty: "You are sweet and flirty, playful yet heartfelt. Your messages convey genuine affection with a touch of playfulness.",
+    dominant: "You are confidently romantic and passionate, expressing your desires with a mix of tenderness and assertiveness.",
+    submissive: "You are tenderly devoted and gentle, showing deep admiration and care in your words.",
+    romantic: "You are deeply romantic and passionate, focused on emotional connection and intimate feelings.",
+    experimental: "You are imaginative and adventurous in your expressions of love, always finding new ways to express affection.",
+    seductive: "You are mysteriously alluring, weaving words that build anticipation and express deep desire."
   };
 
   const personalityDescription = personalityDescriptions[personalityType as keyof typeof personalityDescriptions] || 
-    "You are a flirty and engaging conversation partner.";
+    "You are a warm and engaging romantic conversation partner.";
 
   const prompt = `${personalityDescription}
-    You are engaging in an intimate chat conversation with a human partner.
-    Your responses should be 1-3 sentences long, engaging, and match your personality type.
-    Respond in a way that encourages continued conversation.
+    You are engaging in an intimate romantic chat conversation with a human partner.
+    Your responses should be 1-3 sentences long, warm, and match your personality type.
+    Add occasional romantic emojis (💕, 💖, 💘, etc) to enhance your messages.
+    Respond in a way that encourages continued connection and conversation.
     
     Recent conversation:
     ${conversationHistory}
@@ -153,7 +155,7 @@ export const generateChatResponse = async (
       maxOutputTokens: 250,
     });
   } catch (error) {
-    console.error('Error generating chat response:', error);
-    return "I'm having trouble connecting right now. Can we try again in a moment?";
+    console.error('Error generating romantic chat response:', error);
+    return "I'm having a moment connecting with my heart. Could we try again? I so enjoy our conversations... 💫";
   }
 };

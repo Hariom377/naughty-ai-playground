@@ -63,14 +63,17 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom colors for NaughtyyAI
+				// Updated colors for Romance theme
 				naughty: {
-					dark: "#1A1F2C",
-					gray: "#8E9196",
-					purple: "#9b87f5",
-					purpleDark: "#7E69AB",
-					purpleLight: "#D6BCFA",
-					charcoal: "#221F26"
+					dark: "#26152B",      // Darker purple background
+					gray: "#B695C0",      // Lavender-tinted gray
+					purple: "#D946EF",    // Vibrant magenta
+					purpleDark: "#9333EA", // Deep royal purple
+					purpleLight: "#F5D0FE", // Soft lavender
+					charcoal: "#221F26",   // Dark charcoal with slight purple undertone
+					pink: "#FFDEE2",      // Soft pink
+					rose: "#ea384c",      // Rich rose
+					peach: "#FDE1D3",     // Soft peach
 				}
 			},
 			borderRadius: {
@@ -122,6 +125,28 @@ export default {
 					'50%': {
 						opacity: '0.8'
 					}
+				},
+				'floating': {
+					'0%, 100%': {
+						transform: 'translateY(0)'
+					},
+					'50%': {
+						transform: 'translateY(-10px)'
+					}
+				},
+				'heart-beat': {
+					'0%, 100%': {
+						transform: 'scale(1)'
+					},
+					'25%': {
+						transform: 'scale(1.1)'
+					},
+					'50%': {
+						transform: 'scale(1)'
+					},
+					'75%': {
+						transform: 'scale(1.1)'
+					}
 				}
 			},
 			animation: {
@@ -129,7 +154,17 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out forwards',
 				'slide-in': 'slide-in 0.3s ease-out forwards',
-				'pulse-soft': 'pulse-soft 2s infinite ease-in-out'
+				'pulse-soft': 'pulse-soft 2s infinite ease-in-out',
+				'floating': 'floating 3s ease-in-out infinite',
+				'heart-beat': 'heart-beat 2s ease-in-out infinite'
+			},
+			fontFamily: {
+				'romantic': ['Dancing Script', 'cursive'],
+				'love': ['Great Vibes', 'cursive']
+			},
+			backgroundImage: {
+				'romantic-gradient': 'linear-gradient(to right, #D946EF, #FFDEE2)',
+				'love-gradient': 'linear-gradient(to right, #ee9ca7, #ffdde1)',
 			}
 		}
 	},

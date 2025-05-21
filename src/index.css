@@ -1,40 +1,43 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    --background: 300 20% 12%;
+    --foreground: 325 80% 98%;
+    --card: 300 20% 15%;
+    --card-foreground: 325 80% 98%;
+    --popover: 300 20% 15%;
+    --popover-foreground: 325 80% 98%;
+    --primary: 325 90% 60%;
+    --primary-foreground: 300 5.9% 100%;
+    --secondary: 300 15% 25%;
+    --secondary-foreground: 325 80% 98%;
+    --muted: 300 15% 25%;
+    --muted-foreground: 300 5% 80%;
+    --accent: 300 15% 30%;
+    --accent-foreground: 325 80% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-    --radius: 0.75rem;
+    --destructive-foreground: 325 80% 98%;
+    --border: 300 15% 30%;
+    --input: 300 15% 30%;
+    --ring: 325 80% 80%;
+    --radius: 1rem;
   }
 
   * {
-    @apply border-border selection:bg-white/10 selection:text-white;
+    @apply border-border selection:bg-naughty-pink/30 selection:text-white;
   }
   
   body {
     @apply bg-naughty-dark text-foreground antialiased;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
     min-height: 100vh;
+    background-image: radial-gradient(circle at 10% 20%, rgba(216, 66, 244, 0.05) 0%, rgba(255, 222, 226, 0.1) 90%);
   }
 
   html {
@@ -57,10 +60,34 @@
   }
   
   .text-gradient {
-    @apply bg-gradient-to-r from-naughty-purple to-naughty-purpleLight bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-naughty-purple to-naughty-pink bg-clip-text text-transparent;
   }
 
   .feature-card-hover {
-    @apply transition-all duration-300 hover:bg-white/10 hover:shadow-lg hover:scale-[1.02];
+    @apply transition-all duration-300 hover:bg-white/10 hover:shadow-lg hover:scale-[1.02] hover:border-naughty-pink/30;
+  }
+  
+  .romantic-card {
+    @apply glass-card border-naughty-pink/20 shadow-[0_4px_12px_-2px_rgba(217,70,239,0.15)];
+  }
+  
+  .romantic-button {
+    @apply bg-gradient-to-r from-naughty-purpleDark to-naughty-purple hover:from-naughty-purple hover:to-naughty-rose text-white transition-all duration-300;
+  }
+  
+  .romantic-input {
+    @apply bg-white/5 border-naughty-pink/20 focus:border-naughty-pink/50 focus:ring-naughty-pink/30;
+  }
+  
+  .romantic-title {
+    @apply font-love text-gradient;
+  }
+  
+  .floating-hearts {
+    @apply animate-floating;
+  }
+  
+  .beating-heart {
+    @apply animate-heart-beat;
   }
 }
