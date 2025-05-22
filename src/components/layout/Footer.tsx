@@ -1,7 +1,10 @@
 
 import { Link } from 'react-router-dom';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Footer = () => {
+  const { t } = useLanguage();
+  
   return (
     <footer className="bg-black/30 backdrop-blur-md border-t border-white/10 py-8 mt-auto">
       <div className="container mx-auto px-4">
@@ -15,21 +18,21 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-white font-semibold text-lg mb-4">Features</h3>
+            <h3 className="text-white font-semibold text-lg mb-4">{t('features')}</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/sexting-generator" className="text-gray-400 hover:text-naughty-purple text-sm transition-colors">
-                  Sexting Generator
+                  {t('sextingGenerator')}
                 </Link>
               </li>
               <li>
                 <Link to="/dirty-talk-ideas" className="text-gray-400 hover:text-naughty-purple text-sm transition-colors">
-                  Dirty Talk Ideas
+                  {t('dirtyTalkIdeas')}
                 </Link>
               </li>
               <li>
                 <Link to="/erotic-chat" className="text-gray-400 hover:text-naughty-purple text-sm transition-colors">
-                  Erotic AI Chat
+                  {t('eroticChat')}
                 </Link>
               </li>
             </ul>
@@ -64,17 +67,17 @@ const Footer = () => {
         
         <div className="border-t border-white/5 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} NaughtyyAI. All rights reserved. 18+ only.
+            {t('copyright')}
           </p>
           <div className="flex space-x-4">
             <Link to="#" className="text-gray-500 hover:text-naughty-purple text-sm transition-colors">
-              Contact Us
+              {t('contactUs')}
             </Link>
             <Link to="#" className="text-gray-500 hover:text-naughty-purple text-sm transition-colors">
-              Support
+              {t('support')}
             </Link>
             <Link to="#" className="text-gray-500 hover:text-naughty-purple text-sm transition-colors">
-              FAQ
+              {t('faq')}
             </Link>
           </div>
         </div>

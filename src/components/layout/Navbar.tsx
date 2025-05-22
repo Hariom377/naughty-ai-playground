@@ -3,11 +3,14 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useUser } from '@/contexts/UserContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 import LoginModal from '../auth/LoginModal';
-import { Menu, X, CalendarHeart, Heart, Book, DollarSign, List } from 'lucide-react';
+import LanguageSelector from '../language/LanguageSelector';
+import { Menu, X, List, DollarSign, Book } from 'lucide-react';
 
 const Navbar = () => {
   const { user, logout } = useUser();
+  const { t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
@@ -43,19 +46,20 @@ const Navbar = () => {
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
               <Link to="/" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors flex items-center">
-                <List size={16} className="mr-2" /> Features
+                <List size={16} className="mr-2" /> {t('features')}
               </Link>
               <Link to="/" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors flex items-center">
-                <DollarSign size={16} className="mr-2" /> Pricing
+                <DollarSign size={16} className="mr-2" /> {t('pricing')}
               </Link>
               <Link to="/" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors flex items-center">
-                <Book size={16} className="mr-2" /> Blog
+                <Book size={16} className="mr-2" /> {t('blog')}
               </Link>
             </div>
           </div>
           
-          {/* Auth Buttons */}
-          <div className="hidden md:block">
+          {/* Auth Buttons and Language Selector */}
+          <div className="hidden md:flex items-center gap-4">
+            <LanguageSelector />
             {user.isLoggedIn ? (
               <div className="flex items-center gap-4">
                 <span className="text-sm text-white/70">
@@ -67,7 +71,7 @@ const Navbar = () => {
                   ) : 'Free Account'}
                 </span>
                 <Button variant="ghost" size="sm" onClick={handleLogout}>
-                  Logout
+                  {t('logout')}
                 </Button>
               </div>
             ) : (
@@ -77,13 +81,14 @@ const Navbar = () => {
                 className="border-naughty-purple text-naughty-purple hover:bg-naughty-purple hover:text-white"
                 onClick={handleOpenLoginModal}
               >
-                Log In / Sign Up
+                {t('login')}
               </Button>
             )}
           </div>
           
           {/* Mobile menu button */}
-          <div className="flex md:hidden">
+          <div className="flex md:hidden items-center gap-2">
+            <LanguageSelector variant="compact" />
             <button
               onClick={toggleMenu}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-white/10 focus:outline-none"
@@ -109,21 +114,21 @@ const Navbar = () => {
               onClick={closeMenu}
               className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium hover:bg-white/10 flex items-center"
             >
-              <List size={16} className="mr-2" /> Features
+              <List size={16} className="mr-2" /> {t('features')}
             </Link>
             <Link
               to="/"
               onClick={closeMenu}
               className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium hover:bg-white/10 flex items-center"
             >
-              <DollarSign size={16} className="mr-2" /> Pricing
+              <DollarSign size={16} className="mr-2" /> {t('pricing')}
             </Link>
             <Link
               to="/"
               onClick={closeMenu}
               className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium hover:bg-white/10 flex items-center"
             >
-              <Book size={16} className="mr-2" /> Blog
+              <Book size={16} className="mr-2" /> {t('blog')}
             </Link>
             <div className="pt-4 pb-3 border-t border-white/10">
               {user.isLoggedIn ? (
@@ -137,7 +142,7 @@ const Navbar = () => {
                     ) : 'Free Account'}
                   </div>
                   <Button variant="ghost" size="sm" onClick={handleLogout} className="justify-start">
-                    Logout
+                    {t('logout')}
                   </Button>
                 </div>
               ) : (
@@ -147,7 +152,7 @@ const Navbar = () => {
                     className="w-full border-naughty-purple text-naughty-purple hover:bg-naughty-purple hover:text-white"
                     variant="outline"
                   >
-                    Log In / Sign Up
+                    {t('login')}
                   </Button>
                 </div>
               )}

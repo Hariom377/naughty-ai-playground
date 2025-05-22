@@ -15,6 +15,7 @@ import AnniversaryIdeasPage from "./pages/AnniversaryIdeasPage";
 import FirstDateIdeasPage from "./pages/FirstDateIdeasPage";
 import NotFound from "./pages/NotFound";
 import { UserProvider } from "./contexts/UserContext";
+import { LanguageProvider } from "./contexts/LanguageContext";
 
 const queryClient = new QueryClient();
 
@@ -31,32 +32,34 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <UserProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Routes>
-              {!isVerified ? (
-                <>
-                  <Route path="/verify-age" element={<AgeVerificationPage onVerify={handleVerify} />} />
-                  <Route path="*" element={<Navigate to="/verify-age" replace />} />
-                </>
-              ) : (
-                <>
-                  <Route path="/" element={<HomePage />} />
-                  <Route path="/sexting-generator" element={<SextingGeneratorPage />} />
-                  <Route path="/dirty-talk-ideas" element={<DirtyTalkIdeasPage />} />
-                  <Route path="/erotic-chat" element={<EroticChatPage />} />
-                  <Route path="/income-calculator" element={<IncomeCalculatorPage />} />
-                  <Route path="/anniversary-ideas" element={<AnniversaryIdeasPage />} />
-                  <Route path="/first-date-ideas" element={<FirstDateIdeasPage />} />
-                  <Route path="/404" element={<NotFound />} />
-                  <Route path="*" element={<Navigate to="/" replace />} />
-                </>
-              )}
-            </Routes>
-          </BrowserRouter>
-        </TooltipProvider>
+        <LanguageProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+              <Routes>
+                {!isVerified ? (
+                  <>
+                    <Route path="/verify-age" element={<AgeVerificationPage onVerify={handleVerify} />} />
+                    <Route path="*" element={<Navigate to="/verify-age" replace />} />
+                  </>
+                ) : (
+                  <>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/sexting-generator" element={<SextingGeneratorPage />} />
+                    <Route path="/dirty-talk-ideas" element={<DirtyTalkIdeasPage />} />
+                    <Route path="/erotic-chat" element={<EroticChatPage />} />
+                    <Route path="/income-calculator" element={<IncomeCalculatorPage />} />
+                    <Route path="/anniversary-ideas" element={<AnniversaryIdeasPage />} />
+                    <Route path="/first-date-ideas" element={<FirstDateIdeasPage />} />
+                    <Route path="/404" element={<NotFound />} />
+                    <Route path="*" element={<Navigate to="/" replace />} />
+                  </>
+                )}
+              </Routes>
+            </BrowserRouter>
+          </TooltipProvider>
+        </LanguageProvider>
       </UserProvider>
     </QueryClientProvider>
   );
