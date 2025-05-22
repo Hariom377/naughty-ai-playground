@@ -35,7 +35,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
-              <span className="text-gradient font-bold text-xl">NaughtyyAI</span>
+              <span className="text-gradient font-bold text-xl">LoveConnect</span>
             </Link>
           </div>
           
@@ -43,13 +43,16 @@ const Navbar = () => {
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
               <Link to="/sexting-generator" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors">
-                Sexting Generator
+                Love Messages
               </Link>
               <Link to="/dirty-talk-ideas" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors">
-                Dirty Talk Ideas
+                Couple Talks
               </Link>
               <Link to="/erotic-chat" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors">
-                Erotic AI Chat
+                Relationship Chat
+              </Link>
+              <Link to="/income-calculator" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors">
+                Creator Calculator
               </Link>
             </div>
           </div>
@@ -109,21 +112,28 @@ const Navbar = () => {
               onClick={closeMenu}
               className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium hover:bg-white/10"
             >
-              Sexting Generator
+              Love Messages
             </Link>
             <Link
               to="/dirty-talk-ideas"
               onClick={closeMenu}
               className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium hover:bg-white/10"
             >
-              Dirty Talk Ideas
+              Couple Talks
             </Link>
             <Link
               to="/erotic-chat"
               onClick={closeMenu}
               className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium hover:bg-white/10"
             >
-              Erotic AI Chat
+              Relationship Chat
+            </Link>
+            <Link
+              to="/income-calculator"
+              onClick={closeMenu}
+              className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium hover:bg-white/10"
+            >
+              Creator Calculator
             </Link>
             <div className="pt-4 pb-3 border-t border-white/10">
               {user.isLoggedIn ? (

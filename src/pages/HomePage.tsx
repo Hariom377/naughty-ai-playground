@@ -1,7 +1,8 @@
+
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Heart, Flower, MessageCircleHeart, Calculator } from 'lucide-react';
+import { Heart, Flower, MessageCircleHeart, Calculator } from 'lucide-react';
 
 const HomePage = () => {
   return (
@@ -18,21 +19,21 @@ const HomePage = () => {
           <span className="text-4xl">💖</span>
         </div>
         <div className="container mx-auto text-center max-w-4xl">
-          <h1 className="text-4xl md:text-6xl mb-6 text-gradient leading-tight">
-            Love Chat Made Simple
+          <h1 className="text-4xl md:text-6xl mb-6 text-gradient leading-tight font-love">
+            Grow Your Relationship
           </h1>
           <p className="text-lg md:text-xl text-naughty-pink mb-8 max-w-2xl mx-auto">
-            Easy tools to spice up your messages and create romantic moments with your partner 💫
+            Simple tools to help couples connect, communicate better, and strengthen their bond ✨
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="romantic-button group">
               <Link to="/sexting-generator">
-                Try Now <Heart size={16} className="ml-2 group-hover:animate-heart-beat" />
+                Send Love Notes <Heart size={16} className="ml-2 group-hover:animate-heart-beat" />
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-naughty-purple text-naughty-pink hover:bg-naughty-purple/10">
               <Link to="/erotic-chat">
-                Start Chat <MessageCircleHeart size={16} className="ml-2" />
+                Get Relationship Advice <MessageCircleHeart size={16} className="ml-2" />
               </Link>
             </Button>
           </div>
@@ -42,9 +43,9 @@ const HomePage = () => {
       {/* Features Section */}
       <section className="py-16 bg-black/10 rounded-3xl my-12">
         <div className="container mx-auto">
-          <h2 className="text-3xl text-center mb-6 text-gradient">Features</h2>
+          <h2 className="text-3xl text-center mb-6 text-gradient font-love">Our Tools</h2>
           <p className="text-center text-naughty-pink/80 mb-12 max-w-2xl mx-auto">
-            Tools to help you connect with your partner 💘
+            Everything you need to keep your relationship fresh and exciting 💘
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -53,14 +54,14 @@ const HomePage = () => {
               <div className="flex justify-center mb-4">
                 <span className="text-4xl">💌</span>
               </div>
-              <h3 className="text-xl mb-3 text-white text-center">Love Message Creator</h3>
+              <h3 className="text-xl mb-3 text-white text-center">Love Messages</h3>
               <p className="text-naughty-pink/80 mb-4 text-center">
-                Create sweet and spicy messages for your partner.
+                Create sweet messages for your partner
               </p>
               <div className="flex justify-center">
                 <Button asChild variant="ghost" className="text-naughty-purple hover:text-naughty-pink hover:bg-white/5">
                   <Link to="/sexting-generator">
-                    Create Messages <Heart size={16} className="ml-2" />
+                    Write Now <Heart size={16} className="ml-2" />
                   </Link>
                 </Button>
               </div>
@@ -71,14 +72,14 @@ const HomePage = () => {
               <div className="flex justify-center mb-4">
                 <span className="text-4xl">💋</span>
               </div>
-              <h3 className="text-xl mb-3 text-white text-center">Romantic Lines</h3>
+              <h3 className="text-xl mb-3 text-white text-center">Couple Talks</h3>
               <p className="text-naughty-pink/80 mb-4 text-center">
-                Find the right words to express your feelings.
+                Find the right words for intimate moments
               </p>
               <div className="flex justify-center">
                 <Button asChild variant="ghost" className="text-naughty-purple hover:text-naughty-pink hover:bg-white/5">
                   <Link to="/dirty-talk-ideas">
-                    See Ideas <Flower size={16} className="ml-2" />
+                    Get Ideas <Flower size={16} className="ml-2" />
                   </Link>
                 </Button>
               </div>
@@ -89,27 +90,27 @@ const HomePage = () => {
               <div className="flex justify-center mb-4">
                 <span className="text-4xl">💞</span>
               </div>
-              <h3 className="text-xl mb-3 text-white text-center">Love Chat</h3>
+              <h3 className="text-xl mb-3 text-white text-center">Relationship Chat</h3>
               <p className="text-naughty-pink/80 mb-4 text-center">
-                Chat with AI that understands romance and relationships.
+                Get advice for your relationship questions
               </p>
               <div className="flex justify-center">
                 <Button asChild variant="ghost" className="text-naughty-purple hover:text-naughty-pink hover:bg-white/5">
                   <Link to="/erotic-chat">
-                    Start Chat <MessageCircleHeart size={16} className="ml-2" />
+                    Chat Now <MessageCircleHeart size={16} className="ml-2" />
                   </Link>
                 </Button>
               </div>
             </div>
             
-            {/* Feature 4 - NEW */}
+            {/* Feature 4 */}
             <div className="romantic-card p-6 feature-card-hover">
               <div className="flex justify-center mb-4">
                 <span className="text-4xl">💰</span>
               </div>
-              <h3 className="text-xl mb-3 text-white text-center">Content Creator Calculator</h3>
+              <h3 className="text-xl mb-3 text-white text-center">Creator Calculator</h3>
               <p className="text-naughty-pink/80 mb-4 text-center">
-                Calculate potential earnings from Patreon & OnlyFans.
+                Calculate potential income from content
               </p>
               <div className="flex justify-center">
                 <Button asChild variant="ghost" className="text-naughty-purple hover:text-naughty-pink hover:bg-white/5">
@@ -131,7 +132,7 @@ const HomePage = () => {
               <div>
                 <h2 className="text-3xl font-love mb-4 text-white">Upgrade to Premium 💎</h2>
                 <p className="text-naughty-pink/90 mb-6">
-                  Get more features to make your chats even better.
+                  Get more relationship tools and features
                 </p>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-center text-white">
@@ -173,28 +174,28 @@ const HomePage = () => {
           
           <div className="space-y-6">
             <div className="romantic-card p-6">
-              <h3 className="text-xl font-romantic mb-2 text-white">Is it free to use? 💭</h3>
+              <h3 className="text-xl mb-2 text-white">Is it free to use? 💭</h3>
               <p className="text-naughty-pink/80">
                 Yes! Basic features are free. Premium features need a subscription.
               </p>
             </div>
             
             <div className="romantic-card p-6">
-              <h3 className="text-xl font-romantic mb-2 text-white">Is my data private? 🔒</h3>
+              <h3 className="text-xl mb-2 text-white">Is my data private? 🔒</h3>
               <p className="text-naughty-pink/80">
-                Yes. We keep your chats private and secure. We don't share your personal messages.
+                Yes. We keep your chats private. We don't share your personal messages.
               </p>
             </div>
             
             <div className="romantic-card p-6">
-              <h3 className="text-xl font-romantic mb-2 text-white">Can I use it on my phone? 📱</h3>
+              <h3 className="text-xl mb-2 text-white">Can I use it on my phone? 📱</h3>
               <p className="text-naughty-pink/80">
                 Yes! Works on all phones, tablets, and computers.
               </p>
             </div>
             
             <div className="romantic-card p-6">
-              <h3 className="text-xl font-romantic mb-2 text-white">How do I cancel my subscription? 💫</h3>
+              <h3 className="text-xl mb-2 text-white">How do I cancel? 💫</h3>
               <p className="text-naughty-pink/80">
                 Cancel anytime in your account settings. You'll keep premium until your billing period ends.
               </p>
@@ -213,9 +214,9 @@ const HomePage = () => {
         </div>
       
         <div className="container mx-auto text-center max-w-2xl">
-          <h2 className="text-3xl font-love mb-6 text-gradient">Ready to Start? ✨</h2>
+          <h2 className="text-3xl font-love mb-6 text-gradient">Start Your Journey ✨</h2>
           <p className="text-lg text-naughty-pink/80 mb-8">
-            Begin your romantic journey today and connect with your partner in a new way.
+            Begin today and strengthen your relationship in new ways
           </p>
           <Button asChild size="lg" className="romantic-button group">
             <Link to="/sexting-generator">
