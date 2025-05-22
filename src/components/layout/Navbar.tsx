@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useUser } from '@/contexts/UserContext';
 import LoginModal from '../auth/LoginModal';
-import { Menu, X, Gift, CalendarHeart } from 'lucide-react';
+import { Menu, X, Gift, CalendarHeart, Heart } from 'lucide-react';
 
 const Navbar = () => {
   const { user, logout } = useUser();
@@ -45,14 +45,14 @@ const Navbar = () => {
               <Link to="/anniversary-ideas" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors flex items-center">
                 <CalendarHeart size={16} className="mr-2" /> Anniversary Ideas
               </Link>
+              <Link to="/first-date-ideas" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors flex items-center">
+                <Heart size={16} className="mr-2" /> First Date Ideas
+              </Link>
               <Link to="/sexting-generator" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors">
                 Love Messages
               </Link>
               <Link to="/erotic-chat" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors">
                 Relationship Chat
-              </Link>
-              <Link to="/income-calculator" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors">
-                Creator Calculator
               </Link>
             </div>
           </div>
@@ -115,6 +115,13 @@ const Navbar = () => {
               <CalendarHeart size={16} className="mr-2" /> Anniversary Ideas
             </Link>
             <Link
+              to="/first-date-ideas"
+              onClick={closeMenu}
+              className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium hover:bg-white/10 flex items-center"
+            >
+              <Heart size={16} className="mr-2" /> First Date Ideas
+            </Link>
+            <Link
               to="/sexting-generator"
               onClick={closeMenu}
               className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium hover:bg-white/10"
@@ -127,13 +134,6 @@ const Navbar = () => {
               className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium hover:bg-white/10"
             >
               Relationship Chat
-            </Link>
-            <Link
-              to="/income-calculator"
-              onClick={closeMenu}
-              className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium hover:bg-white/10"
-            >
-              Creator Calculator
             </Link>
             <div className="pt-4 pb-3 border-t border-white/10">
               {user.isLoggedIn ? (

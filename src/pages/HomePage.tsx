@@ -32,8 +32,8 @@ const HomePage = () => {
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-naughty-purple text-naughty-pink hover:bg-naughty-purple/10">
-              <Link to="/erotic-chat">
-                Get Relationship Advice <MessageCircleHeart size={16} className="ml-2" />
+              <Link to="/first-date-ideas">
+                Find Date Ideas <Heart size={16} className="ml-2" />
               </Link>
             </Button>
           </div>
@@ -49,7 +49,7 @@ const HomePage = () => {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-            {/* Feature 1 - NEW Anniversary Ideas */}
+            {/* Feature 1 - Anniversary Ideas */}
             <div className="romantic-card p-6 feature-card-hover md:col-span-2">
               <div className="flex justify-center mb-4">
                 <CalendarHeart className="h-12 w-12 text-naughty-purple" />
@@ -67,19 +67,19 @@ const HomePage = () => {
               </div>
             </div>
             
-            {/* Feature 2 */}
-            <div className="romantic-card p-6 feature-card-hover">
+            {/* Feature 2 - NEW First Date Ideas */}
+            <div className="romantic-card p-6 feature-card-hover md:col-span-2">
               <div className="flex justify-center mb-4">
-                <span className="text-4xl">💌</span>
+                <Heart className="h-12 w-12 text-naughty-purple" />
               </div>
-              <h3 className="text-xl mb-3 text-white text-center">Love Messages</h3>
+              <h3 className="text-xl mb-3 text-white text-center">First Date Ideas</h3>
               <p className="text-naughty-pink/80 mb-4 text-center">
-                Create sweet messages for your partner
+                Plan the perfect first date with personalized ideas based on your interests and preferences
               </p>
               <div className="flex justify-center">
                 <Button asChild variant="ghost" className="text-naughty-purple hover:text-naughty-pink hover:bg-white/5">
-                  <Link to="/sexting-generator">
-                    Write Now <Heart size={16} className="ml-2" />
+                  <Link to="/first-date-ideas">
+                    Find Ideas <Heart size={16} className="ml-2" />
                   </Link>
                 </Button>
               </div>
@@ -103,7 +103,25 @@ const HomePage = () => {
               </div>
             </div>
             
-            {/* Feature 4 */}
+            {/* Feature 4 - Love Messages */}
+            <div className="romantic-card p-6 feature-card-hover">
+              <div className="flex justify-center mb-4">
+                <span className="text-4xl">💌</span>
+              </div>
+              <h3 className="text-xl mb-3 text-white text-center">Love Messages</h3>
+              <p className="text-naughty-pink/80 mb-4 text-center">
+                Create sweet messages for your partner
+              </p>
+              <div className="flex justify-center">
+                <Button asChild variant="ghost" className="text-naughty-purple hover:text-naughty-pink hover:bg-white/5">
+                  <Link to="/sexting-generator">
+                    Write Now <Heart size={16} className="ml-2" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+            
+            {/* Feature 5 - Creator Calculator */}
             <div className="romantic-card p-6 feature-card-hover">
               <div className="flex justify-center mb-4">
                 <span className="text-4xl">💰</span>
@@ -188,9 +206,9 @@ const HomePage = () => {
             </div>
             
             <div className="romantic-card p-6">
-              <h3 className="text-xl mb-2 text-white">How do I plan our anniversary? 💑</h3>
+              <h3 className="text-xl mb-2 text-white">How do I plan a great first date? 💑</h3>
               <p className="text-naughty-pink/80">
-                Use our Anniversary Ideas tool. Just enter your milestone year, budget, and preferences to get personalized suggestions.
+                Use our First Date Ideas tool with filters for interests, budget, and personality type to get personalized suggestions that will make your first date special.
               </p>
             </div>
             
@@ -219,8 +237,8 @@ const HomePage = () => {
             Begin today and make your relationship even more special
           </p>
           <Button asChild size="lg" className="romantic-button group">
-            <Link to="/anniversary-ideas">
-              Try It Free <Gift size={16} className="ml-2 group-hover:animate-heart-beat" />
+            <Link to="/first-date-ideas">
+              Try It Free <Heart size={16} className="ml-2 group-hover:animate-heart-beat" />
             </Link>
           </Button>
         </div>

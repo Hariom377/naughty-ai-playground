@@ -159,6 +159,53 @@ export const generateAnniversaryIdeas = async (
 };
 
 /**
+ * Generate first date ideas based on parameters
+ */
+export const generateFirstDateIdeas = async (
+  interest: string,
+  budget: string,
+  location: string,
+  season?: string,
+  personality?: string,
+  isFirstDate: boolean = true
+): Promise<string[]> => {
+  const prompt = `Generate 3 creative ${isFirstDate ? 'first ' : ''}date ideas with these parameters:
+    ${interest ? `- Interest category: ${interest}` : ''}
+    ${budget ? `- Budget: ${budget}` : ''}
+    ${location ? `- Location: ${location}` : ''}
+    ${season ? `- Season: ${season}` : ''}
+    ${personality ? `- Personality type: ${personality}` : ''}
+    
+    Each idea should include:
+    1. A catchy title
+    2. A detailed description (2-3 sentences explaining the date)
+    3. Why it works for ${isFirstDate ? 'a first date' : 'dates'} (a brief explanation of why this is a good choice)
+    4. Any tips or things to consider
+
+    Make the ideas creative, specific, and tailored to the parameters. Format each idea with the title first, followed by the details.`;
+
+  try {
+    const response = await generateWithGemini({
+      prompt,
+      temperature: 0.8,
+      maxOutputTokens: 1000,
+    });
+
+    // Split the response into individual ideas
+    return response.split(/\n\n(?=\d\.|\w+:|\*\*|\#)/).map(idea => idea.trim()).slice(0, 3);
+  } catch (error) {
+    console.error('Error generating first date ideas:', error);
+    return [
+      "Coffee Shop Exploration\nVisit three unique local coffee shops over a few hours, sampling a different drink or treat at each. This creates natural transitions and allows for both sitting and walking conversations.\nWhy it works: The casual atmosphere reduces pressure, multiple locations provide fresh conversation starters, and it's easy to extend or end based on how things are going.\nTip: Research the shops beforehand to ensure they have good seating and reasonable noise levels.",
+      
+      "Interactive Museum Date\nVisit a science, art, or specialty museum with interactive exhibits that encourage playful engagement and conversation. Look for evening events that might include music and refreshments.\nWhy it works: The environment provides endless conversation starters and reveals your date's curiosities and personality in a relaxed setting.\nTip: Check if the museum has a café or restaurant for a natural transition to continue the conversation afterward.",
+      
+      "Sunset Picnic\nPrepare a simple but thoughtful picnic with finger foods, drinks, and a comfortable blanket. Choose a scenic park, riverside, or hilltop location with a good sunset view.\nWhy it works: The beautiful setting creates a romantic atmosphere while the informal picnic setup keeps things relaxed and allows for natural conversation.\nTip: Pack extra layers as temperatures may drop after sunset, and bring a small bluetooth speaker for subtle background music."
+    ];
+  }
+};
+
+/**
  * Generate chat responses based on AI personality and conversation history
  */
 export const generateChatResponse = async (
