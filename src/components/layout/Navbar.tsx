@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useUser } from '@/contexts/UserContext';
 import LoginModal from '../auth/LoginModal';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Gift, CalendarHeart } from 'lucide-react';
 
 const Navbar = () => {
   const { user, logout } = useUser();
@@ -42,11 +42,11 @@ const Navbar = () => {
           {/* Desktop Menu */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
+              <Link to="/anniversary-ideas" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors flex items-center">
+                <CalendarHeart size={16} className="mr-2" /> Anniversary Ideas
+              </Link>
               <Link to="/sexting-generator" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors">
                 Love Messages
-              </Link>
-              <Link to="/dirty-talk-ideas" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors">
-                Couple Talks
               </Link>
               <Link to="/erotic-chat" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors">
                 Relationship Chat
@@ -108,18 +108,18 @@ const Navbar = () => {
         <div className="md:hidden bg-black/90 backdrop-blur-lg animate-fade-in">
           <div className="px-2 pt-2 pb-3 space-y-1">
             <Link
+              to="/anniversary-ideas"
+              onClick={closeMenu}
+              className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium hover:bg-white/10 flex items-center"
+            >
+              <CalendarHeart size={16} className="mr-2" /> Anniversary Ideas
+            </Link>
+            <Link
               to="/sexting-generator"
               onClick={closeMenu}
               className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium hover:bg-white/10"
             >
               Love Messages
-            </Link>
-            <Link
-              to="/dirty-talk-ideas"
-              onClick={closeMenu}
-              className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium hover:bg-white/10"
-            >
-              Couple Talks
             </Link>
             <Link
               to="/erotic-chat"

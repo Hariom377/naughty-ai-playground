@@ -2,7 +2,7 @@
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Heart, Flower, MessageCircleHeart, Calculator } from 'lucide-react';
+import { Heart, Flower, MessageCircleHeart, Calculator, CalendarHeart, Gift } from 'lucide-react';
 
 const HomePage = () => {
   return (
@@ -20,15 +20,15 @@ const HomePage = () => {
         </div>
         <div className="container mx-auto text-center max-w-4xl">
           <h1 className="text-4xl md:text-6xl mb-6 text-gradient leading-tight font-love">
-            Grow Your Relationship
+            Celebrate Your Relationship
           </h1>
           <p className="text-lg md:text-xl text-naughty-pink mb-8 max-w-2xl mx-auto">
-            Simple tools to help couples connect, communicate better, and strengthen their bond ✨
+            Tools for couples to connect, celebrate milestones, and strengthen their bond ✨
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="romantic-button group">
-              <Link to="/sexting-generator">
-                Send Love Notes <Heart size={16} className="ml-2 group-hover:animate-heart-beat" />
+              <Link to="/anniversary-ideas">
+                Plan Your Anniversary <Gift size={16} className="ml-2 group-hover:animate-heart-beat" />
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-naughty-purple text-naughty-pink hover:bg-naughty-purple/10">
@@ -45,11 +45,29 @@ const HomePage = () => {
         <div className="container mx-auto">
           <h2 className="text-3xl text-center mb-6 text-gradient font-love">Our Tools</h2>
           <p className="text-center text-naughty-pink/80 mb-12 max-w-2xl mx-auto">
-            Everything you need to keep your relationship fresh and exciting 💘
+            Everything you need to keep your relationship fresh and special 💘
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* Feature 1 */}
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+            {/* Feature 1 - NEW Anniversary Ideas */}
+            <div className="romantic-card p-6 feature-card-hover md:col-span-2">
+              <div className="flex justify-center mb-4">
+                <CalendarHeart className="h-12 w-12 text-naughty-purple" />
+              </div>
+              <h3 className="text-xl mb-3 text-white text-center">Anniversary Ideas</h3>
+              <p className="text-naughty-pink/80 mb-4 text-center">
+                Get creative ideas to celebrate your relationship milestones and special dates
+              </p>
+              <div className="flex justify-center">
+                <Button asChild variant="ghost" className="text-naughty-purple hover:text-naughty-pink hover:bg-white/5">
+                  <Link to="/anniversary-ideas">
+                    Plan Now <Gift size={16} className="ml-2" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+            
+            {/* Feature 2 */}
             <div className="romantic-card p-6 feature-card-hover">
               <div className="flex justify-center mb-4">
                 <span className="text-4xl">💌</span>
@@ -62,24 +80,6 @@ const HomePage = () => {
                 <Button asChild variant="ghost" className="text-naughty-purple hover:text-naughty-pink hover:bg-white/5">
                   <Link to="/sexting-generator">
                     Write Now <Heart size={16} className="ml-2" />
-                  </Link>
-                </Button>
-              </div>
-            </div>
-            
-            {/* Feature 2 */}
-            <div className="romantic-card p-6 feature-card-hover">
-              <div className="flex justify-center mb-4">
-                <span className="text-4xl">💋</span>
-              </div>
-              <h3 className="text-xl mb-3 text-white text-center">Couple Talks</h3>
-              <p className="text-naughty-pink/80 mb-4 text-center">
-                Find the right words for intimate moments
-              </p>
-              <div className="flex justify-center">
-                <Button asChild variant="ghost" className="text-naughty-purple hover:text-naughty-pink hover:bg-white/5">
-                  <Link to="/dirty-talk-ideas">
-                    Get Ideas <Flower size={16} className="ml-2" />
                   </Link>
                 </Button>
               </div>
@@ -136,7 +136,7 @@ const HomePage = () => {
                 </p>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-center text-white">
-                    <span className="mr-2">💖</span> Unlimited messages
+                    <span className="mr-2">💖</span> Unlimited anniversary ideas
                   </li>
                   <li className="flex items-center text-white">
                     <span className="mr-2">💝</span> Voice messages
@@ -188,9 +188,9 @@ const HomePage = () => {
             </div>
             
             <div className="romantic-card p-6">
-              <h3 className="text-xl mb-2 text-white">Can I use it on my phone? 📱</h3>
+              <h3 className="text-xl mb-2 text-white">How do I plan our anniversary? 💑</h3>
               <p className="text-naughty-pink/80">
-                Yes! Works on all phones, tablets, and computers.
+                Use our Anniversary Ideas tool. Just enter your milestone year, budget, and preferences to get personalized suggestions.
               </p>
             </div>
             
@@ -216,11 +216,11 @@ const HomePage = () => {
         <div className="container mx-auto text-center max-w-2xl">
           <h2 className="text-3xl font-love mb-6 text-gradient">Start Your Journey ✨</h2>
           <p className="text-lg text-naughty-pink/80 mb-8">
-            Begin today and strengthen your relationship in new ways
+            Begin today and make your relationship even more special
           </p>
           <Button asChild size="lg" className="romantic-button group">
-            <Link to="/sexting-generator">
-              Try It Free <Heart size={16} className="ml-2 group-hover:animate-heart-beat" />
+            <Link to="/anniversary-ideas">
+              Try It Free <Gift size={16} className="ml-2 group-hover:animate-heart-beat" />
             </Link>
           </Button>
         </div>

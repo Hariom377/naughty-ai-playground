@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -10,6 +11,7 @@ import SextingGeneratorPage from "./pages/SextingGeneratorPage";
 import DirtyTalkIdeasPage from "./pages/DirtyTalkIdeasPage";
 import EroticChatPage from "./pages/EroticChatPage";
 import IncomeCalculatorPage from "./pages/IncomeCalculatorPage";
+import AnniversaryIdeasPage from "./pages/AnniversaryIdeasPage";
 import NotFound from "./pages/NotFound";
 import { UserProvider } from "./contexts/UserContext";
 
@@ -45,6 +47,7 @@ const App = () => {
                   <Route path="/dirty-talk-ideas" element={<DirtyTalkIdeasPage />} />
                   <Route path="/erotic-chat" element={<EroticChatPage />} />
                   <Route path="/income-calculator" element={<IncomeCalculatorPage />} />
+                  <Route path="/anniversary-ideas" element={<AnniversaryIdeasPage />} />
                   <Route path="*" element={<NotFound />} />
                 </>
               )}

@@ -111,6 +111,54 @@ export const generateSextingMessages = async (
 };
 
 /**
+ * Generate anniversary ideas based on parameters
+ */
+export const generateAnniversaryIdeas = async (
+  ideaType: string,
+  milestone: string,
+  budget: string,
+  season?: string,
+  interests?: string,
+  memories?: string
+): Promise<string[]> => {
+  const prompt = `Generate 3 creative anniversary ideas for couples with these parameters:
+    - Type of ideas: ${ideaType}
+    - Anniversary milestone: ${milestone} years
+    - Budget: ${budget}
+    ${season ? `- Season/time of year: ${season}` : ''}
+    ${interests ? `- Interests/hobbies: ${interests}` : ''}
+    ${memories ? `- Special memories to incorporate: ${memories}` : ''}
+
+    Each idea should include:
+    1. A title/heading
+    2. A brief description (2-3 sentences)
+    3. Estimated cost or budget range
+    4. A suggested gift that pairs well with the idea (if applicable)
+
+    Make ideas practical, specific, and ready to implement. Format each idea clearly with line breaks between sections.`;
+
+  try {
+    const response = await generateWithGemini({
+      prompt,
+      temperature: 0.8,
+      maxOutputTokens: 1000,
+    });
+
+    // Split the response into individual ideas
+    return response.split(/\n\n(?=\d\.|\w+:|\*\*|\#)/).map(idea => idea.trim()).slice(0, 3);
+  } catch (error) {
+    console.error('Error generating anniversary ideas:', error);
+    return [
+      "Memory Lane Dinner\nRecreate your first date at the same restaurant or cook your first meal together at home. Add photos from your relationship as table decorations and reminisce about your journey.\nCost: $50-$150\nGift idea: A photo album with space to add future memories",
+      
+      "Star Gazing Picnic\nPack a basket with your favorite foods and a bottle of champagne. Find a quiet spot under the stars, bring blankets and star maps to identify constellations that were visible on your wedding night.\nCost: $30-$75\nGift idea: A star named after both of you with certificate",
+      
+      "Memory Scavenger Hunt\nCreate clues leading your partner to significant places in your relationship. Hide small gifts or love notes at each location, culminating in a special dinner or activity.\nCost: $50-$200\nGift idea: A custom puzzle made from a favorite photo"
+    ];
+  }
+};
+
+/**
  * Generate chat responses based on AI personality and conversation history
  */
 export const generateChatResponse = async (
