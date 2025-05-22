@@ -2,7 +2,7 @@
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Heart, Flower, MessageCircleHeart, Calculator, CalendarHeart, Gift } from 'lucide-react';
+import { Heart, MessageCircleHeart, Calculator, CalendarHeart, Gift } from 'lucide-react';
 
 const HomePage = () => {
   return (
@@ -48,9 +48,9 @@ const HomePage = () => {
             Everything you need to keep your relationship fresh and special 💘
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Feature 1 - Anniversary Ideas */}
-            <div className="romantic-card p-6 feature-card-hover md:col-span-2">
+            <div className="romantic-card p-6 feature-card-hover h-full">
               <div className="flex justify-center mb-4">
                 <CalendarHeart className="h-12 w-12 text-naughty-purple" />
               </div>
@@ -58,7 +58,7 @@ const HomePage = () => {
               <p className="text-naughty-pink/80 mb-4 text-center">
                 Get creative ideas to celebrate your relationship milestones and special dates
               </p>
-              <div className="flex justify-center">
+              <div className="flex justify-center mt-auto">
                 <Button asChild variant="ghost" className="text-naughty-purple hover:text-naughty-pink hover:bg-white/5">
                   <Link to="/anniversary-ideas">
                     Plan Now <Gift size={16} className="ml-2" />
@@ -67,8 +67,8 @@ const HomePage = () => {
               </div>
             </div>
             
-            {/* Feature 2 - NEW First Date Ideas */}
-            <div className="romantic-card p-6 feature-card-hover md:col-span-2">
+            {/* Feature 2 - First Date Ideas */}
+            <div className="romantic-card p-6 feature-card-hover h-full">
               <div className="flex justify-center mb-4">
                 <Heart className="h-12 w-12 text-naughty-purple" />
               </div>
@@ -76,7 +76,7 @@ const HomePage = () => {
               <p className="text-naughty-pink/80 mb-4 text-center">
                 Plan the perfect first date with personalized ideas based on your interests and preferences
               </p>
-              <div className="flex justify-center">
+              <div className="flex justify-center mt-auto">
                 <Button asChild variant="ghost" className="text-naughty-purple hover:text-naughty-pink hover:bg-white/5">
                   <Link to="/first-date-ideas">
                     Find Ideas <Heart size={16} className="ml-2" />
@@ -86,7 +86,7 @@ const HomePage = () => {
             </div>
             
             {/* Feature 3 */}
-            <div className="romantic-card p-6 feature-card-hover">
+            <div className="romantic-card p-6 feature-card-hover h-full">
               <div className="flex justify-center mb-4">
                 <span className="text-4xl">💞</span>
               </div>
@@ -94,7 +94,7 @@ const HomePage = () => {
               <p className="text-naughty-pink/80 mb-4 text-center">
                 Get advice for your relationship questions
               </p>
-              <div className="flex justify-center">
+              <div className="flex justify-center mt-auto">
                 <Button asChild variant="ghost" className="text-naughty-purple hover:text-naughty-pink hover:bg-white/5">
                   <Link to="/erotic-chat">
                     Chat Now <MessageCircleHeart size={16} className="ml-2" />
@@ -104,7 +104,7 @@ const HomePage = () => {
             </div>
             
             {/* Feature 4 - Love Messages */}
-            <div className="romantic-card p-6 feature-card-hover">
+            <div className="romantic-card p-6 feature-card-hover h-full">
               <div className="flex justify-center mb-4">
                 <span className="text-4xl">💌</span>
               </div>
@@ -112,7 +112,7 @@ const HomePage = () => {
               <p className="text-naughty-pink/80 mb-4 text-center">
                 Create sweet messages for your partner
               </p>
-              <div className="flex justify-center">
+              <div className="flex justify-center mt-auto">
                 <Button asChild variant="ghost" className="text-naughty-purple hover:text-naughty-pink hover:bg-white/5">
                   <Link to="/sexting-generator">
                     Write Now <Heart size={16} className="ml-2" />
@@ -122,7 +122,7 @@ const HomePage = () => {
             </div>
             
             {/* Feature 5 - Creator Calculator */}
-            <div className="romantic-card p-6 feature-card-hover">
+            <div className="romantic-card p-6 feature-card-hover h-full">
               <div className="flex justify-center mb-4">
                 <span className="text-4xl">💰</span>
               </div>
@@ -130,7 +130,7 @@ const HomePage = () => {
               <p className="text-naughty-pink/80 mb-4 text-center">
                 Calculate potential income from content
               </p>
-              <div className="flex justify-center">
+              <div className="flex justify-center mt-auto">
                 <Button asChild variant="ghost" className="text-naughty-purple hover:text-naughty-pink hover:bg-white/5">
                   <Link to="/income-calculator">
                     Calculate <Calculator size={16} className="ml-2" />

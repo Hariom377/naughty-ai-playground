@@ -50,7 +50,8 @@ const App = () => {
                   <Route path="/income-calculator" element={<IncomeCalculatorPage />} />
                   <Route path="/anniversary-ideas" element={<AnniversaryIdeasPage />} />
                   <Route path="/first-date-ideas" element={<FirstDateIdeasPage />} />
-                  <Route path="*" element={<NotFound />} />
+                  <Route path="/404" element={<NotFound />} />
+                  <Route path="*" element={<Navigate to="/" replace />} />
                 </>
               )}
             </Routes>
