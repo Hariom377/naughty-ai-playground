@@ -187,7 +187,7 @@ const AnniversaryIdeasPage = () => {
                       <SelectValue placeholder="Select season" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="">Any season</SelectItem>
+                      <SelectItem value="any">Any season</SelectItem>
                       {seasonOptions.map(option => (
                         <SelectItem key={option.value} value={option.value}>
                           {option.label}
