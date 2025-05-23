@@ -13,6 +13,12 @@ import EroticChatPage from "./pages/EroticChatPage";
 import IncomeCalculatorPage from "./pages/IncomeCalculatorPage";
 import AnniversaryIdeasPage from "./pages/AnniversaryIdeasPage";
 import FirstDateIdeasPage from "./pages/FirstDateIdeasPage";
+import CouplesQuizPage from "./pages/CouplesQuizPage";
+import LoveLanguageDecoderPage from "./pages/LoveLanguageDecoderPage";
+import ArgumentMediatorPage from "./pages/ArgumentMediatorPage";
+import ConfessionLetterPage from "./pages/ConfessionLetterPage";
+import LoveNoteGeneratorPage from "./pages/LoveNoteGeneratorPage";
+import VoiceMessageMoodPage from "./pages/VoiceMessageMoodPage";
 import NotFound from "./pages/NotFound";
 import { UserProvider } from "./contexts/UserContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
@@ -52,8 +58,14 @@ const App = () => {
                     <Route path="/income-calculator" element={<IncomeCalculatorPage />} />
                     <Route path="/anniversary-ideas" element={<AnniversaryIdeasPage />} />
                     <Route path="/first-date-ideas" element={<FirstDateIdeasPage />} />
+                    <Route path="/couples-quiz" element={<CouplesQuizPage />} />
+                    <Route path="/love-language-decoder" element={<LoveLanguageDecoderPage />} />
+                    <Route path="/argument-mediator" element={<ArgumentMediatorPage />} />
+                    <Route path="/confession-letter" element={<ConfessionLetterPage />} />
+                    <Route path="/love-note-generator" element={<LoveNoteGeneratorPage />} />
+                    <Route path="/voice-message-mood" element={<VoiceMessageMoodPage />} />
                     <Route path="/404" element={<NotFound />} />
-                    <Route path="*" element={<Navigate to="/" replace />} />
+                    <Route path="*" element={<Navigate to="/404" replace />} />
                   </>
                 )}
               </Routes>
