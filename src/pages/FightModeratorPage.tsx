@@ -1,3 +1,4 @@
+
 import React, { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -61,7 +62,7 @@ Return the analysis in JSON format with these fields: toxicityScore, toxicElemen
 
       const response = await generateWithGemini({
         prompt,
-        temperature: 0.7,
+        temperature: 0.7
       });
       
       try {
