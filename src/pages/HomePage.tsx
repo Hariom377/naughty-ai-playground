@@ -1,4 +1,3 @@
-
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -162,7 +161,7 @@ const HomePage = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {tools.map((tool, index) => (
-              <div key={index} className="romantic-card p-6 feature-card-hover h-full flex flex-col">
+              <Link key={index} to={tool.link} className="romantic-card p-6 feature-card-hover h-full flex flex-col no-underline">
                 <div className="flex justify-center mb-4">
                   <span className="text-4xl">{tool.icon}</span>
                 </div>
@@ -171,14 +170,12 @@ const HomePage = () => {
                   {tool.description}
                 </p>
                 <div className="flex justify-center mt-auto">
-                  <Button asChild variant="ghost" className="text-naughty-purple hover:text-naughty-pink hover:bg-white/5">
-                    <Link to={tool.link}>
-                      {language === 'en' ? "Try Now" : "अभी आज़माएं"}
-                      <Heart size={16} className="ml-2" />
-                    </Link>
-                  </Button>
+                  <span className="text-naughty-purple hover:text-naughty-pink hover:bg-white/5 flex items-center gap-2 transition-colors">
+                    {language === 'en' ? "Try Now" : "अभी आज़माएं"}
+                    <Heart size={16} />
+                  </span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
