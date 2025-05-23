@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -60,10 +59,7 @@ Provide a comprehensive analysis with the following:
 
 Return the analysis in JSON format with these fields: toxicityScore, toxicElements (array), improvedMessage, timeout, repairScript.`;
 
-      const response = await generateWithGemini({
-        prompt,
-        temperature: 0.7
-      });
+      const response = await generateWithGemini(prompt, 0.7);
       
       try {
         // Try to parse JSON response
