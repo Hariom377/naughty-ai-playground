@@ -38,6 +38,15 @@ const moodAnalysisExample = {
   }
 };
 
+// Prepare modified data with fill colors directly assigned
+const prepareChartData = () => {
+  return [
+    { name: "Positive", value: moodAnalysisExample.raw.positive, fill: "#9F7AEA" },
+    { name: "Neutral", value: moodAnalysisExample.raw.neutral, fill: "#A0AEC0" },
+    { name: "Negative", value: moodAnalysisExample.raw.negative, fill: "#F56565" }
+  ];
+};
+
 const VoiceMessageMoodPage = () => {
   const { language } = useLanguage();
   const { user } = useUser();
@@ -107,14 +116,20 @@ const VoiceMessageMoodPage = () => {
   const emotionChartData = analysisResult ? Object.entries(analysisResult.raw.emotions)
     .map(([key, value]) => ({ 
       name: key.charAt(0).toUpperCase() + key.slice(1), 
-      value 
+      value,
+      fill: "#9F7AEA" 
     })) : [];
   
-  const sentimentData = [
-    { name: isEnglish ? "Positive" : "सकारात्मक", value: analysisResult?.raw.positive || 0 },
-    { name: isEnglish ? "Neutral" : "तटस्थ", value: analysisResult?.raw.neutral || 0 },
-    { name: isEnglish ? "Negative" : "नकारात्मक", value: analysisResult?.raw.negative || 0 }
-  ];
+  // Use prepared data with fill colors
+  const sentimentData = analysisResult ? prepareChartData().map(item => {
+    // Translate names if needed
+    if (language === 'hi') {
+      if (item.name === 'Positive') return { ...item, name: 'सकारात्मक' };
+      if (item.name === 'Neutral') return { ...item, name: 'तटस्थ' };
+      if (item.name === 'Negative') return { ...item, name: 'नकारात्मक' };
+    }
+    return item;
+  }) : [];
   
   return (
     <Layout>
@@ -252,12 +267,6 @@ const VoiceMessageMoodPage = () => {
                       <YAxis type="category" dataKey="name" />
                       <Bar 
                         dataKey="value" 
-                        fill={(entry) => {
-                          const name = entry.name;
-                          if (name === "Positive" || name === "सकारात्मक") return "#9F7AEA";
-                          if (name === "Negative" || name === "नकारात्मक") return "#F56565";
-                          return "#A0AEC0";
-                        }} 
                         radius={[0, 4, 4, 0]}
                         label={{ fill: 'white', fontSize: 12, position: 'right' }}
                       />
@@ -274,7 +283,7 @@ const VoiceMessageMoodPage = () => {
                       <CartesianGrid strokeDasharray="3 3" stroke="#333" vertical={false} />
                       <XAxis dataKey="name" stroke="#999" />
                       <YAxis domain={[0, 100]} stroke="#999" />
-                      <Bar dataKey="value" fill="#9F7AEA" radius={[4, 4, 0, 0]} />
+                      <Bar dataKey="value" radius={[4, 4, 0, 0]} />
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
