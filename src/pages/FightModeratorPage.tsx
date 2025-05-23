@@ -96,7 +96,7 @@ Return the analysis in JSON format with these fields: toxicityScore, toxicElemen
       }
       
       // Scroll to results
-      setTimeout(() => {
+      globalThis.setTimeout(() => {
         resultRef.current?.scrollIntoView({ behavior: 'smooth' });
       }, 100);
       

@@ -4,80 +4,106 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useUser } from '@/contexts/UserContext';
 import { generateWithGemini } from '@/utils/geminiApi';
 import { toast } from 'sonner';
-import { Search, Users, AlertTriangle, ThumbsUp, ThumbsDown, MessageSquare } from 'lucide-react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Users, Search, MessageSquare, Camera, AlertTriangle } from 'lucide-react';
 
 const SocialSpyPage = () => {
   const { language } = useLanguage();
-  const { user } = useUser();
   const isEnglish = language === 'en';
   
-  const [friendNames, setFriendNames] = useState('');
+  const [partnerName, setPartnerName] = useState('');
+  const [friendGroup, setFriendGroup] = useState('');
+  const [occasion, setOccasion] = useState('');
+  const [concerns, setConcerns] = useState('');
   const [isAnalyzing, setIsAnalyzing] = useState(false);
-  const [results, setResults] = useState(null);
-  const [practiceMode, setPracticeMode] = useState(false);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  
-  // Sample data for demonstration
-  const sampleResults = {
-    topics: [
-      { name: "Lisa", interests: ["Pottery", "Indie music", "Vegan cooking"], avoid: ["Politics", "Religion"] },
-      { name: "Jake", interests: ["Basketball", "Marvel movies", "Craft beer"], avoid: ["Ex relationships", "Work stress"] },
-      { name: "Maya", interests: ["Dogs", "Travel photography", "Yoga"], avoid: ["Family drama", "Diet talk"] }
-    ],
-    icebreakers: [
-      "I heard you've been into pottery lately. What got you started with that?",
-      "Jake, what did you think about the latest Marvel release?",
-      "Maya, I saw some of your travel photos online - they're amazing! What's been your favorite destination?"
-    ],
-    groupDynamics: {
-      description: "This friend group values authentic conversations and humor. They tend to tease each other affectionately but are supportive when it matters. The group has a long history together from college.",
-      insiderJokes: ["The infamous camping trip disaster", "Lisa's pottery class explosion", "Jake's celebrity look-alike"]
-    },
-    practiceQuestions: [
-      { question: "So how do you know [partner's name]?", suggestedAnswer: "We met through a mutual friend at a cooking class. I was immediately drawn to their sense of humor and we connected over our shared love of trying new recipes." },
-      { question: "What do you do for work?", suggestedAnswer: "I work in digital marketing, focusing on social media strategies. It's creative and ever-changing, which keeps things interesting! What about you - do you enjoy what you do?" },
-      { question: "Have you heard about the latest drama with [celebrity]?", suggestedAnswer: "I've only seen headlines honestly. I'm more into indie films than mainstream celebrity news. What kinds of movies or shows are you all into?" }
-    ]
-  };
-  
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!friendNames.trim()) {
-      toast.error(isEnglish ? 'Please enter friend names' : 'कृपया दोस्तों के नाम दर्ज करें');
+  const [spyReport, setSpyReport] = useState<any>(null);
+
+  const handleAnalyze = async () => {
+    if (!partnerName.trim() || !friendGroup.trim()) {
+      toast.error(isEnglish ? 'Please fill in the required fields' : 'कृपया आवश्यक फ़ील्ड भरें');
       return;
     }
     
     setIsAnalyzing(true);
-    setResults(null);
     
     try {
-      // In a real app, this would analyze social profiles
-      // For now, we'll simulate a delay and use sample data
-      setTimeout(() => {
-        setResults(sampleResults);
-        setIsAnalyzing(false);
-      }, 2500);
+      const prompt = `Create a social intelligence guide for meeting a partner's friend group:
+
+Partner's name: ${partnerName}
+Friend group type: ${friendGroup}
+Occasion: ${occasion || 'casual meetup'}
+Specific concerns: ${concerns || 'making a good impression'}
+
+Provide comprehensive advice including:
+1. Conversation starters specific to this group
+2. Topics to avoid or be careful with
+3. How to show interest in their stories and inside jokes
+4. Ways to bond with different personality types in the group
+5. Red flags to watch for in group dynamics
+6. How to handle awkward moments gracefully
+7. Post-meetup follow-up strategies
+
+Return in JSON format with fields: conversationStarters (array), topicsToAvoid (array), bondingTips (array), redFlags (array), awkwardMomentTips (array), followUpTips (array)`;
+
+      const response = await generateWithGemini({
+        prompt,
+        temperature: 0.7,
+      });
       
+      try {
+        const parsedResponse = JSON.parse(response);
+        setSpyReport(parsedResponse);
+      } catch (error) {
+        // Fallback report
+        setSpyReport({
+          conversationStarters: [
+            `"${partnerName} has told me so much about you all! I've been looking forward to meeting you."`,
+            "What's the most embarrassing story you have about [partner's name]?",
+            "How did you all become such close friends?",
+            "What's your favorite memory together as a group?"
+          ],
+          topicsToAvoid: [
+            "Past relationships or dating history",
+            "Personal financial situations",
+            "Controversial political topics",
+            "Criticizing anyone not present"
+          ],
+          bondingTips: [
+            "Ask follow-up questions to show genuine interest",
+            "Share a funny story about yourself to break the ice",
+            "Compliment something specific rather than generic praise",
+            "Remember details they share and reference them later"
+          ],
+          redFlags: [
+            "Friends seem overly protective or suspicious",
+            "Constant inside jokes that exclude you deliberately",
+            "Negative comments about your partner's past relationships",
+            "Pressure to drink or participate in activities you're uncomfortable with"
+          ],
+          awkwardMomentTips: [
+            "Use humor to deflect uncomfortable situations",
+            "Ask your partner for help if you feel overwhelmed",
+            "Excuse yourself briefly if you need a moment",
+            "Focus on one person at a time rather than the whole group"
+          ],
+          followUpTips: [
+            "Send a group message thanking them for including you",
+            "Share photos from the event if appropriate",
+            "Suggest a future activity you could all do together",
+            "Follow them on social media if they seem receptive"
+          ]
+        });
+      }
     } catch (error) {
-      console.error("Error analyzing social profiles:", error);
+      console.error("Error generating social spy report:", error);
+      toast.error(isEnglish ? 'Error generating report' : 'रिपोर्ट जेनरेट करने में त्रुटि');
+    } finally {
       setIsAnalyzing(false);
-      toast.error(isEnglish ? 'Error analyzing profiles' : 'प्रोफाइल विश्लेषण में त्रुटि');
-    }
-  };
-  
-  const handleNextQuestion = () => {
-    if (currentQuestion < sampleResults.practiceQuestions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-    } else {
-      // Cycle back to the first question
-      setCurrentQuestion(0);
     }
   };
 
@@ -90,227 +116,222 @@ const SocialSpyPage = () => {
           </h1>
           <p className="text-lg text-gray-300 mb-6">
             {isEnglish 
-              ? 'Ace your meet-the-friends situations with insider knowledge' 
-              : 'अंदरूनी जानकारी के साथ अपने मीट-द-फ्रेंड्स सिचुएशन्स में एक्सेल करें'}
+              ? 'Ace meet-the-friends scenarios with insider knowledge and social intelligence' 
+              : 'अंदरूनी जानकारी और सामाजिक बुद्धिमत्ता के साथ दोस्तों से मिलने के परिदृश्य में उत्कृष्टता प्राप्त करें'}
           </p>
         </div>
-        
+
         <div className="glass-card p-6 mb-8">
           <h2 className="text-2xl font-semibold mb-4">
-            {isEnglish ? 'Who will you be meeting?' : 'आप किससे मिलेंगे?'}
+            {isEnglish ? 'Prepare for the Social Mission' : 'सामाजिक मिशन की तैयारी करें'}
           </h2>
           
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <Label htmlFor="partner-name" className="text-white mb-2 block">
+                  {isEnglish ? 'Partner\'s Name *' : 'साथी का नाम *'}
+                </Label>
+                <Input
+                  id="partner-name"
+                  placeholder={isEnglish ? "Your partner's name" : "आपके साथी का नाम"}
+                  value={partnerName}
+                  onChange={(e) => setPartnerName(e.target.value)}
+                  className="romantic-input"
+                  required
+                />
+              </div>
+              
+              <div>
+                <Label htmlFor="occasion" className="text-white mb-2 block">
+                  {isEnglish ? 'Type of Event' : 'इवेंट का प्रकार'}
+                </Label>
+                <Select value={occasion} onValueChange={setOccasion}>
+                  <SelectTrigger className="romantic-input">
+                    <SelectValue placeholder={isEnglish ? "Select event type" : "इवेंट का प्रकार चुनें"} />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="dinner-party">{isEnglish ? 'Dinner Party' : 'डिनर पार्टी'}</SelectItem>
+                    <SelectItem value="casual-hangout">{isEnglish ? 'Casual Hangout' : 'कैज़ुअल हैंगआउट'}</SelectItem>
+                    <SelectItem value="birthday-party">{isEnglish ? 'Birthday Party' : 'जन्मदिन पार्टी'}</SelectItem>
+                    <SelectItem value="wedding-event">{isEnglish ? 'Wedding/Formal Event' : 'शादी/औपचारिक इवेंट'}</SelectItem>
+                    <SelectItem value="group-vacation">{isEnglish ? 'Group Vacation' : 'ग्रुप वेकेशन'}</SelectItem>
+                    <SelectItem value="first-meeting">{isEnglish ? 'First Time Meeting' : 'पहली बार मिलना'}</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+            
             <div>
-              <Label htmlFor="friend-names" className="text-white mb-2 block">
-                {isEnglish ? 'Friend names (separated by commas)' : 'दोस्तों के नाम (कॉमा से अलग)'}
+              <Label htmlFor="friend-group" className="text-white mb-2 block">
+                {isEnglish ? 'Describe the friend group *' : 'मित्र समूह का वर्णन करें *'}
               </Label>
-              <Input
-                id="friend-names"
-                placeholder={isEnglish ? 'e.g., Lisa, Jake, Maya' : 'जैसे, लिसा, जेक, माया'}
-                value={friendNames}
-                onChange={(e) => setFriendNames(e.target.value)}
-                className="romantic-input"
+              <Textarea
+                id="friend-group"
+                placeholder={isEnglish ? "College friends, work colleagues, childhood friends, etc. Include ages, interests, personalities..." : "कॉलेज के दोस्त, कार्यक्षेत्र के सहयोगी, बचपन के दोस्त, आदि। उम्र, रुचियां, व्यक्तित्व शामिल करें..."}
+                value={friendGroup}
+                onChange={(e) => setFriendGroup(e.target.value)}
+                className="romantic-input min-h-[100px]"
+                required
               />
-              <p className="text-xs text-gray-400 mt-1">
-                {isEnglish 
-                  ? 'We\'ll scan public profiles to help you prepare' 
-                  : 'हम आपको तैयार करने में मदद के लिए पब्लिक प्रोफाइल को स्कैन करेंगे'}
-              </p>
+            </div>
+            
+            <div>
+              <Label htmlFor="concerns" className="text-white mb-2 block">
+                {isEnglish ? 'Any specific concerns or goals?' : 'कोई विशिष्ट चिंताएं या लक्ष्य?'}
+              </Label>
+              <Textarea
+                id="concerns"
+                placeholder={isEnglish ? "What are you worried about? What impression do you want to make? Any known group dynamics..." : "आप किस बात से चिंतित हैं? आप क्या प्रभाव डालना चाहते हैं? कोई ज्ञात समूह गतिशीलता..."}
+                value={concerns}
+                onChange={(e) => setConcerns(e.target.value)}
+                className="romantic-input min-h-[80px]"
+              />
             </div>
             
             <Button 
-              type="submit" 
+              onClick={handleAnalyze} 
               className="w-full md:w-auto romantic-button"
-              disabled={isAnalyzing}
+              disabled={isAnalyzing || !partnerName.trim() || !friendGroup.trim()}
             >
+              <Search className="mr-2 h-4 w-4" />
               {isAnalyzing 
-                ? (isEnglish ? 'Analyzing profiles...' : 'प्रोफाइल का विश्लेषण कर रहे हैं...') 
-                : (isEnglish ? 'Create Friend Cheat Sheet' : 'फ्रेंड चीट शीट बनाएं')}
+                ? (isEnglish ? 'Gathering intel...' : 'जानकारी इकट्ठा कर रहे हैं...') 
+                : (isEnglish ? 'Generate Social Intelligence Report' : 'सामाजिक बुद्धिमत्ता रिपोर्ट जेनरेट करें')}
             </Button>
-          </form>
+          </div>
         </div>
-        
-        {results && (
-          <div className="animate-fade-in">
-            <Tabs defaultValue="topics">
-              <TabsList className="grid grid-cols-4 mb-6">
-                <TabsTrigger value="topics">
-                  {isEnglish ? 'Topics' : 'विषय'}
-                </TabsTrigger>
-                <TabsTrigger value="icebreakers">
-                  {isEnglish ? 'Icebreakers' : 'आइसब्रेकर्स'}
-                </TabsTrigger>
-                <TabsTrigger value="dynamics">
-                  {isEnglish ? 'Group Dynamics' : 'ग्रुप डायनमिक्स'}
-                </TabsTrigger>
-                <TabsTrigger value="practice">
-                  {isEnglish ? 'Practice' : 'अभ्यास'}
-                </TabsTrigger>
-              </TabsList>
-              
-              <TabsContent value="topics" className="glass-card p-6">
-                <h3 className="text-xl font-semibold mb-4 text-gradient">
-                  {isEnglish ? 'Conversation Topics' : 'बातचीत के विषय'}
-                </h3>
-                
-                <div className="space-y-6">
-                  {results.topics.map((person, index) => (
-                    <Card key={index} className="bg-white/5 border-naughty-pink/20">
-                      <CardHeader>
-                        <CardTitle className="flex items-center">
-                          <Users className="mr-2 h-5 w-5 text-naughty-pink" />
-                          {person.name}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="mb-4">
-                          <h4 className="text-sm font-medium text-gray-400 mb-2">
-                            {isEnglish ? 'Talk about:' : 'इन पर बात करें:'}
-                          </h4>
-                          <div className="flex flex-wrap gap-2">
-                            {person.interests.map((interest, i) => (
-                              <span 
-                                key={i} 
-                                className="bg-naughty-purple/20 text-naughty-pink px-2 py-1 rounded text-sm"
-                              >
-                                {interest}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                        
-                        <div>
-                          <h4 className="text-sm font-medium text-gray-400 mb-2 flex items-center">
-                            <AlertTriangle className="mr-1 h-4 w-4 text-amber-500" />
-                            {isEnglish ? 'Avoid:' : 'इनसे बचें:'}
-                          </h4>
-                          <div className="flex flex-wrap gap-2">
-                            {person.avoid.map((topic, i) => (
-                              <span 
-                                key={i} 
-                                className="bg-red-900/20 text-red-300 px-2 py-1 rounded text-sm"
-                              >
-                                {topic}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </TabsContent>
-              
-              <TabsContent value="icebreakers" className="glass-card p-6">
-                <h3 className="text-xl font-semibold mb-4 text-gradient">
-                  {isEnglish ? 'Suggested Icebreakers' : 'सुझाए गए आइसब्रेकर्स'}
-                </h3>
-                
+
+        {spyReport && (
+          <div className="space-y-6 animate-fade-in">
+            <Card className="bg-white/5 border-naughty-pink/20">
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <MessageSquare className="mr-2 h-5 w-5 text-naughty-pink" />
+                  {isEnglish ? 'Conversation Starters' : 'बातचीत शुरू करने वाले'}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
                 <div className="space-y-3">
-                  {results.icebreakers.map((icebreaker, index) => (
-                    <div 
-                      key={index} 
-                      className="bg-white/5 p-4 rounded-lg flex items-start"
-                    >
-                      <MessageSquare className="text-naughty-pink mr-3 h-5 w-5 mt-0.5 flex-shrink-0" />
-                      <p>{icebreaker}</p>
+                  {spyReport.conversationStarters.map((starter: string, index: number) => (
+                    <div key={index} className="bg-white/5 p-3 rounded-lg">
+                      <p className="italic">"{starter}"</p>
                     </div>
                   ))}
                 </div>
-                
-                <div className="mt-6">
-                  <Button variant="outline" className="w-full">
-                    {isEnglish ? 'Generate More Icebreakers' : 'और आइसब्रेकर जेनरेट करें'}
-                  </Button>
-                </div>
-              </TabsContent>
-              
-              <TabsContent value="dynamics" className="glass-card p-6">
-                <h3 className="text-xl font-semibold mb-4 text-gradient">
-                  {isEnglish ? 'Group Dynamics' : 'ग्रुप डायनमिक्स'}
-                </h3>
-                
-                <div className="bg-white/5 p-4 rounded-lg mb-6">
-                  <h4 className="font-medium mb-2 text-naughty-pink">
-                    {isEnglish ? 'Overall Vibe' : 'समग्र वाइब'}
-                  </h4>
-                  <p>{results.groupDynamics.description}</p>
-                </div>
-                
-                <div>
-                  <h4 className="font-medium mb-3 text-naughty-pink">
-                    {isEnglish ? 'Inside Jokes (Be Aware)' : 'इनसाइड जोक्स (सावधान रहें)'}
-                  </h4>
-                  <ul className="space-y-2">
-                    {results.groupDynamics.insiderJokes.map((joke, index) => (
-                      <li key={index} className="flex items-start">
-                        <span className="text-naughty-pink mr-2">•</span>
-                        <span>{joke}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </TabsContent>
-              
-              <TabsContent value="practice" className="glass-card p-6">
-                <h3 className="text-xl font-semibold mb-4 text-gradient">
-                  {isEnglish ? 'Practice Q&A' : 'अभ्यास प्रश्नोत्तर'}
-                </h3>
-                
-                <div className="mb-8">
-                  <Card className="bg-white/5 border-naughty-pink/20 mb-4">
-                    <CardHeader>
-                      <CardTitle className="text-lg">
-                        {isEnglish ? 'Question:' : 'प्रश्न:'}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-lg">{results.practiceQuestions[currentQuestion].question}</p>
-                    </CardContent>
-                  </Card>
-                  
-                  {practiceMode && (
-                    <Card className="bg-white/5 border-naughty-pink/30">
-                      <CardHeader>
-                        <CardTitle className="text-lg text-naughty-pink">
-                          {isEnglish ? 'Suggested Answer:' : 'सुझाया गया उत्तर:'}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p>{results.practiceQuestions[currentQuestion].suggestedAnswer}</p>
-                      </CardContent>
-                    </Card>
-                  )}
-                </div>
-                
-                <div className="flex justify-between">
-                  <Button 
-                    variant={practiceMode ? "default" : "outline"} 
-                    onClick={() => setPracticeMode(!practiceMode)}
-                  >
-                    {practiceMode
-                      ? (isEnglish ? 'Hide Answer' : 'उत्तर छिपाएं')
-                      : (isEnglish ? 'Show Answer' : 'उत्तर दिखाएं')}
-                  </Button>
-                  
-                  <Button onClick={handleNextQuestion}>
-                    {isEnglish ? 'Next Question' : 'अगला प्रश्न'}
-                  </Button>
-                </div>
-              </TabsContent>
-            </Tabs>
-            
-            <div className="flex justify-center gap-4 my-8">
-              <Button variant="outline">
-                {isEnglish ? 'Download Friend Cheat Sheet' : 'फ्रेंड चीट शीट डाउनलोड करें'}
-              </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white/5 border-yellow-400/20">
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <AlertTriangle className="mr-2 h-5 w-5 text-yellow-400" />
+                  {isEnglish ? 'Topics to Avoid' : 'बचने योग्य विषय'}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2">
+                  {spyReport.topicsToAvoid.map((topic: string, index: number) => (
+                    <li key={index} className="flex items-start">
+                      <span className="text-yellow-400 mr-2">⚠️</span>
+                      <span>{topic}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white/5 border-green-400/20">
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <Users className="mr-2 h-5 w-5 text-green-400" />
+                  {isEnglish ? 'Bonding Strategies' : 'बंधन रणनीतियां'}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2">
+                  {spyReport.bondingTips.map((tip: string, index: number) => (
+                    <li key={index} className="flex items-start">
+                      <span className="text-green-400 mr-2">✅</span>
+                      <span>{tip}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white/5 border-red-400/20">
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <AlertTriangle className="mr-2 h-5 w-5 text-red-400" />
+                  {isEnglish ? 'Red Flags to Watch For' : 'चेतावनी के संकेत'}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2">
+                  {spyReport.redFlags.map((flag: string, index: number) => (
+                    <li key={index} className="flex items-start">
+                      <span className="text-red-400 mr-2">🚩</span>
+                      <span>{flag}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white/5 border-blue-400/20">
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <Camera className="mr-2 h-5 w-5 text-blue-400" />
+                  {isEnglish ? 'Handling Awkward Moments' : 'अजीब पलों को संभालना'}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2">
+                  {spyReport.awkwardMomentTips.map((tip: string, index: number) => (
+                    <li key={index} className="flex items-start">
+                      <span className="text-blue-400 mr-2">💡</span>
+                      <span>{tip}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white/5 border-purple-400/20">
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <MessageSquare className="mr-2 h-5 w-5 text-purple-400" />
+                  {isEnglish ? 'Post-Event Follow-Up' : 'इवेंट के बाद फॉलो-अप'}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2">
+                  {spyReport.followUpTips.map((tip: string, index: number) => (
+                    <li key={index} className="flex items-start">
+                      <span className="text-purple-400 mr-2">📱</span>
+                      <span>{tip}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+
+            <div className="text-center">
               <Button variant="romantic">
-                {isEnglish ? 'Get Deep Dive Report' : 'डीप डाइव रिपोर्ट प्राप्त करें'}
+                {isEnglish ? 'Save My Social Strategy' : 'मेरी सामाजिक रणनीति सेव करें'}
               </Button>
             </div>
           </div>
         )}
+
+        <div className="mt-8 text-center">
+          <p className="text-naughty-pink mb-4">
+            {isEnglish 
+              ? 'Premium users get detailed personality analysis and custom conversation scripts!' 
+              : 'प्रीमियम उपयोगकर्ताओं को विस्तृत व्यक्तित्व विश्लेषण और कस्टम बातचीत स्क्रिप्ट मिलती हैं!'}
+          </p>
+        </div>
       </div>
     </Layout>
   );

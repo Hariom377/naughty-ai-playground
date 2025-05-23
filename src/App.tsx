@@ -1,95 +1,62 @@
 
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { useState } from "react";
-import AgeVerificationPage from "./pages/AgeVerificationPage";
-import HomePage from "./pages/HomePage";
-import SextingGeneratorPage from "./pages/SextingGeneratorPage";
-import DirtyTalkIdeasPage from "./pages/DirtyTalkIdeasPage";
-import EroticChatPage from "./pages/EroticChatPage";
-import IncomeCalculatorPage from "./pages/IncomeCalculatorPage";
-import AnniversaryIdeasPage from "./pages/AnniversaryIdeasPage";
-import FirstDateIdeasPage from "./pages/FirstDateIdeasPage";
-import CouplesQuizPage from "./pages/CouplesQuizPage";
-import LoveLanguageDecoderPage from "./pages/LoveLanguageDecoderPage";
-import ArgumentMediatorPage from "./pages/ArgumentMediatorPage";
-import ConfessionLetterPage from "./pages/ConfessionLetterPage";
-import LoveNoteGeneratorPage from "./pages/LoveNoteGeneratorPage";
-import VoiceMessageMoodPage from "./pages/VoiceMessageMoodPage";
-import InterestOverlapFinderPage from "./pages/InterestOverlapFinderPage";
-import TextCprPage from "./pages/TextCprPage";
-import FlirtCoachPage from "./pages/FlirtCoachPage";
-import SocialSpyPage from "./pages/SocialSpyPage";
-import RandomAdventureWheelPage from "./pages/RandomAdventureWheelPage";
-import FightModeratorPage from "./pages/FightModeratorPage";
-import NotFound from "./pages/NotFound";
-import { UserProvider } from "./contexts/UserContext";
-import { LanguageProvider } from "./contexts/LanguageContext";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Toaster } from '@/components/ui/sonner';
+import { UserProvider } from '@/contexts/UserContext';
+import { LanguageProvider } from '@/contexts/LanguageContext';
+import Index from '@/pages/Index';
+import HomePage from '@/pages/HomePage';
+import SextingGeneratorPage from '@/pages/SextingGeneratorPage';
+import DirtyTalkIdeasPage from '@/pages/DirtyTalkIdeasPage';
+import EroticChatPage from '@/pages/EroticChatPage';
+import AnniversaryIdeasPage from '@/pages/AnniversaryIdeasPage';
+import FirstDateIdeasPage from '@/pages/FirstDateIdeasPage';
+import RandomAdventureWheelPage from '@/pages/RandomAdventureWheelPage';
+import InterestOverlapFinderPage from '@/pages/InterestOverlapFinderPage';
+import TextCprPage from '@/pages/TextCprPage';
+import FlirtCoachPage from '@/pages/FlirtCoachPage';
+import SocialSpyPage from '@/pages/SocialSpyPage';
+import FightModeratorPage from '@/pages/FightModeratorPage';
+import LoveLanguageDecoderPage from '@/pages/LoveLanguageDecoderPage';
+import LoveNoteGeneratorPage from '@/pages/LoveNoteGeneratorPage';
+import ConfessionLetterPage from '@/pages/ConfessionLetterPage';
+import ExDetoxPage from '@/pages/ExDetoxPage';
+import AgeVerificationPage from '@/pages/AgeVerificationPage';
+import NotFound from '@/pages/NotFound';
+import './App.css';
 
-const queryClient = new QueryClient();
-
-const App = () => {
-  const [isVerified, setIsVerified] = useState<boolean>(
-    localStorage.getItem("age-verified") === "true"
-  );
-
-  const handleVerify = () => {
-    localStorage.setItem("age-verified", "true");
-    setIsVerified(true);
-  };
-
+function App() {
   return (
-    <QueryClientProvider client={queryClient}>
+    <LanguageProvider>
       <UserProvider>
-        <LanguageProvider>
-          <TooltipProvider>
-            <Toaster />
-            <Sonner />
-            <BrowserRouter>
-              <Routes>
-                {!isVerified ? (
-                  <>
-                    <Route path="/verify-age" element={<AgeVerificationPage onVerify={handleVerify} />} />
-                    <Route path="*" element={<Navigate to="/verify-age" replace />} />
-                  </>
-                ) : (
-                  <>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/sexting-generator" element={<SextingGeneratorPage />} />
-                    <Route path="/dirty-talk-ideas" element={<DirtyTalkIdeasPage />} />
-                    <Route path="/erotic-chat" element={<EroticChatPage />} />
-                    <Route path="/income-calculator" element={<IncomeCalculatorPage />} />
-                    <Route path="/anniversary-ideas" element={<AnniversaryIdeasPage />} />
-                    <Route path="/first-date-ideas" element={<FirstDateIdeasPage />} />
-                    <Route path="/couples-quiz" element={<CouplesQuizPage />} />
-                    <Route path="/love-language-decoder" element={<LoveLanguageDecoderPage />} />
-                    <Route path="/argument-mediator" element={<ArgumentMediatorPage />} />
-                    <Route path="/confession-letter" element={<ConfessionLetterPage />} />
-                    <Route path="/love-note-generator" element={<LoveNoteGeneratorPage />} />
-                    <Route path="/voice-message-mood" element={<VoiceMessageMoodPage />} />
-                    
-                    {/* New routes for additional tools */}
-                    <Route path="/interest-overlap-finder" element={<InterestOverlapFinderPage />} />
-                    <Route path="/text-cpr" element={<TextCprPage />} />
-                    <Route path="/flirt-coach" element={<FlirtCoachPage />} />
-                    <Route path="/social-spy" element={<SocialSpyPage />} />
-                    <Route path="/random-adventure-wheel" element={<RandomAdventureWheelPage />} />
-                    <Route path="/fight-moderator" element={<FightModeratorPage />} />
-                    
-                    <Route path="/404" element={<NotFound />} />
-                    <Route path="*" element={<Navigate to="/404" replace />} />
-                  </>
-                )}
-              </Routes>
-            </BrowserRouter>
-          </TooltipProvider>
-        </LanguageProvider>
+        <Router>
+          <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/home" element={<HomePage />} />
+              <Route path="/age-verification" element={<AgeVerificationPage />} />
+              <Route path="/sexting-generator" element={<SextingGeneratorPage />} />
+              <Route path="/dirty-talk-ideas" element={<DirtyTalkIdeasPage />} />
+              <Route path="/erotic-chat" element={<EroticChatPage />} />
+              <Route path="/anniversary-ideas" element={<AnniversaryIdeasPage />} />
+              <Route path="/first-date-ideas" element={<FirstDateIdeasPage />} />
+              <Route path="/random-adventure-wheel" element={<RandomAdventureWheelPage />} />
+              <Route path="/interest-overlap-finder" element={<InterestOverlapFinderPage />} />
+              <Route path="/text-cpr" element={<TextCprPage />} />
+              <Route path="/flirt-coach" element={<FlirtCoachPage />} />
+              <Route path="/social-spy" element={<SocialSpyPage />} />
+              <Route path="/fight-moderator" element={<FightModeratorPage />} />
+              <Route path="/love-language-decoder" element={<LoveLanguageDecoderPage />} />
+              <Route path="/love-note-generator" element={<LoveNoteGeneratorPage />} />
+              <Route path="/confession-letter" element={<ConfessionLetterPage />} />
+              <Route path="/ex-detox" element={<ExDetoxPage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
+          <Toaster />
+        </Router>
       </UserProvider>
-    </QueryClientProvider>
+    </LanguageProvider>
   );
-};
+}
 
 export default App;
