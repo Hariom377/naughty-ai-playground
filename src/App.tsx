@@ -19,6 +19,12 @@ import ArgumentMediatorPage from "./pages/ArgumentMediatorPage";
 import ConfessionLetterPage from "./pages/ConfessionLetterPage";
 import LoveNoteGeneratorPage from "./pages/LoveNoteGeneratorPage";
 import VoiceMessageMoodPage from "./pages/VoiceMessageMoodPage";
+import InterestOverlapFinderPage from "./pages/InterestOverlapFinderPage";
+import TextCprPage from "./pages/TextCprPage";
+import FlirtCoachPage from "./pages/FlirtCoachPage";
+import SocialSpyPage from "./pages/SocialSpyPage";
+import RandomAdventureWheelPage from "./pages/RandomAdventureWheelPage";
+import FightModeratorPage from "./pages/FightModeratorPage";
 import NotFound from "./pages/NotFound";
 import { UserProvider } from "./contexts/UserContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
@@ -64,6 +70,15 @@ const App = () => {
                     <Route path="/confession-letter" element={<ConfessionLetterPage />} />
                     <Route path="/love-note-generator" element={<LoveNoteGeneratorPage />} />
                     <Route path="/voice-message-mood" element={<VoiceMessageMoodPage />} />
+                    
+                    {/* New routes for additional tools */}
+                    <Route path="/interest-overlap-finder" element={<InterestOverlapFinderPage />} />
+                    <Route path="/text-cpr" element={<TextCprPage />} />
+                    <Route path="/flirt-coach" element={<FlirtCoachPage />} />
+                    <Route path="/social-spy" element={<SocialSpyPage />} />
+                    <Route path="/random-adventure-wheel" element={<RandomAdventureWheelPage />} />
+                    <Route path="/fight-moderator" element={<FightModeratorPage />} />
+                    
                     <Route path="/404" element={<NotFound />} />
                     <Route path="*" element={<Navigate to="/404" replace />} />
                   </>
