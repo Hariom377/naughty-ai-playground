@@ -23,11 +23,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   }, [language]);
 
   return (
-    <div className="flex flex-col min-h-screen w-full bg-naughty-dark">
+    <div className="flex flex-col min-h-screen w-full bg-gradient-to-br from-black via-gray-900 to-black">
       <Navbar />
       {showPremiumBanner && <PremiumBanner />}
-      <main className="flex-grow w-full px-4 py-6 md:py-10">
-        <div className="max-w-7xl mx-auto w-full">
+      <main className="flex-grow w-full">
+        <div className="container mx-auto px-4 py-6 md:py-10 max-w-7xl">
           {children}
         </div>
       </main>
