@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from '@/components/ui/sonner';
 import { UserProvider } from '@/contexts/UserContext';
 import { LanguageProvider } from '@/contexts/LanguageContext';
-import Index from '@/pages/Index';
 import HomePage from '@/pages/HomePage';
 import SextingGeneratorPage from '@/pages/SextingGeneratorPage';
 import DirtyTalkIdeasPage from '@/pages/DirtyTalkIdeasPage';
@@ -20,7 +19,6 @@ import LoveLanguageDecoderPage from '@/pages/LoveLanguageDecoderPage';
 import LoveNoteGeneratorPage from '@/pages/LoveNoteGeneratorPage';
 import ConfessionLetterPage from '@/pages/ConfessionLetterPage';
 import ExDetoxPage from '@/pages/ExDetoxPage';
-import AgeVerificationPage from '@/pages/AgeVerificationPage';
 import NotFound from '@/pages/NotFound';
 import './App.css';
 
@@ -29,11 +27,10 @@ function App() {
     <LanguageProvider>
       <UserProvider>
         <Router>
-          <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
+          <div className="min-h-screen w-full bg-gradient-to-br from-black via-gray-900 to-black">
             <Routes>
-              <Route path="/" element={<Index />} />
+              <Route path="/" element={<HomePage />} />
               <Route path="/home" element={<HomePage />} />
-              <Route path="/age-verification" element={<AgeVerificationPage />} />
               <Route path="/sexting-generator" element={<SextingGeneratorPage />} />
               <Route path="/dirty-talk-ideas" element={<DirtyTalkIdeasPage />} />
               <Route path="/erotic-chat" element={<EroticChatPage />} />

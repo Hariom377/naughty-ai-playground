@@ -6,7 +6,8 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useUser } from '@/contexts/UserContext';
 import { 
   Search, MessageSquare, Heart, Users, Sparkles, 
-  Send, Gift, X, Clock, Brain, HeartHandshake, PenTool 
+  Send, Gift, X, Clock, Brain, HeartHandshake, PenTool,
+  Zap, Shield, Eye, Volume2, Calculator, GamepadIcon
 } from 'lucide-react';
 
 const HomePage = () => {
@@ -69,6 +70,14 @@ const HomePage = () => {
       newFeature: true
     },
     {
+      title: isEnglish ? 'Fight Moderator' : 'फाइट मॉडरेटर',
+      description: isEnglish ? 'De-escalate conflicts with real-time message analysis' : 'वास्तविक समय संदेश विश्लेषण के साथ संघर्षों को कम करें',
+      icon: <HeartHandshake />,
+      to: '/fight-moderator',
+      isPremium: true,
+      newFeature: true
+    },
+    {
       title: isEnglish ? 'Anniversary Ideas' : 'वर्षगांठ विचार',
       description: isEnglish ? 'Generate creative anniversary celebration concepts' : 'रचनात्मक वर्षगांठ उत्सव अवधारणाएँ उत्पन्न करें',
       icon: <Gift />,
@@ -85,17 +94,9 @@ const HomePage = () => {
     {
       title: isEnglish ? 'Random Adventure Wheel' : 'रैंडम एडवेंचर व्हील',
       description: isEnglish ? 'Spin for surprising adventures to break your routine' : 'अपनी दिनचर्या तोड़ने के लिए आश्चर्यजनक साहसिक कार्यों के लिए स्पिन करें',
-      icon: <Clock />,
+      icon: <GamepadIcon />,
       to: '/random-adventure-wheel',
       isPremium: false,
-      newFeature: true
-    },
-    {
-      title: isEnglish ? 'Fight Moderator' : 'फाइट मॉडरेटर',
-      description: isEnglish ? 'De-escalate conflicts with real-time message analysis' : 'वास्तविक समय संदेश विश्लेषण के साथ संघर्षों को कम करें',
-      icon: <HeartHandshake />,
-      to: '/fight-moderator',
-      isPremium: true,
       newFeature: true
     },
     {
@@ -103,6 +104,13 @@ const HomePage = () => {
       description: isEnglish ? 'Decode and understand your partner\'s love language' : 'अपने साथी की प्रेम भाषा को समझें',
       icon: <Brain />,
       to: '/love-language-decoder',
+      isPremium: false
+    },
+    {
+      title: isEnglish ? 'Love Note Generator' : 'लव नोट जनरेटर',
+      description: isEnglish ? 'Create heartfelt love notes and romantic messages' : 'दिल से लव नोट्स और रोमांटिक मैसेज बनाएं',
+      icon: <PenTool />,
+      to: '/love-note-generator',
       isPremium: false
     },
     {
@@ -124,19 +132,19 @@ const HomePage = () => {
 
   return (
     <Layout>
-      <div className="container mx-auto">
+      <div className="w-full">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 romantic-title">
             {isEnglish ? 'AI-Powered Love Tools' : 'एआई-पावर्ड लव टूल्स'}
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-4xl mx-auto">
             {isEnglish 
-              ? 'Enhance your romantic life with our suite of AI-powered relationship tools' 
-              : 'एआई-संचालित संबंध उपकरणों के हमारे सूट के साथ अपने रोमांटिक जीवन को बढ़ाएं'}
+              ? 'Enhance your romantic life with our comprehensive suite of AI-powered relationship tools' 
+              : 'एआई-संचालित संबंध उपकरणों के हमारे व्यापक सूट के साथ अपने रोमांटिक जीवन को बढ़ाएं'}
           </p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
           {features.map((feature, index) => (
             <FeatureCard 
               key={index}

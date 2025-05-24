@@ -18,9 +18,21 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ variant = 'default'
   const { language, setLanguage } = useLanguage();
 
   const languages = [
-    { code: 'en', name: 'English' },
-    { code: 'hi', name: 'हिंदी (Hindi)' },
+    { code: 'en', name: 'English', flag: '🇺🇸' },
+    { code: 'es', name: 'Español', flag: '🇪🇸' },
+    { code: 'fr', name: 'Français', flag: '🇫🇷' },
+    { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+    { code: 'it', name: 'Italiano', flag: '🇮🇹' },
+    { code: 'pt', name: 'Português', flag: '🇵🇹' },
+    { code: 'ja', name: '日本語', flag: '🇯🇵' },
+    { code: 'ko', name: '한국어', flag: '🇰🇷' },
+    { code: 'zh', name: '中文', flag: '🇨🇳' },
+    { code: 'hi', name: 'हिंदी', flag: '🇮🇳' },
   ];
+
+  const getCurrentLanguage = () => {
+    return languages.find(lang => lang.code === language) || languages[0];
+  };
 
   const handleLanguageChange = (lang: LanguageType) => {
     setLanguage(lang);
@@ -36,18 +48,24 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ variant = 'default'
         >
           <Globe size={variant === 'compact' ? 16 : 18} />
           {variant === 'default' && (
-            <span>{language === 'en' ? 'EN' : 'हिं'}</span>
+            <span className="flex items-center gap-1">
+              <span>{getCurrentLanguage().flag}</span>
+              <span>{getCurrentLanguage().code.toUpperCase()}</span>
+            </span>
           )}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" className="w-48">
         {languages.map((lang) => (
           <DropdownMenuItem 
             key={lang.code} 
             onClick={() => handleLanguageChange(lang.code as LanguageType)}
             className={language === lang.code ? "bg-muted" : ""}
           >
-            {lang.name}
+            <span className="flex items-center gap-2 w-full">
+              <span>{lang.flag}</span>
+              <span>{lang.name}</span>
+            </span>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

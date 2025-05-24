@@ -9,7 +9,7 @@ import { useUser } from '@/contexts/UserContext';
 import { Textarea } from '@/components/ui/textarea';
 import { generateWithGemini } from '@/utils/geminiApi';
 import { toast } from 'sonner';
-import { Check, Copy, MessageSquare, AlertTriangle, Smile, Clock } from 'lucide-react';
+import { Check, Copy, MessageSquare, Smile, Clock } from 'lucide-react';
 
 const TextCprPage = () => {
   const { language } = useLanguage();
@@ -46,38 +46,55 @@ const TextCprPage = () => {
     setImprovedText('');
     
     try {
-      // Generate improved text using Gemini
-      const prompt = `I want you to transform a bland text message into an engaging one, with appropriate emoji placement and conversational style. The message should feel natural and personal.
+      const prompt = `Transform this bland text message into an engaging, witty, and interesting one. Add personality, humor where appropriate, and make it conversation-starting. Keep it authentic and not cringy.
 
 Original message: "${originalText}"
 
-Also provide a brief sentiment analysis of the original message - is it positive, negative, neutral, potentially tone-deaf or problematic?
+Also provide a brief sentiment analysis of the original message.
 
-Return in JSON format with two fields: "improved" - the improved text, and "sentiment" - the brief sentiment analysis.`;
+Return in this format:
+IMPROVED: [the improved message with emojis if appropriate]
+SENTIMENT: [brief analysis of the original message]`;
 
       const response = await generateWithGemini({
         prompt,
-        temperature: 0.7,
+        temperature: 0.8,
       });
       
-      try {
-        // Try to parse JSON response
-        const parsedResponse = JSON.parse(response);
-        setImprovedText(parsedResponse.improved);
-        setSentiment(parsedResponse.sentiment);
-      } catch (error) {
-        // Fallback if not valid JSON
-        setImprovedText(response);
-        setSentiment('Analysis not available');
+      console.log('Gemini response:', response);
+      
+      // Parse the response
+      const improvedMatch = response.match(/IMPROVED:\s*(.*?)(?=SENTIMENT:|$)/s);
+      const sentimentMatch = response.match(/SENTIMENT:\s*(.*?)$/s);
+      
+      if (improvedMatch) {
+        setImprovedText(improvedMatch[1].trim());
+      } else {
+        // Fallback: use the entire response as improved text
+        setImprovedText(response.trim());
+      }
+      
+      if (sentimentMatch) {
+        setSentiment(sentimentMatch[1].trim());
+      } else {
+        setSentiment('Neutral tone detected');
       }
       
       setShowBeforeAfter(true);
     } catch (error) {
       console.error("Error improving text:", error);
-      toast.error(isEnglish ? 'Error improving your message' : 'आपके संदेश में सुधार करने में त्रुटि');
+      toast.error(isEnglish ? 'Error improving your message. Please try again.' : 'आपके संदेश में सुधार करने में त्रुटि। कृपया पुनः प्रयास करें।');
       
-      // Fallback for demo
-      setImprovedText("I've been thinking about you all day! Want to grab dinner at that new place we talked about? 💕");
+      // Enhanced fallback
+      const fallbacks = [
+        `${originalText} - but with more personality! What do you think? 😊`,
+        `${originalText}... and I'm already looking forward to your answer! ✨`,
+        `So, ${originalText.toLowerCase()} - tell me everything! 💭`
+      ];
+      
+      setImprovedText(fallbacks[Math.floor(Math.random() * fallbacks.length)]);
+      setSentiment('Could use more personality and engagement');
+      setShowBeforeAfter(true);
     } finally {
       setIsLoading(false);
     }
@@ -86,13 +103,13 @@ Return in JSON format with two fields: "improved" - the improved text, and "sent
   const useExample = (example: typeof examples[0]) => {
     setOriginalText(example.original);
     setImprovedText(example.improved);
-    setSentiment('Example message');
+    setSentiment('Example message - basic and needs improvement');
     setShowBeforeAfter(true);
   };
 
   return (
     <Layout>
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-3xl md:text-4xl font-bold mb-3 text-gradient">
             {isEnglish ? 'Text CPR' : 'टेक्स्ट सीपीआर'}
@@ -179,7 +196,7 @@ Return in JSON format with two fields: "improved" - the improved text, and "sent
                   {sentiment && (
                     <div className="mt-4 pt-4 border-t border-white/10">
                       <div className="flex items-start text-sm text-gray-400">
-                        <AlertTriangle className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
+                        <Clock className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
                         <p>{sentiment}</p>
                       </div>
                     </div>

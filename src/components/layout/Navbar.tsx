@@ -6,7 +6,7 @@ import { useUser } from '@/contexts/UserContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LoginModal from '../auth/LoginModal';
 import LanguageSelector from '../language/LanguageSelector';
-import { Menu, X, List, DollarSign, Book } from 'lucide-react';
+import { Menu, X, List, DollarSign, Book, Home } from 'lucide-react';
 
 const Navbar = () => {
   const { user, logout } = useUser();
@@ -32,19 +32,22 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-black/50 backdrop-blur-md border-b border-white/10 sticky top-0 z-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="bg-black/50 backdrop-blur-md border-b border-white/10 sticky top-0 z-50 w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
-              <span className="text-gradient font-bold text-xl">LoveConnect</span>
+              <span className="text-gradient font-bold text-xl">NaughtyyAI</span>
             </Link>
           </div>
           
           {/* Desktop Menu */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
+              <Link to="/" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors flex items-center">
+                <Home size={16} className="mr-2" /> {t('home')}
+              </Link>
               <Link to="/" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors flex items-center">
                 <List size={16} className="mr-2" /> {t('features')}
               </Link>
@@ -109,6 +112,13 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-black/90 backdrop-blur-lg animate-fade-in">
           <div className="px-2 pt-2 pb-3 space-y-1">
+            <Link
+              to="/"
+              onClick={closeMenu}
+              className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium hover:bg-white/10 flex items-center"
+            >
+              <Home size={16} className="mr-2" /> {t('home')}
+            </Link>
             <Link
               to="/"
               onClick={closeMenu}
