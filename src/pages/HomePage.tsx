@@ -7,7 +7,7 @@ import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import FAQSection from '@/components/sections/FAQSection';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useUser } from '@/contexts/UserContext';
-import { Search, MessageSquare, Heart, Users, Sparkles, Send, Gift, X, Clock, Brain, HeartHandshake, PenTool, Zap, Shield, Eye, Volume2, Calculator, GamepadIcon, Star } from 'lucide-react';
+import { Search, MessageSquare, Heart, Users, Sparkles, Send, Gift, X, Clock, Brain, HeartHandshake, PenTool, Zap, Shield, Eye, Volume2, Calculator, GamepadIcon, Star, HelpCircle, AudioLines, Lightbulb, Languages, Palette } from 'lucide-react';
 
 const HomePage = () => {
   const { language } = useLanguage();
@@ -146,6 +146,78 @@ const HomePage = () => {
       isPremium: true,
       newFeature: true,
       category: 'healing'
+    },
+    {
+      title: isEnglish ? 'Voice Message Mood Detector' : 'वॉयस मैसेज मूड डिटेक्टर',
+      description: isEnglish ? 'Analyze the emotional tone of voice messages' : 'वॉयस मैसेज के भावनात्मक टोन का विश्लेषण करें',
+      icon: <Volume2 />,
+      to: '/voice-message-mood',
+      isPremium: true,
+      newFeature: true,
+      category: 'analysis'
+    },
+    {
+      title: isEnglish ? 'AI Couple\'s Quiz Show' : 'एआई कपल क्विज़ शो',
+      description: isEnglish ? 'Interactive quiz to test your relationship knowledge' : 'अपने रिश्ते की जानकारी का परीक्षण करने के लिए इंटरैक्टिव क्विज़',
+      icon: <HelpCircle />,
+      to: '/couples-quiz',
+      isPremium: false,
+      newFeature: true,
+      category: 'fun'
+    },
+    {
+      title: isEnglish ? 'Gift Translator' : 'गिफ्ट ट्रांसलेटर',
+      description: isEnglish ? 'Decode the meaning behind gifts and gestures' : 'उपहारों और इशारों के पीछे के अर्थ को समझें',
+      icon: <Gift />,
+      to: '/gift-translator',
+      isPremium: true,
+      newFeature: true,
+      category: 'analysis'
+    },
+    {
+      title: isEnglish ? 'Emotion Translator' : 'इमोशन ट्रांसलेटर',
+      description: isEnglish ? 'Understand hidden emotions in messages and behavior' : 'संदेशों और व्यवहार में छुपी भावनाओं को समझें',
+      icon: <Palette />,
+      to: '/emotion-translator',
+      isPremium: true,
+      newFeature: true,
+      category: 'analysis'
+    },
+    {
+      title: isEnglish ? 'Mind Reader Mode' : 'माइंड रीडर मोड',
+      description: isEnglish ? 'AI insights into what your partner might be thinking' : 'आपका साथी क्या सोच रहा है इसकी AI अंतर्दृष्टि',
+      icon: <Brain />,
+      to: '/mind-reader-mode',
+      isPremium: true,
+      newFeature: true,
+      category: 'analysis'
+    },
+    {
+      title: isEnglish ? 'First-Time Script Generator' : 'फर्स्ट-टाइम स्क्रिप्ट जनरेटर',
+      description: isEnglish ? 'Gentle guidance for intimate first experiences' : 'अंतरंग पहले अनुभवों के लिए कोमल मार्गदर्शन',
+      icon: <AudioLines />,
+      to: '/first-time-script',
+      isPremium: true,
+      newFeature: true,
+      category: 'intimacy'
+    },
+    {
+      title: isEnglish ? 'No-Shame Intimacy FAQ' : 'नो-शेम इंटिमेसी FAQ',
+      description: isEnglish ? 'Get honest answers to intimate questions without judgment' : 'बिना जजमेंट के अंतरंग सवालों के ईमानदार जवाब पाएं',
+      icon: <HelpCircle />,
+      to: '/intimacy-faq',
+      isPremium: false,
+      newFeature: true,
+      category: 'education'
+    },
+    {
+      title: isEnglish ? 'Family Q&A Simulator' : 'फैमिली Q&A सिमुलेटर',
+      description: isEnglish ? 'Practice difficult conversations with family members' : 'परिवारजनों के साथ कठिन बातचीत का अभ्यास करें',
+      icon: <Users />,
+      to: '/family-qa-simulator',
+      isPremium: false,
+      newFeature: true,
+      category: 'social'
     }
   ];
 
@@ -157,7 +229,10 @@ const HomePage = () => {
     { id: 'intimacy', name: isEnglish ? 'Intimacy' : 'अंतरंगता' },
     { id: 'coaching', name: isEnglish ? 'Coaching' : 'कोचिंग' },
     { id: 'fun', name: isEnglish ? 'Fun & Games' : 'मनोरंजन' },
-    { id: 'healing', name: isEnglish ? 'Healing' : 'उपचार' }
+    { id: 'healing', name: isEnglish ? 'Healing' : 'उपचार' },
+    { id: 'analysis', name: isEnglish ? 'Analysis' : 'विश्लेषण' },
+    { id: 'education', name: isEnglish ? 'Education' : 'शिक्षा' },
+    { id: 'social', name: isEnglish ? 'Social' : 'सामाजिक' }
   ];
 
   const filteredFeatures = useMemo(() => {
@@ -173,9 +248,9 @@ const HomePage = () => {
 
   return (
     <Layout>
-      <div className="w-full">
-        {/* Hero Section */}
-        <div className="text-center mb-16">
+      <div className="w-full min-h-screen">
+        {/* Hero Section - Full Width */}
+        <div className="w-full px-4 text-center mb-16">
           <h1 className="text-5xl md:text-6xl text-[#e839d6] font-love mb-6 leading-tight">
             {isEnglish ? 'AI-Powered Love & Romance Tools' : 'एआई-पावर्ड लव और रोमांस टूल्स'}
           </h1>
@@ -203,13 +278,13 @@ const HomePage = () => {
           </div>
         </div>
 
-        {/* Featured Tools */}
+        {/* Featured Tools - Full Width */}
         {featuredFeatures.length > 0 && (
-          <div className="mb-16">
+          <div className="w-full px-4 mb-16">
             <h2 className="text-3xl font-bold text-center mb-8 text-gradient">
               {isEnglish ? 'Featured Tools' : 'फीचर्ड टूल्स'}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 max-w-7xl mx-auto">
               {featuredFeatures.map((feature, index) => (
                 <FeatureCard
                   key={index}
@@ -221,23 +296,25 @@ const HomePage = () => {
           </div>
         )}
 
-        {/* Search and Filter Section */}
-        <div className="mb-12">
-          <SearchBar 
-            searchQuery={searchQuery}
-            onSearchChange={setSearchQuery}
-            categories={categories}
-            selectedCategory={selectedCategory}
-            onCategoryChange={setSelectedCategory}
-          />
+        {/* Search and Filter Section - Full Width */}
+        <div className="w-full px-4 mb-12">
+          <div className="max-w-7xl mx-auto">
+            <SearchBar 
+              searchQuery={searchQuery}
+              onSearchChange={setSearchQuery}
+              categories={categories}
+              selectedCategory={selectedCategory}
+              onCategoryChange={setSelectedCategory}
+            />
+          </div>
         </div>
         
-        {/* All Tools Grid */}
-        <div className="mb-16">
+        {/* All Tools Grid - Full Width */}
+        <div className="w-full px-4 mb-16">
           <h2 className="text-3xl font-bold text-center mb-8 text-gradient">
             {isEnglish ? 'All Tools' : 'सभी टूल्स'}
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 max-w-none mx-auto">
             {filteredFeatures.map((feature, index) => (
               <FeatureCard 
                 key={index} 
@@ -256,11 +333,15 @@ const HomePage = () => {
           )}
         </div>
 
-        {/* Testimonials Section */}
-        <TestimonialsSection />
+        {/* Testimonials Section - Full Width */}
+        <div className="w-full px-4">
+          <TestimonialsSection />
+        </div>
 
-        {/* FAQ Section */}
-        <FAQSection />
+        {/* FAQ Section - Full Width */}
+        <div className="w-full px-4">
+          <FAQSection />
+        </div>
       </div>
     </Layout>
   );
