@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -10,7 +9,7 @@ import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { generateWithGemini } from '@/utils/geminiApi';
 import { toast } from 'sonner';
-import { Heart, Shield, Trash2, RefreshCw, CheckCircle, X } from 'lucide-react';
+import { Heart, Shield, Trash2, RefreshCw, CheckCircle, X, AlertTriangle } from 'lucide-react';
 
 const ExDetoxPage = () => {
   const { language } = useLanguage();

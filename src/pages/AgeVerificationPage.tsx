@@ -3,20 +3,26 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
+import { useNavigate } from 'react-router-dom';
 
 interface AgeVerificationPageProps {
-  onVerify: () => void;
+  onVerify?: () => void;
 }
 
 const AgeVerificationPage = ({ onVerify }: AgeVerificationPageProps) => {
   const [confirmed, setConfirmed] = useState(false);
   const [error, setError] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
     if (confirmed) {
-      onVerify();
+      if (onVerify) {
+        onVerify();
+      } else {
+        navigate('/home');
+      }
     } else {
       setError(true);
     }
