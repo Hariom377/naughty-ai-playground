@@ -28,6 +28,13 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ variant = 'default'
     { code: 'ko', name: '한국어', flag: '🇰🇷' },
     { code: 'zh', name: '中文', flag: '🇨🇳' },
     { code: 'hi', name: 'हिंदी', flag: '🇮🇳' },
+    { code: 'ru', name: 'Русский', flag: '🇷🇺' },
+    { code: 'ar', name: 'العربية', flag: '🇸🇦' },
+    { code: 'nl', name: 'Nederlands', flag: '🇳🇱' },
+    { code: 'sv', name: 'Svenska', flag: '🇸🇪' },
+    { code: 'no', name: 'Norsk', flag: '🇳🇴' },
+    { code: 'da', name: 'Dansk', flag: '🇩🇰' },
+    { code: 'fi', name: 'Suomi', flag: '🇫🇮' },
   ];
 
   const getCurrentLanguage = () => {
@@ -55,7 +62,7 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ variant = 'default'
           )}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-48">
+      <DropdownMenuContent align="end" className="w-48 max-h-64 overflow-y-auto">
         {languages.map((lang) => (
           <DropdownMenuItem 
             key={lang.code} 
