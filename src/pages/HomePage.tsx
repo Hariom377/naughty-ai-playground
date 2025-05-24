@@ -113,7 +113,7 @@ const HomePage = () => {
   return <Layout>
       <div className="w-full">
         <div className="text-center mb-12">
-          <h1 className="use here simple font in h1 font with some romantic">
+          <h1 className="use here simple font">
             {isEnglish ? 'AI-Powered Love Tools' : 'एआई-पावर्ड लव टूल्स'}
           </h1>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto">
