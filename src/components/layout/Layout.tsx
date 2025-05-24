@@ -15,7 +15,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const location = useLocation();
   const { user } = useUser();
   const { language } = useLanguage();
-  const isHomePage = location.pathname === '/' || location.pathname === '/home';
+  const isHomePage = location.pathname === '/';
   const showPremiumBanner = user.isLoggedIn && user.subscription === 'free' && !isHomePage;
 
   React.useEffect(() => {
@@ -23,19 +23,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   }, [language]);
 
   return (
-    <div className="flex flex-col min-h-screen w-full bg-gradient-to-br from-black via-gray-900 to-black">
+    <div className="flex flex-col min-h-screen w-full bg-naughty-dark">
       <Navbar />
       {showPremiumBanner && <PremiumBanner />}
-      <main className="flex-grow w-full">
-        {isHomePage ? (
-          // For home page, render children directly without padding
-          children
-        ) : (
-          // For other pages, add container and padding
-          <div className="w-full py-6 md:py-10">
-            {children}
-          </div>
-        )}
+      <main className="flex-grow w-full px-4 py-6 md:py-10">
+        <div className="max-w-7xl mx-auto w-full">
+          {children}
+        </div>
       </main>
       <Footer />
     </div>

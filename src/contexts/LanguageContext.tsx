@@ -2,7 +2,7 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 // Available languages
-export type LanguageType = 'en' | 'es' | 'fr' | 'de' | 'it' | 'pt' | 'ja' | 'ko' | 'zh' | 'hi' | 'ru' | 'ar' | 'nl' | 'sv' | 'no' | 'da' | 'fi';
+export type LanguageType = 'en' | 'hi';
 
 // Translations interface
 export interface TranslationsType {
@@ -15,7 +15,6 @@ export interface TranslationsType {
 export const translations: TranslationsType = {
   en: {
     // Navigation
-    home: "Home",
     features: "Features",
     pricing: "Pricing",
     blog: "Blog",
@@ -59,7 +58,6 @@ export const translations: TranslationsType = {
   },
   hi: {
     // Navigation
-    home: "होम",
     features: "विशेषताएँ",
     pricing: "मूल्य निर्धारण",
     blog: "ब्लॉग",
@@ -101,186 +99,6 @@ export const translations: TranslationsType = {
     // Premium banner
     upgradeNow: "अभी अपग्रेड करें",
   },
-  es: {
-    home: "Inicio",
-    features: "Características",
-    pricing: "Precios",
-    blog: "Blog",
-    login: "Iniciar Sesión",
-    logout: "Cerrar Sesión",
-    getStarted: "Comenzar",
-    tryNow: "Probar Ahora",
-    loading: "Cargando...",
-    upgradeNow: "Actualizar Ahora",
-  },
-  fr: {
-    home: "Accueil",
-    features: "Fonctionnalités",
-    pricing: "Tarifs",
-    blog: "Blog",
-    login: "Se Connecter",
-    logout: "Se Déconnecter",
-    getStarted: "Commencer",
-    tryNow: "Essayer Maintenant",
-    loading: "Chargement...",
-    upgradeNow: "Mettre à Niveau",
-  },
-  de: {
-    home: "Startseite",
-    features: "Funktionen",
-    pricing: "Preise",
-    blog: "Blog",
-    login: "Anmelden",
-    logout: "Abmelden",
-    getStarted: "Loslegen",
-    tryNow: "Jetzt Testen",
-    loading: "Laden...",
-    upgradeNow: "Jetzt Upgraden",
-  },
-  it: {
-    home: "Home",
-    features: "Caratteristiche",
-    pricing: "Prezzi",
-    blog: "Blog",
-    login: "Accedi",
-    logout: "Esci",
-    getStarted: "Inizia",
-    tryNow: "Prova Ora",
-    loading: "Caricamento...",
-    upgradeNow: "Aggiorna Ora",
-  },
-  pt: {
-    home: "Início",
-    features: "Recursos",
-    pricing: "Preços",
-    blog: "Blog",
-    login: "Entrar",
-    logout: "Sair",
-    getStarted: "Começar",
-    tryNow: "Testar Agora",
-    loading: "Carregando...",
-    upgradeNow: "Atualizar Agora",
-  },
-  ja: {
-    home: "ホーム",
-    features: "機能",
-    pricing: "料金",
-    blog: "ブログ",
-    login: "ログイン",
-    logout: "ログアウト",
-    getStarted: "始める",
-    tryNow: "今すぐ試す",
-    loading: "読み込み中...",
-    upgradeNow: "今すぐアップグレード",
-  },
-  ko: {
-    home: "홈",
-    features: "기능",
-    pricing: "가격",
-    blog: "블로그",
-    login: "로그인",
-    logout: "로그아웃",
-    getStarted: "시작하기",
-    tryNow: "지금 시도",
-    loading: "로딩 중...",
-    upgradeNow: "지금 업그레이드",
-  },
-  zh: {
-    home: "首页",
-    features: "功能",
-    pricing: "价格",
-    blog: "博客",
-    login: "登录",
-    logout: "登出",
-    getStarted: "开始",
-    tryNow: "立即试用",
-    loading: "加载中...",
-    upgradeNow: "立即升级",
-  },
-  ru: {
-    home: "Главная",
-    features: "Функции",
-    pricing: "Цены",
-    blog: "Блог",
-    login: "Войти",
-    logout: "Выйти",
-    getStarted: "Начать",
-    tryNow: "Попробовать",
-    loading: "Загрузка...",
-    upgradeNow: "Обновить",
-  },
-  ar: {
-    home: "الرئيسية",
-    features: "الميزات",
-    pricing: "الأسعار",
-    blog: "المدونة",
-    login: "تسجيل الدخول",
-    logout: "تسجيل الخروج",
-    getStarted: "ابدأ",
-    tryNow: "جرب الآن",
-    loading: "جاري التحميل...",
-    upgradeNow: "ترقية الآن",
-  },
-  nl: {
-    home: "Thuis",
-    features: "Functies",
-    pricing: "Prijzen",
-    blog: "Blog",
-    login: "Inloggen",
-    logout: "Uitloggen",
-    getStarted: "Beginnen",
-    tryNow: "Nu Proberen",
-    loading: "Laden...",
-    upgradeNow: "Nu Upgraden",
-  },
-  sv: {
-    home: "Hem",
-    features: "Funktioner",
-    pricing: "Priser",
-    blog: "Blogg",
-    login: "Logga In",
-    logout: "Logga Ut",
-    getStarted: "Kom Igång",
-    tryNow: "Prova Nu",
-    loading: "Laddar...",
-    upgradeNow: "Uppgradera Nu",
-  },
-  no: {
-    home: "Hjem",
-    features: "Funksjoner",
-    pricing: "Priser",
-    blog: "Blogg",
-    login: "Logg Inn",
-    logout: "Logg Ut",
-    getStarted: "Kom I Gang",
-    tryNow: "Prøv Nå",
-    loading: "Laster...",
-    upgradeNow: "Oppgrader Nå",
-  },
-  da: {
-    home: "Hjem",
-    features: "Funktioner",
-    pricing: "Priser",
-    blog: "Blog",
-    login: "Log Ind",
-    logout: "Log Ud",
-    getStarted: "Kom I Gang",
-    tryNow: "Prøv Nu",
-    loading: "Indlæser...",
-    upgradeNow: "Opgrader Nu",
-  },
-  fi: {
-    home: "Koti",
-    features: "Ominaisuudet",
-    pricing: "Hinnat",
-    blog: "Blogi",
-    login: "Kirjaudu Sisään",
-    logout: "Kirjaudu Ulos",
-    getStarted: "Aloita",
-    tryNow: "Kokeile Nyt",
-    loading: "Ladataan...",
-    upgradeNow: "Päivitä Nyt",
-  },
 };
 
 // Context interface
@@ -307,7 +125,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
 
   // Translation function
   const t = (key: string): string => {
-    return translations[language]?.[key] || translations['en']?.[key] || key;
+    return translations[language][key] || translations['en'][key] || key;
   };
 
   return (

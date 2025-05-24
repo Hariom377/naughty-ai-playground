@@ -19,14 +19,6 @@ import LoveLanguageDecoderPage from '@/pages/LoveLanguageDecoderPage';
 import LoveNoteGeneratorPage from '@/pages/LoveNoteGeneratorPage';
 import ConfessionLetterPage from '@/pages/ConfessionLetterPage';
 import ExDetoxPage from '@/pages/ExDetoxPage';
-import VoiceMessageMoodPage from '@/pages/VoiceMessageMoodPage';
-import CouplesQuizPage from '@/pages/CouplesQuizPage';
-import GiftTranslatorPage from '@/pages/GiftTranslatorPage';
-import EmotionTranslatorPage from '@/pages/EmotionTranslatorPage';
-import MindReaderModePage from '@/pages/MindReaderModePage';
-import FirstTimeScriptPage from '@/pages/FirstTimeScriptPage';
-import IntimacyFAQPage from '@/pages/IntimacyFAQPage';
-import FamilyQASimulatorPage from '@/pages/FamilyQASimulatorPage';
 import NotFound from '@/pages/NotFound';
 import './App.css';
 
@@ -54,14 +46,6 @@ function App() {
               <Route path="/love-note-generator" element={<LoveNoteGeneratorPage />} />
               <Route path="/confession-letter" element={<ConfessionLetterPage />} />
               <Route path="/ex-detox" element={<ExDetoxPage />} />
-              <Route path="/voice-message-mood" element={<VoiceMessageMoodPage />} />
-              <Route path="/couples-quiz" element={<CouplesQuizPage />} />
-              <Route path="/gift-translator" element={<GiftTranslatorPage />} />
-              <Route path="/emotion-translator" element={<EmotionTranslatorPage />} />
-              <Route path="/mind-reader-mode" element={<MindReaderModePage />} />
-              <Route path="/first-time-script" element={<FirstTimeScriptPage />} />
-              <Route path="/intimacy-faq" element={<IntimacyFAQPage />} />
-              <Route path="/family-qa-simulator" element={<FamilyQASimulatorPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>

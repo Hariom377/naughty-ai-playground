@@ -90,12 +90,4 @@
   .beating-heart {
     @apply animate-heart-beat;
   }
-
-  /* Hero section specific styles */
-  .hero-bg-image {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    aspect-ratio: 16/9;
-  }
 }
