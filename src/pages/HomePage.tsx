@@ -249,42 +249,79 @@ const HomePage = () => {
   return (
     <Layout>
       <div className="w-full min-h-screen">
-        {/* Hero Section - Full Width */}
-        <div className="w-full px-4 text-center mb-16">
-          <h1 className="text-5xl md:text-6xl text-[#e839d6] font-love mb-6 leading-tight">
-            {isEnglish ? 'AI-Powered Love & Romance Tools' : 'एआई-पावर्ड लव और रोमांस टूल्स'}
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed">
-            {isEnglish 
-              ? 'Enhance your romantic life with our comprehensive suite of AI-powered relationship tools. From flirting to deep connections, we\'ve got you covered.' 
-              : 'एआई-संचालित संबंध उपकरणों के हमारे व्यापक सूट के साथ अपने रोमांटिक जीवन को बढ़ाएं। फ्लर्टिंग से लेकर गहरे कनेक्शन तक, हमारे पास आपके लिए सब कुछ है।'
-            }
-          </p>
+        {/* Romantic Hero Section with Beach Couple Background */}
+        <div className="relative w-full h-screen flex items-center justify-center overflow-hidden">
+          {/* Background Image with Blur Effect */}
+          <div 
+            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url('/lovable-uploads/8c9bb8f5-6c3a-4c6f-8eb8-50306bd08c51.png')`,
+              filter: 'blur(2px)',
+              transform: 'scale(1.1)',
+            }}
+          />
           
-          {/* Trust Indicators */}
-          <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-400 mb-8">
-            <div className="flex items-center gap-2">
-              <Star className="w-4 h-4 text-yellow-400 fill-current" />
-              <span>4.8/5 Rating</span>
+          {/* Gradient Overlays for Text Readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-purple-900/60 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-purple-900/40" />
+          
+          {/* Hero Content */}
+          <div className="relative z-10 w-full px-4 text-center">
+            <div className="max-w-6xl mx-auto">
+              <h1 className="text-6xl md:text-8xl text-white font-love mb-8 leading-tight drop-shadow-2xl">
+                {isEnglish ? 'Find Your Perfect Love Story' : 'अपनी परफेक्ट लव स्टोरी खोजें'}
+              </h1>
+              <p className="text-2xl md:text-3xl text-white/90 max-w-4xl mx-auto mb-12 leading-relaxed drop-shadow-lg font-light">
+                {isEnglish 
+                  ? 'AI-powered tools to enhance every moment of your romantic journey. From first conversations to lasting connections.' 
+                  : 'आपकी रोमांटिक यात्रा के हर पल को बेहतर बनाने के लिए एआई-पावर्ड टूल्स। पहली बातचीत से लेकर स्थायी कनेक्शन तक।'
+                }
+              </p>
+              
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <button className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-12 py-4 rounded-full text-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-2xl">
+                  {isEnglish ? 'Start Your Journey' : 'अपनी यात्रा शुरू करें'}
+                </button>
+                <button className="border-2 border-white/50 text-white hover:bg-white/10 px-12 py-4 rounded-full text-xl font-semibold transition-all duration-300 backdrop-blur-sm">
+                  {isEnglish ? 'Explore Tools' : 'टूल्स एक्सप्लोर करें'}
+                </button>
+              </div>
+              
+              {/* Trust Indicators */}
+              <div className="flex flex-wrap justify-center items-center gap-8 mt-16 text-white/80">
+                <div className="flex items-center gap-3 backdrop-blur-sm bg-white/10 px-6 py-3 rounded-full">
+                  <Star className="w-5 h-5 text-yellow-400 fill-current" />
+                  <span className="text-lg">4.8/5 Rating</span>
+                </div>
+                <div className="flex items-center gap-3 backdrop-blur-sm bg-white/10 px-6 py-3 rounded-full">
+                  <Users className="w-5 h-5" />
+                  <span className="text-lg">50k+ Users</span>
+                </div>
+                <div className="flex items-center gap-3 backdrop-blur-sm bg-white/10 px-6 py-3 rounded-full">
+                  <Shield className="w-5 h-5" />
+                  <span className="text-lg">100% Private</span>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Users className="w-4 h-4" />
-              <span>50k+ Users</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Shield className="w-4 h-4" />
-              <span>100% Private</span>
-            </div>
+          </div>
+          
+          {/* Floating Hearts Animation */}
+          <div className="absolute inset-0 pointer-events-none">
+            <Heart className="absolute top-1/4 left-1/4 w-6 h-6 text-pink-300/30 animate-floating" style={{ animationDelay: '0s' }} />
+            <Heart className="absolute top-1/3 right-1/4 w-4 h-4 text-purple-300/30 animate-floating" style={{ animationDelay: '2s' }} />
+            <Heart className="absolute bottom-1/3 left-1/3 w-5 h-5 text-pink-300/30 animate-floating" style={{ animationDelay: '4s' }} />
+            <Heart className="absolute bottom-1/4 right-1/3 w-6 h-6 text-purple-300/30 animate-floating" style={{ animationDelay: '6s' }} />
           </div>
         </div>
 
         {/* Featured Tools - Full Width */}
         {featuredFeatures.length > 0 && (
-          <div className="w-full px-4 mb-16">
-            <h2 className="text-3xl font-bold text-center mb-8 text-gradient">
+          <div className="w-full px-4 py-16 bg-gradient-to-b from-black to-gray-900">
+            <h2 className="text-4xl font-bold text-center mb-12 text-gradient">
               {isEnglish ? 'Featured Tools' : 'फीचर्ड टूल्स'}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
               {featuredFeatures.map((feature, index) => (
                 <FeatureCard
                   key={index}
@@ -297,24 +334,22 @@ const HomePage = () => {
         )}
 
         {/* Search and Filter Section - Full Width */}
-        <div className="w-full px-4 mb-12">
-          <div className="max-w-7xl mx-auto">
-            <SearchBar 
-              searchQuery={searchQuery}
-              onSearchChange={setSearchQuery}
-              categories={categories}
-              selectedCategory={selectedCategory}
-              onCategoryChange={setSelectedCategory}
-            />
-          </div>
+        <div className="w-full px-4 py-12 bg-gray-900">
+          <SearchBar 
+            searchQuery={searchQuery}
+            onSearchChange={setSearchQuery}
+            categories={categories}
+            selectedCategory={selectedCategory}
+            onCategoryChange={setSelectedCategory}
+          />
         </div>
         
         {/* All Tools Grid - Full Width */}
-        <div className="w-full px-4 mb-16">
-          <h2 className="text-3xl font-bold text-center mb-8 text-gradient">
+        <div className="w-full px-4 py-16 bg-gradient-to-b from-gray-900 to-black">
+          <h2 className="text-4xl font-bold text-center mb-12 text-gradient">
             {isEnglish ? 'All Tools' : 'सभी टूल्स'}
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 max-w-none mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 w-full">
             {filteredFeatures.map((feature, index) => (
               <FeatureCard 
                 key={index} 
@@ -334,12 +369,12 @@ const HomePage = () => {
         </div>
 
         {/* Testimonials Section - Full Width */}
-        <div className="w-full px-4">
+        <div className="w-full px-4 bg-gray-900">
           <TestimonialsSection />
         </div>
 
         {/* FAQ Section - Full Width */}
-        <div className="w-full px-4">
+        <div className="w-full px-4 bg-black">
           <FAQSection />
         </div>
       </div>
