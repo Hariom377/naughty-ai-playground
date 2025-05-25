@@ -132,19 +132,19 @@ const HomePage = () => {
 
   return (
     <Layout>
-      <div className="w-full">
-        <div className="text-center mb-12">
+      <div className="w-full px-0">
+        <div className="text-center mb-12 px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 romantic-title">
             {isEnglish ? 'AI-Powered Love Tools' : 'एआई-पावर्ड लव टूल्स'}
           </h1>
-          <p className="text-xl text-gray-300 max-w-4xl mx-auto">
+          <p className="text-xl text-gray-300 w-full">
             {isEnglish 
               ? 'Enhance your romantic life with our comprehensive suite of AI-powered relationship tools' 
               : 'एआई-संचालित संबंध उपकरणों के हमारे व्यापक सूट के साथ अपने रोमांटिक जीवन को बढ़ाएं'}
           </p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full px-4">
           {features.map((feature, index) => (
             <FeatureCard 
               key={index}

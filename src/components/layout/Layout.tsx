@@ -27,7 +27,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Navbar />
       {showPremiumBanner && <PremiumBanner />}
       <main className="flex-grow w-full px-4 py-6 md:py-10">
-        <div className="max-w-7xl mx-auto w-full">
+        <div className="w-full">
           {children}
         </div>
       </main>
