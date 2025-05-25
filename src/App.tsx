@@ -19,6 +19,14 @@ import LoveLanguageDecoderPage from '@/pages/LoveLanguageDecoderPage';
 import LoveNoteGeneratorPage from '@/pages/LoveNoteGeneratorPage';
 import ConfessionLetterPage from '@/pages/ConfessionLetterPage';
 import ExDetoxPage from '@/pages/ExDetoxPage';
+import VoiceMessageMoodPage from '@/pages/VoiceMessageMoodPage';
+import CouplesQuizPage from '@/pages/CouplesQuizPage';
+import GiftTranslatorPage from '@/pages/GiftTranslatorPage';
+import EmotionTranslatorPage from '@/pages/EmotionTranslatorPage';
+import MindReaderModePage from '@/pages/MindReaderModePage';
+import FirstTimeScriptGeneratorPage from '@/pages/FirstTimeScriptGeneratorPage';
+import NoShameIntimacyFaqPage from '@/pages/NoShameIntimacyFaqPage';
+import FamilyQaSimulatorPage from '@/pages/FamilyQaSimulatorPage';
 import NotFound from '@/pages/NotFound';
 import './App.css';
 
@@ -34,6 +42,14 @@ function App() {
               <Route path="/sexting-generator" element={<SextingGeneratorPage />} />
               <Route path="/dirty-talk-ideas" element={<DirtyTalkIdeasPage />} />
               <Route path="/erotic-chat" element={<EroticChatPage />} />
+              <Route path="/voice-message-mood" element={<VoiceMessageMoodPage />} />
+              <Route path="/couples-quiz" element={<CouplesQuizPage />} />
+              <Route path="/gift-translator" element={<GiftTranslatorPage />} />
+              <Route path="/emotion-translator" element={<EmotionTranslatorPage />} />
+              <Route path="/mind-reader-mode" element={<MindReaderModePage />} />
+              <Route path="/first-time-script-generator" element={<FirstTimeScriptGeneratorPage />} />
+              <Route path="/no-shame-intimacy-faq" element={<NoShameIntimacyFaqPage />} />
+              <Route path="/family-qa-simulator" element={<FamilyQaSimulatorPage />} />
               <Route path="/anniversary-ideas" element={<AnniversaryIdeasPage />} />
               <Route path="/first-date-ideas" element={<FirstDateIdeasPage />} />
               <Route path="/random-adventure-wheel" element={<RandomAdventureWheelPage />} />

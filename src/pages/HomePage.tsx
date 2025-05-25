@@ -43,11 +43,92 @@ const HomePage = () => {
       preview: isEnglish ? 'Discover conversation starters for intimate moments' : 'अंतरंग पलों के लिए बातचीत शुरू करने वाले खोजें'
     },
     {
+      title: isEnglish ? 'Voice Message Mood Detector' : 'वॉयस मैसेज मूड डिटेक्टर',
+      description: isEnglish ? 'Analyze the emotional tone and mood of voice messages' : 'वॉयस संदेशों के भावनात्मक स्वर का विश्लेषण करें',
+      icon: <Volume2 />,
+      to: '/voice-message-mood',
+      isPremium: true,
+      category: 'communication',
+      preview: isEnglish ? 'Understand the hidden emotions in voice messages' : 'वॉयस संदेशों में छिपी भावनाओं को समझें',
+      newFeature: true
+    },
+    {
+      title: isEnglish ? 'AI Couple\'s Quiz Show' : 'एआई कपल क्विज़ शो',
+      description: isEnglish ? 'Interactive quiz to test how well you know each other' : 'एक-दूसरे को कितना जानते हैं, इसका इंटरैक्टिव टेस्ट',
+      icon: <GamepadIcon />,
+      to: '/couples-quiz',
+      isPremium: false,
+      category: 'relationship',
+      preview: isEnglish ? 'Fun quizzes to strengthen your bond' : 'आपके रिश्ते को मजबूत बनाने वाली मजेदार क्विज़',
+      newFeature: true
+    },
+    {
+      title: isEnglish ? 'Gift Translator' : 'गिफ्ट ट्रांसलेटर',
+      description: isEnglish ? 'Transform gift ideas into meaningful romantic gestures' : 'उपहार विचारों को अर्थपूर्ण रोमांटिक इशारों में बदलें',
+      icon: <Gift />,
+      to: '/gift-translator',
+      isPremium: false,
+      category: 'romance',
+      preview: isEnglish ? 'Turn simple gifts into unforgettable moments' : 'सामान्य उपहारों को अविस्मरणीय पलों में बदलें',
+      newFeature: true
+    },
+    {
+      title: isEnglish ? 'Emotion Translator' : 'इमोशन ट्रांसलेटर',
+      description: isEnglish ? 'Decode and translate complex emotions into clear words' : 'जटिल भावनाओं को स्पष्ट शब्दों में डिकोड करें',
+      icon: <Brain />,
+      to: '/emotion-translator',
+      isPremium: true,
+      category: 'communication',
+      preview: isEnglish ? 'Bridge emotional communication gaps effortlessly' : 'भावनात्मक संचार की बाधाओं को आसानी से पाटें',
+      newFeature: true
+    },
+    {
+      title: isEnglish ? 'Mind Reader Mode' : 'माइंड रीडर मोड',
+      description: isEnglish ? 'AI-powered insights into your partner\'s thoughts and feelings' : 'आपके साथी के विचारों और भावनाओं में एआई अंतर्दृष्टि',
+      icon: <Eye />,
+      to: '/mind-reader-mode',
+      isPremium: true,
+      category: 'intimacy',
+      preview: isEnglish ? 'Understand unspoken thoughts and desires' : 'अनकहे विचारों और इच्छाओं को समझें',
+      newFeature: true
+    },
+    {
+      title: isEnglish ? 'First-Time Script Generator' : 'फर्स्ट-टाइम स्क्रिप्ट जनरेटर',
+      description: isEnglish ? 'Gentle scripts for intimate first-time experiences' : 'अंतरंग पहली बार के अनुभवों के लिए कोमल स्क्रिप्ट',
+      icon: <FileText />,
+      to: '/first-time-script-generator',
+      isPremium: true,
+      category: 'intimacy',
+      preview: isEnglish ? 'Navigate intimate moments with confidence and care' : 'विश्वास और देखभाल के साथ अंतरंग पलों को नेविगेट करें',
+      newFeature: true
+    },
+    {
+      title: isEnglish ? 'No-Shame Intimacy FAQ' : 'नो-शेम इंटिमेसी FAQ',
+      description: isEnglish ? 'Anonymous answers to intimate questions without judgment' : 'बिना जजमेंट के अंतरंग प्रश्नों के गुमनाम उत्तर',
+      icon: <HelpCircle />,
+      to: '/no-shame-intimacy-faq',
+      isPremium: false,
+      category: 'intimacy',
+      preview: isEnglish ? 'Get honest answers to your most personal questions' : 'अपने सबसे व्यक्तिगत प्रश्नों के ईमानदार उत्तर पाएं',
+      newFeature: true
+    },
+    {
+      title: isEnglish ? 'Family Q&A Simulator' : 'फैमिली Q&A सिमुलेटर',
+      description: isEnglish ? 'Practice answering relationship questions from family' : 'परिवार के रिश्ते संबंधी प्रश्नों के उत्तर देने का अभ्यास करें',
+      icon: <Users />,
+      to: '/family-qa-simulator',
+      isPremium: false,
+      category: 'relationship',
+      preview: isEnglish ? 'Prepare for family gatherings and relationship questions' : 'पारिवारिक मिलन और रिश्ते के प्रश्नों के लिए तैयार रहें',
+      newFeature: true
+    },
+    {
       title: isEnglish ? 'Erotic Chat' : 'इरोटिक चैट',
       description: isEnglish ? 'Practice intimate conversations with AI companion' : 'AI साथी के साथ अंतरंग बातचीत का अभ्यास करें',
       icon: <Heart />,
       to: '/erotic-chat',
-      isPremium: true
+      isPremium: true,
+      category: 'intimacy'
     },
     {
       title: isEnglish ? 'Interest Overlap Finder' : 'इंटरेस्ट ओवरलैप फाइंडर',
@@ -55,6 +136,7 @@ const HomePage = () => {
       icon: <Search />,
       to: '/interest-overlap-finder',
       isPremium: false,
+      category: 'relationship',
       newFeature: true
     },
     {
@@ -63,6 +145,7 @@ const HomePage = () => {
       icon: <Sparkles />,
       to: '/text-cpr',
       isPremium: false,
+      category: 'messaging',
       newFeature: true
     },
     {
@@ -71,6 +154,7 @@ const HomePage = () => {
       icon: <Heart />,
       to: '/flirt-coach',
       isPremium: false,
+      category: 'dating',
       newFeature: true
     },
     {
@@ -79,6 +163,7 @@ const HomePage = () => {
       icon: <Users />,
       to: '/social-spy',
       isPremium: true,
+      category: 'relationship',
       newFeature: true
     },
     {
@@ -87,6 +172,7 @@ const HomePage = () => {
       icon: <HeartHandshake />,
       to: '/fight-moderator',
       isPremium: true,
+      category: 'relationship',
       newFeature: true
     },
     {
@@ -94,14 +180,16 @@ const HomePage = () => {
       description: isEnglish ? 'Generate creative anniversary celebration concepts' : 'रचनात्मक वर्षगांठ उत्सव अवधारणाएँ उत्पन्न करें',
       icon: <Gift />,
       to: '/anniversary-ideas',
-      isPremium: false
+      isPremium: false,
+      category: 'romance'
     },
     {
       title: isEnglish ? 'First Date Ideas' : 'पहली डेट आइडियास',
       description: isEnglish ? 'Find the perfect activities for a memorable first date' : 'एक यादगार पहली डेट के लिए बिल्कुल सही गतिविधियां',
       icon: <Sparkles />,
       to: '/first-date-ideas',
-      isPremium: false
+      isPremium: false,
+      category: 'dating'
     },
     {
       title: isEnglish ? 'Random Adventure Wheel' : 'रैंडम एडवेंचर व्हील',
@@ -109,6 +197,7 @@ const HomePage = () => {
       icon: <GamepadIcon />,
       to: '/random-adventure-wheel',
       isPremium: false,
+      category: 'dating',
       newFeature: true
     },
     {
@@ -116,21 +205,24 @@ const HomePage = () => {
       description: isEnglish ? 'Decode and understand your partner\'s love language' : 'अपने साथी की प्रेम भाषा को समझें',
       icon: <Brain />,
       to: '/love-language-decoder',
-      isPremium: false
+      isPremium: false,
+      category: 'relationship'
     },
     {
       title: isEnglish ? 'Love Note Generator' : 'लव नोट जनरेटर',
       description: isEnglish ? 'Create heartfelt love notes and romantic messages' : 'दिल से लव नोट्स और रोमांटिक मैसेज बनाएं',
       icon: <PenTool />,
       to: '/love-note-generator',
-      isPremium: false
+      isPremium: false,
+      category: 'romance'
     },
     {
       title: isEnglish ? 'Confession Letter' : 'कनफेशन लेटर',
       description: isEnglish ? 'Craft the perfect letter to express your feelings' : 'अपनी भावनाओं को व्यक्त करने के लिए एकदम सही पत्र',
       icon: <PenTool />,
       to: '/confession-letter',
-      isPremium: true
+      isPremium: true,
+      category: 'romance'
     },
     {
       title: isEnglish ? 'Ex Detox' : 'एक्स डिटॉक्स',
@@ -138,6 +230,7 @@ const HomePage = () => {
       icon: <X />,
       to: '/ex-detox',
       isPremium: true,
+      category: 'relationship',
       newFeature: true
     }
   ];
@@ -147,7 +240,9 @@ const HomePage = () => {
     { id: 'messaging', name: isEnglish ? 'Messaging' : 'मैसेजिंग' },
     { id: 'intimacy', name: isEnglish ? 'Intimacy' : 'अंतरंगता' },
     { id: 'relationship', name: isEnglish ? 'Relationship' : 'रिश्ता' },
-    { id: 'dating', name: isEnglish ? 'Dating' : 'डेटिंग' }
+    { id: 'dating', name: isEnglish ? 'Dating' : 'डेटिंग' },
+    { id: 'romance', name: isEnglish ? 'Romance' : 'रोमांस' },
+    { id: 'communication', name: isEnglish ? 'Communication' : 'संचार' }
   ];
 
   const filteredFeatures = useMemo(() => {
@@ -199,7 +294,7 @@ const HomePage = () => {
               </p>
               <div className="flex flex-wrap gap-6 justify-center mb-12">
                 <div className="bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20">
-                  <span className="text-lg text-white font-medium">✨ {isEnglish ? '20+ AI Tools' : '20+ एआई टूल्स'}</span>
+                  <span className="text-lg text-white font-medium">✨ {isEnglish ? '25+ AI Tools' : '25+ एआई टूल्स'}</span>
                 </div>
                 <div className="bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20">
                   <span className="text-lg text-white font-medium">🔒 {isEnglish ? 'Private & Secure' : 'निजी और सुरक्षित'}</span>
@@ -237,7 +332,6 @@ const HomePage = () => {
                 isPremium={feature.isPremium}
                 newFeature={feature.newFeature}
                 onPreview={() => setPreviewTool(feature)}
-                className={index % 4 === 0 ? 'md:col-span-2' : ''}
               />
             ))}
           </div>
