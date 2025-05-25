@@ -1,34 +1,46 @@
-
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import Layout from '@/components/layout/Layout';
 import FeatureCard from '@/components/tools/FeatureCard';
+import SearchAndFilter from '@/components/tools/SearchAndFilter';
+import ToolPreviewModal from '@/components/tools/ToolPreviewModal';
+import FAQSection from '@/components/sections/FAQSection';
+import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useUser } from '@/contexts/UserContext';
 import { 
   Search, MessageSquare, Heart, Users, Sparkles, 
   Send, Gift, X, Clock, Brain, HeartHandshake, PenTool,
-  Zap, Shield, Eye, Volume2, Calculator, GamepadIcon
+  Zap, Shield, Eye, Volume2, Calculator, GamepadIcon,
+  Mic, HelpCircle, Languages, Smile, Lightbulb, FileText,
+  ShieldCheck, MessageCircle
 } from 'lucide-react';
 
 const HomePage = () => {
   const { language } = useLanguage();
   const { user } = useUser();
   const isEnglish = language === 'en';
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [previewTool, setPreviewTool] = useState<any>(null);
   
   const features = [
     {
       title: isEnglish ? 'Sexting Generator' : 'सेक्सटिंग जनरेटर',
-      description: isEnglish ? 'Create romantic messages with customizable tone' : 'अनुकूलन योग्य टोन के साथ रोमांटिक संदेश बनाएं',
+      description: isEnglish ? 'Create romantic messages with customizable tone and style' : 'अनुकूलन योग्य टोन के साथ रोमांटिक संदेश बनाएं',
       icon: <Send />,
       to: '/sexting-generator',
-      isPremium: false
+      isPremium: false,
+      category: 'messaging',
+      preview: isEnglish ? 'Generate personalized romantic messages instantly' : 'तुरंत व्यक्तिगत रोमांटिक संदेश उत्पन्न करें'
     },
     {
       title: isEnglish ? 'Dirty Talk Ideas' : 'डर्टी टॉक आइडियास',
-      description: isEnglish ? 'Explore exciting phrases for intimate moments' : 'अंतरंग पलों के लिए रोमांचक वाक्यांश',
+      description: isEnglish ? 'Explore exciting phrases for intimate moments with confidence' : 'अंतरंग पलों के लिए रोमांचक वाक्यांश',
       icon: <MessageSquare />,
       to: '/dirty-talk-ideas',
-      isPremium: true
+      isPremium: true,
+      category: 'intimacy',
+      preview: isEnglish ? 'Discover conversation starters for intimate moments' : 'अंतरंग पलों के लिए बातचीत शुरू करने वाले खोजें'
     },
     {
       title: isEnglish ? 'Erotic Chat' : 'इरोटिक चैट',
@@ -130,22 +142,61 @@ const HomePage = () => {
     }
   ];
 
+  const categories = [
+    { id: 'all', name: isEnglish ? 'All Tools' : 'सभी टूल्स' },
+    { id: 'messaging', name: isEnglish ? 'Messaging' : 'मैसेजिंग' },
+    { id: 'intimacy', name: isEnglish ? 'Intimacy' : 'अंतरंगता' },
+    { id: 'relationship', name: isEnglish ? 'Relationship' : 'रिश्ता' },
+    { id: 'dating', name: isEnglish ? 'Dating' : 'डेटिंग' }
+  ];
+
+  const filteredFeatures = useMemo(() => {
+    return features.filter(feature => {
+      const matchesSearch = feature.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                          feature.description.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesCategory = selectedCategory === 'all' || feature.category === selectedCategory;
+      return matchesSearch && matchesCategory;
+    });
+  }, [searchTerm, selectedCategory, features]);
+
   return (
     <Layout>
       <div className="w-full px-0">
-        <div className="text-center mb-12 px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 romantic-title">
-            {isEnglish ? 'AI-Powered Love Tools' : 'एआई-पावर्ड लव टूल्स'}
+        {/* Hero Section with proper H1 */}
+        <header className="text-center mb-12 px-4">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 romantic-title leading-tight">
+            {isEnglish ? 'AI-Powered Love & Intimacy Tools' : 'एआई-पावर्ड लव टूल्स'}
           </h1>
-          <p className="text-xl text-gray-300 w-full">
+          <p className="text-xl md:text-2xl text-gray-300 w-full max-w-4xl mx-auto leading-relaxed">
             {isEnglish 
-              ? 'Enhance your romantic life with our comprehensive suite of AI-powered relationship tools' 
+              ? 'Enhance your romantic life with our comprehensive suite of 20+ AI-powered relationship tools. From intimate conversations to relationship building - all in a safe, private environment.' 
               : 'एआई-संचालित संबंध उपकरणों के हमारे व्यापक सूट के साथ अपने रोमांटिक जीवन को बढ़ाएं'}
           </p>
-        </div>
+          <div className="mt-8 flex flex-wrap gap-4 justify-center">
+            <div className="bg-naughty-purple/20 px-4 py-2 rounded-full">
+              <span className="text-sm text-naughty-pink font-medium">✨ {isEnglish ? '20+ AI Tools' : '20+ एआई टूल्स'}</span>
+            </div>
+            <div className="bg-naughty-purple/20 px-4 py-2 rounded-full">
+              <span className="text-sm text-naughty-pink font-medium">🔒 {isEnglish ? 'Private & Secure' : 'निजी और सुरक्षित'}</span>
+            </div>
+            <div className="bg-naughty-purple/20 px-4 py-2 rounded-full">
+              <span className="text-sm text-naughty-pink font-medium">🚀 {isEnglish ? 'Instant Results' : 'तत्काल परिणाम'}</span>
+            </div>
+          </div>
+        </header>
+
+        {/* Search and Filter Section */}
+        <SearchAndFilter
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+          categories={categories}
+        />
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full px-4">
-          {features.map((feature, index) => (
+        {/* Tools Grid */}
+        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full px-4 mb-16">
+          {filteredFeatures.map((feature, index) => (
             <FeatureCard 
               key={index}
               title={feature.title}
@@ -154,9 +205,24 @@ const HomePage = () => {
               to={feature.to}
               isPremium={feature.isPremium}
               newFeature={feature.newFeature}
+              onPreview={() => setPreviewTool(feature)}
+              className={index % 4 === 0 ? 'md:col-span-2' : ''}
             />
           ))}
-        </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <TestimonialsSection />
+
+        {/* FAQ Section */}
+        <FAQSection />
+
+        {/* Tool Preview Modal */}
+        <ToolPreviewModal 
+          tool={previewTool}
+          isOpen={!!previewTool}
+          onClose={() => setPreviewTool(null)}
+        />
       </div>
     </Layout>
   );
