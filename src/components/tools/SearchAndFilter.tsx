@@ -24,8 +24,8 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
   const isEnglish = language === 'en';
 
   return (
-    <div className="w-full px-4 mb-8">
-      <div className="max-w-4xl mx-auto">
+    <div className="w-full px-4 py-8">
+      <div className="w-full">
         <div className="flex flex-col md:flex-row gap-4 items-center">
           {/* Search Input */}
           <div className="relative flex-1 w-full">

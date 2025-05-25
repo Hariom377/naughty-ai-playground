@@ -161,54 +161,86 @@ const HomePage = () => {
 
   return (
     <Layout>
-      <div className="w-full px-0">
-        {/* Hero Section with proper H1 */}
-        <header className="text-center mb-12 px-4">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 romantic-title leading-tight">
-            {isEnglish ? 'AI-Powered Love & Intimacy Tools' : 'एआई-पावर्ड लव टूल्स'}
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-300 w-full max-w-4xl mx-auto leading-relaxed">
-            {isEnglish 
-              ? 'Enhance your romantic life with our comprehensive suite of 20+ AI-powered relationship tools. From intimate conversations to relationship building - all in a safe, private environment.' 
-              : 'एआई-संचालित संबंध उपकरणों के हमारे व्यापक सूट के साथ अपने रोमांटिक जीवन को बढ़ाएं'}
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4 justify-center">
-            <div className="bg-naughty-purple/20 px-4 py-2 rounded-full">
-              <span className="text-sm text-naughty-pink font-medium">✨ {isEnglish ? '20+ AI Tools' : '20+ एआई टूल्स'}</span>
-            </div>
-            <div className="bg-naughty-purple/20 px-4 py-2 rounded-full">
-              <span className="text-sm text-naughty-pink font-medium">🔒 {isEnglish ? 'Private & Secure' : 'निजी और सुरक्षित'}</span>
-            </div>
-            <div className="bg-naughty-purple/20 px-4 py-2 rounded-full">
-              <span className="text-sm text-naughty-pink font-medium">🚀 {isEnglish ? 'Instant Results' : 'तत्काल परिणाम'}</span>
-            </div>
+      <div className="w-full">
+        {/* Romantic Hero Section with Beach Couple Image */}
+        <div className="relative min-h-screen w-full overflow-hidden">
+          {/* Background Image with Blur Effect */}
+          <div 
+            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url('/lovable-uploads/9b775343-80b9-4cf7-84a7-b6f460af0eb6.png')`,
+              filter: 'blur(1px)',
+              transform: 'scale(1.1)'
+            }}
+          />
+          
+          {/* Gradient Overlays for Text Readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-naughty-dark/80 via-naughty-purple/60 to-naughty-dark/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-naughty-dark/90" />
+          
+          {/* Floating Hearts Animation */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="floating-hearts absolute top-1/4 left-1/4 text-naughty-pink/30 text-2xl">💕</div>
+            <div className="floating-hearts absolute top-1/3 right-1/4 text-naughty-pink/20 text-lg animate-[floating_4s_ease-in-out_infinite_1s]">💖</div>
+            <div className="floating-hearts absolute top-1/2 left-1/6 text-naughty-pink/25 text-xl animate-[floating_5s_ease-in-out_infinite_2s]">✨</div>
+            <div className="floating-hearts absolute bottom-1/3 right-1/6 text-naughty-pink/30 text-lg animate-[floating_3s_ease-in-out_infinite_0.5s]">💫</div>
           </div>
-        </header>
+          
+          {/* Hero Content */}
+          <div className="relative z-10 flex items-center justify-center min-h-screen px-4">
+            <header className="text-center max-w-6xl mx-auto">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 romantic-title leading-tight">
+                {isEnglish ? 'AI-Powered Love & Intimacy Tools' : 'एआई-पावर्ड लव टूल्स'}
+              </h1>
+              <p className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-12 leading-relaxed font-light">
+                {isEnglish 
+                  ? 'Enhance your romantic life with our comprehensive suite of 20+ AI-powered relationship tools. From intimate conversations to relationship building - all in a safe, private environment.' 
+                  : 'एआई-संचालित संबंध उपकरणों के हमारे व्यापक सूट के साथ अपने रोमांटिक जीवन को बढ़ाएं'}
+              </p>
+              <div className="flex flex-wrap gap-6 justify-center mb-12">
+                <div className="bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20">
+                  <span className="text-lg text-white font-medium">✨ {isEnglish ? '20+ AI Tools' : '20+ एआई टूल्स'}</span>
+                </div>
+                <div className="bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20">
+                  <span className="text-lg text-white font-medium">🔒 {isEnglish ? 'Private & Secure' : 'निजी और सुरक्षित'}</span>
+                </div>
+                <div className="bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20">
+                  <span className="text-lg text-white font-medium">🚀 {isEnglish ? 'Instant Results' : 'तत्काल परिणाम'}</span>
+                </div>
+              </div>
+              <div className="beating-heart text-6xl mb-8">💕</div>
+            </header>
+          </div>
+        </div>
 
         {/* Search and Filter Section */}
-        <SearchAndFilter
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-          categories={categories}
-        />
+        <div className="w-full bg-naughty-dark/95 backdrop-blur-sm">
+          <SearchAndFilter
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+            categories={categories}
+          />
+        </div>
         
         {/* Tools Grid */}
-        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full px-4 mb-16">
-          {filteredFeatures.map((feature, index) => (
-            <FeatureCard 
-              key={index}
-              title={feature.title}
-              description={feature.description}
-              icon={feature.icon}
-              to={feature.to}
-              isPremium={feature.isPremium}
-              newFeature={feature.newFeature}
-              onPreview={() => setPreviewTool(feature)}
-              className={index % 4 === 0 ? 'md:col-span-2' : ''}
-            />
-          ))}
+        <section className="w-full bg-naughty-dark px-4 py-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
+            {filteredFeatures.map((feature, index) => (
+              <FeatureCard 
+                key={index}
+                title={feature.title}
+                description={feature.description}
+                icon={feature.icon}
+                to={feature.to}
+                isPremium={feature.isPremium}
+                newFeature={feature.newFeature}
+                onPreview={() => setPreviewTool(feature)}
+                className={index % 4 === 0 ? 'md:col-span-2' : ''}
+              />
+            ))}
+          </div>
         </section>
 
         {/* Testimonials Section */}

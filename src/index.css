@@ -48,10 +48,14 @@
       radial-gradient(circle at 80% 20%, rgba(255, 222, 226, 0.08) 0%, transparent 50%),
       linear-gradient(135deg, #26152B 0%, #1a0f1f 100%);
     background-attachment: fixed;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   html {
     @apply scroll-smooth;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   /* Improved focus styles for accessibility */
@@ -136,6 +140,14 @@
   @keyframes shimmer {
     0% { background-position: -200% 0; }
     100% { background-position: 200% 0; }
+  }
+
+  /* Full width containers */
+  .container, .max-w-7xl, .max-w-6xl, .max-w-4xl {
+    width: 100% !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 }
 
